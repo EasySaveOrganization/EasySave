@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace EasySaveProject.SaveWork
+namespace EasySaveProject
 {
     internal class SaveWorkView : View
     {
@@ -27,7 +27,7 @@ namespace EasySaveProject.SaveWork
 
             // Ajouter le travail en utilisant le ViewModel
             saveWorkViewModel.AddWork(saveName, targetRepo, sourceRepo, saveType);
-         
+
         }
     }
 }

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
-namespace EasySaveProject.SaveWork
+namespace EasySaveProject
 {
     public class WorkListService
     {
         public List<SaveWorkModel>? workList;
-        public string filePath = "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\SaveWork\\worklist.json";
+        public string filePath = "PathToYourProject/worklist.json";
 
         public WorkListService()
         {
@@ -53,7 +53,7 @@ namespace EasySaveProject.SaveWork
         {
             // Save data to the JSON file
             string jsonData = JsonSerializer.Serialize(workList);
-            File.WriteAllText(this.filePath, jsonData);
+            File.WriteAllText(filePath, jsonData);
         }
     }
 }
