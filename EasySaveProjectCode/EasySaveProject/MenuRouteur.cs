@@ -59,7 +59,7 @@ namespace EasySaveProject
                 }
                 else
                 {
-                    // Handle the case where there is no action associated with the menu
+                    Console.WriteLine("Probleme dans la création");
                 }
             }
             private void AddWork()
