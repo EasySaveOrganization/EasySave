@@ -10,6 +10,7 @@
     "nbFilesLeftToDo": 5,
     "progression": 50,
     "state": "InProgress"
+<<<<<<< HEAD
   },
   {
     "SaveName": "ExampleSave",
@@ -22,5 +23,7 @@
     "nbFilesLeftToDo": 5,
     "progression": 50,
     "state": "InProgress"
+=======
+>>>>>>> 2d3cd00b009716ae1f3c88c16ac80744f384a9a8
   }
 ]

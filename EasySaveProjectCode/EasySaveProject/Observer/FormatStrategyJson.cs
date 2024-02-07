@@ -31,7 +31,7 @@ namespace EasySaveProject.Observer
 
             //create a file + give it a json extension
             string FileName = DateTime.Now.ToString("yyyy-MM-dd") + ".json";
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FileName);
+            string filePath = @"C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\" + FileName;
 
             //list to have the have the existant informations + the new ones 
             List<SaveWorkModel> allWorks = new List<SaveWorkModel>();
