@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace EasySaveProject.Observer
 {
-<<<<<<< HEAD
     public class logs : observer
     {
         private readonly FormatFactory _formatFactory;
@@ -21,13 +20,6 @@ namespace EasySaveProject.Observer
         {
             //create an instance of FormatStrategyJson
             var formatStrategy = _formatFactory.Factory(_workListService);
-=======
-    internal class logs
-    {
-        public void update()
-        {
-            
->>>>>>> d52808d200ff41d3d2ea5d0112b2149d4cacc555
         }
     }
 }
