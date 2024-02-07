@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EasySaveProject.Observer
+{
+    public class State : Observer
+    {
+        private readonly FormatStateFactory _formatStateFactory;
+
+        public logs(FormatStateFactory formatStateFactory, WorkListService workListService)
+        {
+            _formatStateFactory = formatStateFactory;
+            _workListService = workListService;
+        }
+
+       public void update()
+        {
+            //create an instance of FormatStrategyJson
+            var formatStateStrategy = _formatStateFactory.Factory(_workListService);
+        }
+    }
+}
