@@ -5,6 +5,10 @@
     "\\EasySaveProjectCode\\EasySaveProject",
     "\\EasySaveProjectCode\\EasySaveProject\\Observer"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\EasySaveProjectCode\\EasySaveProject\\Program.cs",
+=======
+  "SelectedNode": "\\EasySaveProjectCode\\EasySaveProject\\Observer\\FormatStrategyJson.cs",
+>>>>>>> d52808d200ff41d3d2ea5d0112b2149d4cacc555
   "PreviewInSolutionExplorer": false
 }

@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+<<<<<<< HEAD
 using System.Runtime.Serialization;
+=======
+>>>>>>> d52808d200ff41d3d2ea5d0112b2149d4cacc555
 using System.Text;
 using System.Threading.Tasks;
 
 namespace EasySaveProject.Observer
 {
+<<<<<<< HEAD
     public class State : observer
     {
         private readonly FormatStateFactory _formatStateFactory;
@@ -23,5 +27,10 @@ namespace EasySaveProject.Observer
             //create an instance of FormatStrategyJson
             var formatStateStrategy = _formatStateFactory.Factory(_workListService);
         }
+=======
+    internal class State
+    {
+        public void update () { }
+>>>>>>> d52808d200ff41d3d2ea5d0112b2149d4cacc555
     }
 }

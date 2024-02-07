@@ -14,10 +14,13 @@ namespace EasySaveProject
         public long FileSize { get; set; } // The total size of the files to be saved
         public TimeSpan FileTransferTime { get; set; } // The time taken to transfer the files
         public DateTime Time { get; set; } // The timestamp when the save operation was executed
+<<<<<<< HEAD
         public int totalFilesToCopy { get; set; } //total files 
         public int nbFilesLeftToDo { get; set; } // files left to copy
         public int progression { get; set; } // progression of the save work 
         public string state { get; set; } // le status 
+=======
+>>>>>>> d52808d200ff41d3d2ea5d0112b2149d4cacc555
 
     }
 }

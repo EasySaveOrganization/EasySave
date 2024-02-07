@@ -9,15 +9,33 @@ using System.Threading.Tasks;
 
 namespace EasySaveProject.Observer
 {
+<<<<<<< HEAD
+=======
+    //define se of named constants for the status 
+    public enum WorkStatus
+    {
+        Running,
+        Done, 
+        InProgress,
+    }
+>>>>>>> d52808d200ff41d3d2ea5d0112b2149d4cacc555
 
     public class FormatStateStrategyJson
     {
         //the workList we already have
         private readonly WorkListService _workListService;
+<<<<<<< HEAD
 
         //Variable to stock the file copied
         private long _Copied;
 
+=======
+        
+        //Variable to stock the file copied
+        private long _Copied;
+
+        private WorkStatus Status;
+>>>>>>> d52808d200ff41d3d2ea5d0112b2149d4cacc555
 
         //constructor
         public FormatStateStrategyJson(WorkListService workList)
@@ -37,7 +55,11 @@ namespace EasySaveProject.Observer
             {
                 //create a fileInfo object
                 FileInfo fileInfo = new FileInfo(file);
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> d52808d200ff41d3d2ea5d0112b2149d4cacc555
                 // accumulate the size of the current file
                 size += fileInfo.Length;
             }
@@ -46,7 +68,11 @@ namespace EasySaveProject.Observer
         }
 
         //Method to calculate progress
+<<<<<<< HEAD
         public int Progress(string sourceRepo)
+=======
+        public int Progress (string sourceRepo)
+>>>>>>> d52808d200ff41d3d2ea5d0112b2149d4cacc555
         {
             //Get the size 
             long totalSize = GetSize(sourceRepo);
@@ -55,7 +81,11 @@ namespace EasySaveProject.Observer
             double progress = ((double)_Copied / totalSize) * 100;
 
             //ensure thta it does not exceed 100%
+<<<<<<< HEAD
             int result = (int)Math.Min(progress, 100);
+=======
+            int result = (int)Math.Min(Progress, 100);
+>>>>>>> d52808d200ff41d3d2ea5d0112b2149d4cacc555
 
             return result;
         }
@@ -65,6 +95,7 @@ namespace EasySaveProject.Observer
             _Copied += size;
         }
 
+<<<<<<< HEAD
         public string status(int totalFiles, int nbFilesLeft)
         {
             int x = 0;
@@ -130,3 +161,7 @@ namespace EasySaveProject.Observer
         }
     }
 }
+=======
+        public void write() { }
+    }
+>>>>>>> d52808d200ff41d3d2ea5d0112b2149d4cacc555
