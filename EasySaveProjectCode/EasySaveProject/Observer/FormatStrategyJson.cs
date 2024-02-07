@@ -52,7 +52,8 @@ namespace EasySaveProject.Observer
             string jsonFile = JsonSerializer.Serialize(allWorks, new JsonSerializerOptions { WriteIndented = true });
 
             //Writing the json in the file 
-            File.WriteAllText(FileName, jsonFile);
+            File.WriteAllText(filePath, jsonFile);
+            Console.WriteLine(jsonFile);
         }
     }
 }
