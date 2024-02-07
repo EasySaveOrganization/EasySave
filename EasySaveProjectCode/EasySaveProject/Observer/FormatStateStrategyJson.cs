@@ -9,23 +9,15 @@ using System.Threading.Tasks;
 
 namespace EasySaveProject.Observer
 {
-    public enum WorkStatus
-    {
-        Active,
-        End,
-        InProgress,
-        Error,
-    }
 
     public class FormatStateStrategyJson
     {
         //the workList we already have
         private readonly WorkListService _workListService;
-        
+
         //Variable to stock the file copied
         private long _Copied;
 
-        private WorkStatus StatusWork;
 
         //constructor
         public FormatStateStrategyJson(WorkListService workList)
@@ -45,7 +37,7 @@ namespace EasySaveProject.Observer
             {
                 //create a fileInfo object
                 FileInfo fileInfo = new FileInfo(file);
-                
+
                 // accumulate the size of the current file
                 size += fileInfo.Length;
             }
@@ -54,7 +46,7 @@ namespace EasySaveProject.Observer
         }
 
         //Method to calculate progress
-        public int Progress (string sourceRepo)
+        public int Progress(string sourceRepo)
         {
             //Get the size 
             long totalSize = GetSize(sourceRepo);
@@ -63,7 +55,7 @@ namespace EasySaveProject.Observer
             double progress = ((double)_Copied / totalSize) * 100;
 
             //ensure thta it does not exceed 100%
-            int result = (int)Math.Min(Progress, 100);
+            int result = (int)Math.Min(progress, 100);
 
             return result;
         }
@@ -78,38 +70,38 @@ namespace EasySaveProject.Observer
             int x = 0;
             if (totalFiles > nbFilesLeft)
             {
-                x = 1; 
+                x = 1;
             }
             else if (totalFiles > nbFilesLeft && nbFilesLeft == 0)
             {
-                x = 2; 
+                x = 2;
             }
-            else if (nbFilesLeft == totalFiles == 0)
+            else if (totalFiles == 0)
             {
-                x = 3; 
+                x = 3;
             }
 
-            switch(x)
+            switch (x)
             {
                 case 1:
-                    return StatusWork.InProgress;
+                    return "InProgress";
                 case 2:
-                    return StatusWork.Active;
+                    return "Active";
                 case 3:
-                    return StatusWork.End;
+                    return "End";
                 default:
-                    return StatusWork.Error;
+                    return "Error";
             }
         }
 
-        public async Task write() 
+        public async Task write()
         {
             var workList = _workListService.GetWorkList();
 
             foreach (var work in workList)
             {
                 work.state = status(work.totalFilesToCopy, work.nbFilesLeftToDo);
-                work.Progression = Progress(work.SourceRepo);
+                work.progression = Progress(work.SourceRepo);
             }
 
             string FileName = "state.json";
@@ -137,3 +129,4 @@ namespace EasySaveProject.Observer
             File.WriteAllText(FileName, jsonFile);
         }
     }
+}

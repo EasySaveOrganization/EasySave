@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace EasySaveProject.Observer
 {
-    public class logs : Observer
+    public class logs : observer
     {
         private readonly FormatFactory _formatFactory;
-
+        private readonly WorkListService _workListService;
         public logs (FormatFactory formatFactory, WorkListService workListService)
         {
             _formatFactory = formatFactory;

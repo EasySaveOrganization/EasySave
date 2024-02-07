@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace EasySaveProject.Observer
 {
-    internal class FormatStateFactory
+    public class FormatStateFactory
     {
-        public FormatStateFactory Factory (WorkListService workListService)
+        public FormatStateStrategyJson Factory (WorkListService workListService)
         {
             /*switch ()
             {

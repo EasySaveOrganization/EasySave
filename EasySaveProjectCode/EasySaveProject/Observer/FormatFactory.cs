@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EasySaveProject.Observer
 {
-    internal class FormatFactory
+    public class FormatFactory
     {
         public FormatStrategyJson Factory (WorkListService workListService) 
         {
