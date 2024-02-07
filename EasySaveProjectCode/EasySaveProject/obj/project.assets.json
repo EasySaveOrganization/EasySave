@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\ProjetEasySave\\EasySaveProject\\EasySaveProject\\EasySaveProject.csproj",
+      "projectUniqueName": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
       "projectName": "EasySaveProject",
-      "projectPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\ProjetEasySave\\EasySaveProject\\EasySaveProject\\EasySaveProject.csproj",
+      "projectPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
       "packagesPath": "C:\\Users\\comet\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\ProjetEasySave\\EasySaveProject\\EasySaveProject\\obj\\",
+      "outputPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\comet\\AppData\\Roaming\\NuGet\\NuGet.Config",

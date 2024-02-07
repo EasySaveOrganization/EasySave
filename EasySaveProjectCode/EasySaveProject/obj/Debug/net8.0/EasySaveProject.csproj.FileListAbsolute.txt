@@ -1,0 +1,15 @@
+C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.AssemblyInfoInputs.cache
+C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.AssemblyInfo.cs
+C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.csproj.CoreCompileInputs.cache
+C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.sourcelink.json
+C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\bin\Debug\net8.0\EasySaveProject.exe
+C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\bin\Debug\net8.0\EasySaveProject.deps.json
+C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\bin\Debug\net8.0\EasySaveProject.runtimeconfig.json
+C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\bin\Debug\net8.0\EasySaveProject.dll
+C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\bin\Debug\net8.0\EasySaveProject.pdb
+C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.dll
+C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\refint\EasySaveProject.dll
+C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.pdb
+C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.genruntimeconfig.cache
+C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\ref\EasySaveProject.dll
