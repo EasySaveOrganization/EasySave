@@ -17,10 +17,11 @@ namespace EasySaveProject.Observer
             _workListService = workListService;
         }
 
-        public void update()
+        public async void update()
         {
             //create an instance of FormatStrategyJson
             var formatStrategy = _formatFactory.Factory(_workListService);
+            await formatStrategy.Write();
         }
     }
 }
