@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EasySaveProject.SaveWork;
 
-namespace EasySaveProject.SaveWork
+namespace EasySaveProject
 {
     public class SaveWorkViewModel
     {
@@ -27,6 +27,4 @@ namespace EasySaveProject.SaveWork
             }
         }
     }
-
-
 }
