@@ -71,10 +71,15 @@ namespace EasySaveProject
 
             private void ProgressView()
             {
+<<<<<<< HEAD
                 WorkListService workListService = new WorkListService();
                 ProgressViewModel progressViewModel = new ProgressViewModel(workListService);
                 ProgressView progressview = new ProgressView(progressViewModel);
                 progressview.show();
+=======
+                ProgressView progressview = new ProgressView();
+                progressview.Show();
+>>>>>>> e7612d2d82fbfb479ba75bc99a5339ff4df44d37
             }
 
             private void Settings()
@@ -86,8 +91,8 @@ namespace EasySaveProject
 
             private void ExecuteWork()
             {
-                SaveCompleteView savecompleteview = new SaveCompleteView();
-                savecompleteview.show();
+                ExecuteWorkView savecompleteview = new ExecuteWorkView();
+                savecompleteview.Show();
 
                 // Code to execute work
             }
