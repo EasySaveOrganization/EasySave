@@ -28,3 +28,18 @@ C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySav
 C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.pdb
 C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.genruntimeconfig.cache
 C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\ref\EasySaveProject.dll
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.AssemblyInfoInputs.cache
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.AssemblyInfo.cs
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.csproj.CoreCompileInputs.cache
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.sourcelink.json
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.dll
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\refint\EasySaveProject.dll
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.pdb
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\bin\Debug\net8.0\EasySaveProject.exe
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\bin\Debug\net8.0\EasySaveProject.deps.json
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\bin\Debug\net8.0\EasySaveProject.runtimeconfig.json
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\bin\Debug\net8.0\EasySaveProject.dll
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\bin\Debug\net8.0\EasySaveProject.pdb
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.genruntimeconfig.cache
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\ref\EasySaveProject.dll

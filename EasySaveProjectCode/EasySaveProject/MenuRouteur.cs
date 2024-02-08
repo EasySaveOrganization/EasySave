@@ -71,8 +71,10 @@ namespace EasySaveProject
 
             private void ProgressView()
             {
-                ProgressView progressview = new ProgressView();
-                progressview.Show();
+                WorkListService workListService = new WorkListService();
+                ProgressViewModel progressViewModel = new ProgressViewModel(workListService);
+                ProgressView progressview = new ProgressView(progressViewModel);
+                progressview.show();
             }
 
             private void Settings()

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EasySaveProject.Observer;
+using EasySaveProject.SaveWork;
 
 namespace EasySaveProject
 {
@@ -21,6 +22,14 @@ namespace EasySaveProject
             Console.WriteLine("Update called on ProgressView.");
             _progressViewModel.states();
 
+        }
+
+        public void show()
+        {
+            WorkListService workListService = new WorkListService();
+            ProgressViewModel progressViewModel = new ProgressViewModel(workListService);
+            ProgressView progressview = new ProgressView(progressViewModel);
+            progressview.update();
         }
     }
 }
