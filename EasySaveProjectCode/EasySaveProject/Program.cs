@@ -1,56 +1,57 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using EasySaveProject;
+using EasySaveProject.SaveCompleteDiff;
+using EasySaveProject.SaveWork;
 
-
-MenuWorkView menuworkview = new MenuWorkView();
-menuworkview.show();
-
-/*SaveWorkView saveworkview = new SaveWorkView();
-saveworkview.Show();*/
-
-static async Task Main()
+class Program
 {
-    // Créer une instance de votre service de liste de travaux
-    WorkListService workListService = new WorkListService();
-
-    // Créer des instances de vos observateurs
-    FormatFactory formatFactory = new FormatFactory();
-    FormatStrategyJson formatStrategyJson = new FormatStrategyJson(workListService);
-
-    // Créer un exemple de travail et l'ajouter à la liste de travaux
-    SaveWorkModel exampleWork = new SaveWorkModel
+    static void Main()
     {
-        SaveName = "ExampleSave",
-        SourceRepo = @"C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS",
-        TargetRepo = @"C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS",
-        FileSize = 1024, // Exemple de taille de fichier en bytes
-        FileTransferTime = TimeSpan.FromMinutes(5), // Exemple de temps de transfert
-        Time = DateTime.Now,
-        totalFilesToCopy = 10,
-        nbFilesLeftToDo = 5,
-        progression = 50,
-        state = "InProgress"
-    };
+        Console.WriteLine("Début du programme...");
 
-    // Afficher les informations du travail
-    Console.WriteLine("Informations du travail :");
-    Console.WriteLine($"Nom de la sauvegarde : {exampleWork.SaveName}");
-    Console.WriteLine($"Répertoire source : {exampleWork.SourceRepo}");
-    Console.WriteLine($"Répertoire cible : {exampleWork.TargetRepo}");
-    Console.WriteLine($"Taille du fichier : {exampleWork.FileSize} bytes");
-    Console.WriteLine($"Temps de transfert du fichier : {exampleWork.FileTransferTime}");
-    Console.WriteLine($"Temps d'exécution : {exampleWork.Time}");
-    Console.WriteLine($"Nombre total de fichiers à copier : {exampleWork.totalFilesToCopy}");
-    Console.WriteLine($"Nombre de fichiers restants à copier : {exampleWork.nbFilesLeftToDo}");
-    Console.WriteLine($"Progression : {exampleWork.progression}%");
-    Console.WriteLine($"État : {exampleWork.state}");
+        // Chemin source et répertoire de destination
+        string sourceRepo = @"C:\Users\rapha\Documents\test\Calendrier_FISA_Info_23-26_Apprentissage.pdf";
+        string targetRepo = @"C:\Users\rapha\Documents\test1\";
+        string type = "Complete";
+        string name = "name";
 
-    // Ajouter le travail à la liste
-    workListService.AddWork(exampleWork);
 
-    // Appeler la méthode write() de FormatStrategyJson
-    await formatStrategyJson.Write();
+        // Demander à l'utilisateur de choisir entre Complete et Differential
+        Console.WriteLine("Choisissez le type de sauvegarde :");
+        Console.WriteLine("1. Complete");
+        Console.WriteLine("2. Differential");
+        string choice = Console.ReadLine();
 
-    Console.WriteLine("Tests terminés.");
+        // Valider l'entrée utilisateur
+        string saveType;
+        switch (choice)
+        {
+            case "1":
+                saveType = "Complete";
+                break;
+            case "2":
+                saveType = "Differential";
+                break;
+            default:
+                Console.WriteLine("Choix non valide. Veuillez choisir 1 ou 2.");
+                return; // Quitter le programme si le choix n'est pas valide
+        }
+
+        // Créer une instance de SaveWorkModel
+        SaveWorkModel data = new SaveWorkModel(name, targetRepo, sourceRepo, type);
+
+        // Créer une instance de SaveFactory
+        SaveFactory saveFactory = new SaveFactory();
+
+        // Obtenir une instance de Save en fonction du type choisi
+        Save save = saveFactory.CreateSave(saveType);
+
+        // Exécuter la sauvegarde en utilisant l'instance de Save créée
+        save.ExecuteSave(data);
+
+        Console.WriteLine("Fin du programme. Appuyez sur une touche pour quitter...");
+        Console.ReadKey();
+    }
 }
+    

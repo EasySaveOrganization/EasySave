@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 using System.Runtime.CompilerServices;
+using EasySaveProject.SaveWork;
 
 namespace EasySaveProject.Observer
 {
@@ -21,7 +22,7 @@ namespace EasySaveProject.Observer
         public async Task Write()
         {
             //retriever the work list 
-            var workList = _workListService.GetWorkList();
+            var workList = _workListService.LoadWorkListFromFile();
 
            //Add time
            foreach (var work in workList)

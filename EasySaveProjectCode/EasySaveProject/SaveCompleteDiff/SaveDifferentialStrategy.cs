@@ -9,47 +9,46 @@ namespace EasySaveProject.SaveCompleteDiff
         {
             try
             {
-                // Vérifie si le répertoire source et le répertoire de destination existent
-                if (Directory.Exists(data.SourceDirectory) && Directory.Exists(data.DestinationDirectory))
+                // Vérifie si le fichier source existe
+                if (File.Exists(data.sourceRepo))
                 {
-                    // Obtient tous les fichiers dans le répertoire source
-                    string[] sourceFiles = Directory.GetFiles(data.SourceDirectory);
+                    // Obtient la date de dernière modification du fichier source
+                    DateTime lastModifiedSource = File.GetLastWriteTime(data.sourceRepo);
 
-                    foreach (string sourceFile in sourceFiles)
+                    // Obtient le nom du fichier à partir du chemin source
+                    string fileName = Path.GetFileName(data.sourceRepo);
+
+                    // Construit le chemin de destination complet
+                    string targetRepo = Path.Combine(data.targetRepo, fileName);
+
+                    // Vérifie si le fichier de destination existe
+                    if (File.Exists(targetRepo))
                     {
-                        // Obtient le nom du fichier
-                        string fileName = Path.GetFileName(sourceFile);
+                        // Obtient la date de dernière modification du fichier de destination
+                        DateTime lastModifiedDestination = File.GetLastWriteTime(targetRepo);
 
-                        // Construit le chemin complet du fichier de destination
-
-                        // Vérifie si le fichier existe déjà dans le répertoire de destination
-                        if (File.Exists(destinationFilePath))
+                        // Compare les dates de dernière modification pour déterminer si le fichier source a été modifié
+                        if (lastModifiedSource > lastModifiedDestination)
                         {
-                            // Obtient la date de dernière modification du fichier dans le répertoire de destination
-                            DateTime lastModifiedDestination = File.GetLastWriteTime(destinationFilePath);
-
-                            // Obtient la date de dernière modification du fichier source
-                            DateTime lastModifiedSource = File.GetLastWriteTime(sourceFile);
-
-                            // Compare les dates de dernière modification pour déterminer si le fichier source a été modifié
-                            if (lastModifiedSource > lastModifiedDestination)
-                            {
-                                // Copie le fichier source vers le répertoire de destination
-                                File.Copy(sourceFile, destinationFilePath, true);
-                                Console.WriteLine($"File copied from {sourceFile} to {destinationFilePath}");
-                            }
+                            // Copie le fichier source vers la destination
+                            File.Copy(data.sourceRepo, targetRepo, true);
+                            Console.WriteLine($"File copied from {data.sourceRepo} to {targetRepo}");
                         }
                         else
                         {
-                            // Copie le fichier source vers le répertoire de destination s'il n'existe pas déjà
-                            File.Copy(sourceFile, destinationFilePath);
-                            Console.WriteLine($"File copied from {sourceFile} to {destinationFilePath}");
+                            Console.WriteLine($"Source file {data.sourceRepo} is not newer than destination file {targetRepo}.");
                         }
+                    }
+                    else
+                    {
+                        // Copie le fichier source vers la destination
+                        File.Copy(data.sourceRepo, targetRepo, true);
+                        Console.WriteLine($"File copied from {data.sourceRepo} to {targetRepo}");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Source or destination directory does not exist.");
+                    Console.WriteLine($"Source file {data.sourceRepo} does not exist.");
                 }
             }
             catch (Exception ex)
