@@ -13,22 +13,22 @@ namespace EasySaveProject.SaveCompleteDiff
             try
             {
                 // Vérifie si le fichier source existe
-                if (File.Exists(data.SourceFilePath))
+                if (File.Exists(data.sourceRepo))
                 {
                     // Obtient le nom du fichier à partir du chemin source
-                    string fileName = Path.GetFileName(data.SourceFilePath);
+                    string fileName = Path.GetFileName(data.sourceRepo);
 
                     // Construit le chemin de destination complet
-                    string targetrepo = Path.Combine(data.DestinationDirectory, fileName);
+                    string targetrepo = Path.Combine(data.targetRepo, fileName);
 
                     // Copie le fichier source vers la destination
-                    File.Copy(data.SourceFilePath, targetrepo, true);
+                    File.Copy(data.sourceRepo, targetrepo, true);
 
-                    Console.WriteLine($"File copied from {data.SourceFilePath} to {destinationFilePath}");
+                    Console.WriteLine($"File copied from {data.sourceRepo} to {targetrepo}");
                 }
                 else
                 {
-                    Console.WriteLine($"Source file {data.SourceFilePath} does not exist.");
+                    Console.WriteLine($"Source file {data.sourceRepo} does not exist.");
                 }
             }
             catch (Exception ex)

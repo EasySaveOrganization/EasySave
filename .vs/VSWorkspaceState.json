@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\EasySaveProjectCode",
-    "\\EasySaveProjectCode\\EasySaveProject"
+    "\\EasySaveProjectCode\\EasySaveProject",
+    "\\EasySaveProjectCode\\EasySaveProject\\SaveCompleteDiff",
+    "\\EasySaveProjectCode\\EasySaveProject\\SaveWork"
   ],
-  "SelectedNode": "\\EasySaveProjectCode\\EasySaveProject\\Program.cs",
+  "SelectedNode": "\\EasySaveProjectCode\\EasySaveProject.sln",
   "PreviewInSolutionExplorer": false
 }

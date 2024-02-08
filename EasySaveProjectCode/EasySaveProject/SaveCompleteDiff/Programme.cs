@@ -6,32 +6,56 @@ using System.Threading.Tasks;
 
 namespace EasySaveProject.SaveCompleteDiff
 {
-    class Program
+    using System;
+
+    namespace EasySaveProject
     {
-        static void Main()
+        class Program
         {
-            // Créez ici une instance de votre SaveManager et exécutez votre programme
-            Console.WriteLine("Début du programme...");
+            static void Main()
+            {
+                Console.WriteLine("Début du programme...");
 
-            // Chemin source et répertoire de destination
-            string sourceRepo = @"C:\Users\rapha\Documents\test\df.txt";
-            string targetRepo = @"C:\Users\rapha\Documents\test1";
-            string saveType = "Complete";
+                // Chemin source et répertoire de destination
+                string sourceRepo = @"C:\Users\rapha\Documents\test\df.txt";
+                string targetRepo = @"C:\Users\rapha\Documents\test1";
 
-            // Exemple d'utilisation :
-            SaveWorkModel data = new SaveWorkModel(sourceRepo, targetRepo, saveType);
+                // Demander à l'utilisateur de choisir entre Complete et Differential
+                Console.WriteLine("Choisissez le type de sauvegarde :");
+                Console.WriteLine("1. Complete");
+                Console.WriteLine("2. Differential");
+                string choice = Console.ReadLine();
 
-            // Créez une instance de SaveFactory
-            SaveFactory saveFactory = new SaveFactory();
+                // Valider l'entrée utilisateur
+                string saveType;
+                switch (choice)
+                {
+                    case "1":
+                        saveType = "complete";
+                        break;
+                    case "2":
+                        saveType = "differential";
+                        break;
+                    default:
+                        Console.WriteLine("Choix non valide. Veuillez choisir 1 ou 2.");
+                        return; // Quitter le programme si le choix n'est pas valide
+                }
 
-            // Utilisez la méthode statique CreateSave pour obtenir une instance de Save
-            Save save = saveFactory.CreateSave(saveType);
+                // Créer une instance de SaveWorkModel
+                SaveWorkModel data = new SaveWorkModel(sourceRepo, targetRepo, saveType);
 
-            // Exécutez la sauvegarde en utilisant l'instance de Save créée
-            save.ExecuteSave(data);
+                // Créer une instance de SaveFactory
+                SaveFactory saveFactory = new SaveFactory();
 
-            Console.WriteLine("Fin du programme. Appuyez sur une touche pour quitter...");
-            Console.ReadKey();
+                // Obtenir une instance de Save en fonction du type choisi
+                Save save = saveFactory.CreateSave(saveType);
+
+                // Exécuter la sauvegarde en utilisant l'instance de Save créée
+                save.ExecuteSave(data);
+
+                Console.WriteLine("Fin du programme. Appuyez sur une touche pour quitter...");
+                Console.ReadKey();
+            }
         }
     }
 }

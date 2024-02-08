@@ -13,3 +13,11 @@ C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySav
 C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.pdb
 C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.genruntimeconfig.cache
 C:\Users\comet\OneDrive\Bureau\projet\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\ref\EasySaveProject.dll
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.AssemblyInfoInputs.cache
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.AssemblyInfo.cs
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.csproj.CoreCompileInputs.cache
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.sourcelink.json
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.dll
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\refint\EasySaveProject.dll
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject\obj\Debug\net8.0\EasySaveProject.pdb

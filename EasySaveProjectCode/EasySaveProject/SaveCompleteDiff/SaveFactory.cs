@@ -15,6 +15,8 @@ namespace EasySaveProject.SaveCompleteDiff
                 case "Complete":
                     return new SaveCompleteStrategy();
                 // Ajoutez d'autres cas pour d'autres types de stratégie si nécessaire
+                case "Differential":
+                    return new SaveDifferentialStrategy();
                 default:
                     throw new ArgumentException("Invalid strategy type");
             }
