@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\comet\\.nuget\\packages\\": {}
+    "C:\\Users\\rapha\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
+      "projectUniqueName": "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
       "projectName": "EasySaveProject",
-      "projectPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
-      "packagesPath": "C:\\Users\\comet\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\obj\\",
+      "projectPath": "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
+      "packagesPath": "C:\\Users\\rapha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\comet\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rapha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -56,12 +56,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "frameworkReferences": {
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }
