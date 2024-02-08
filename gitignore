@@ -1,3 +1,5 @@
 #Ignore bin and object folders 
-/EasySaveProjectCode/EasySAveProject/bin
-/EasySaveProjectCode/EasySAveProject/obj
+/EasySaveProjectCode/EasySaveProject/bin
+/EasySaveProjectCode/EasySaveProject/obj
+.vs
+/EasySaveProjectCode/.vs
