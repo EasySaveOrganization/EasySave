@@ -1,20 +1,29 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# EasySave
+Cesi ecole d'ingenieur.
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+# Introduction :
+EasySave is an innovative software designed to provide a reliable and intuitive backup solution. The application allows you to create, delete, and modify backup jobs effectively and securely.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+# Team Member :
+- Côme Trisse 
+- Valentin Giroud
+- Malek Nasri
+- Raphaël Attal
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+# Technologies :
+The application is written in C# and utilizes .NET Core to ensure optimal performance and broad compatibility. The design follows the Model-View-ViewModel (MVVM) architecture, making the code more maintainable and the application more scalable.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+# Getting started
+To start using EasySave, follow these simple steps:
+
+1. **Prerequisites**: Ensure you have .NET Core installed on your machine.
+2. **Download**: Clone the Git repository or download the source code from the project page.
+3. **Installation**: Compile the project using Visual Studio 2019 or later.
+4. **Execution**: Once the project is compiled, you can launch the application by running it in the folder containing the project file.
+
+## Documentation
+
+- **User Manual**: A one-page documentation is available to help users navigate the application and use its features efficiently.
+- **Technical Support**: For any assistance, please refer to the technical documentation or contact our team member.
+
+We hope you find EasySave useful for all your backup needs. Feel free to contribute to the project or share your feedback.

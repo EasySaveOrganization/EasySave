@@ -12,18 +12,30 @@ namespace EasySaveProject
 {
     public class ProgressViewModel
     {
-        private readonly FormatStateStrategyJson _formatStateStrategyJson;
-        private readonly State _state;
+        WorkListService _workListService;
 
-        public ProgressViewModel(FormatStateStrategyJson formatStateStrategyJson, FormatStateFactory formatStateFactory, WorkListService workListService)
+        public ProgressViewModel(WorkListService workListService)
         {
-            _formatStateStrategyJson = formatStateStrategyJson;
-            _state = new State(formatStateFactory, workListService);
+            _workListService = workListService;
         }
 
         public void states()
         {
-            _state.update();
+            var workList = _workListService.LoadWorkListFromFile();
+
+            foreach (var work in workList)
+            {
+                if (work.saveType == "Active")
+                {
+                    int progress = work.Progress;
+                    Console.WriteLine(progress);
+                }
+                else
+                {
+                    Console.WriteLine("No work is running");
+                }
+            }
+
         }
 
     }

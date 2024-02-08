@@ -9,13 +9,18 @@ namespace EasySaveProject
 {
     internal class ProgressView : IObserver
     {
+        private ProgressViewModel _progressViewModel;
+
+        public ProgressView(ProgressViewModel progressViewModel)
+        {
+            _progressViewModel = progressViewModel;
+        }
+
         public void update()
         {
             Console.WriteLine("Update called on ProgressView.");
-        }
-        public void show()
-        {
-            Console.WriteLine("Welcome to the Progress View");
+            _progressViewModel.states();
+
         }
     }
 }
