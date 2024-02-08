@@ -72,7 +72,7 @@ namespace EasySaveProject
             private void ProgressView()
             {
                 ProgressView progressview = new ProgressView();
-                progressview.show();
+                progressview.Show();
             }
 
             private void Settings()
@@ -84,8 +84,8 @@ namespace EasySaveProject
 
             private void ExecuteWork()
             {
-                SaveCompleteView savecompleteview = new SaveCompleteView();
-                savecompleteview.show();
+                ExecuteWorkView savecompleteview = new ExecuteWorkView();
+                savecompleteview.Show();
 
                 // Code to execute work
             }
