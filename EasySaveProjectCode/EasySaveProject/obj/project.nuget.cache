@@ -1,14 +1,15 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "FJc8+nUbMr1aEsHM1M0r3WzajF8gtYPojYXQVQsdkOqiTUomDMo6EvbJgy0Nx1X0p83/jDLdz4RQm74p68CKdw==",
   "success": true,
   "projectFilePath": "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
-=======
-  "dgSpecHash": "c9FGpiWupaHX9nst5JBqqkC0sq/X6eb184seToO63oR+R5FRNCag7J7i9HKWKAK5SQykEdi37lKcTxk+U6VILA==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\Valentin GIROD\\ProjectEasySave\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
->>>>>>> e7612d2d82fbfb479ba75bc99a5339ff4df44d37
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problème de lecture du fichier cache C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
