@@ -11,12 +11,15 @@ namespace EasySaveProject
 
         public void Show()
         {
-            Console.WriteLine("Welcome to the Save Work view!");
+            LanguageManager languageManager = LanguageManager.GetInstance();
+            string translatedText = languageManager.Translate("Welcome to the Save Work view!");
+            Console.WriteLine(translatedText);
 
             // Afficher le menu ou les options de l'interface utilisateur
             // Par exemple, vous pouvez afficher un menu pour ajouter un nouveau travail
 
-            Console.WriteLine("Enter the details for the new work:");
+            string t2text = languageManager.Translate("Enter the details for the new work:");
+            Console.WriteLine(t2text);
             Console.Write("Save Name: ");
             string? saveName = Console.ReadLine();
             Console.Write("Target Repository: ");
