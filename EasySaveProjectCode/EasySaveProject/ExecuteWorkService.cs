@@ -17,7 +17,8 @@ namespace EasySaveProject
             SaveFactory saveFactory = new SaveFactory();
 
             // Utilisez la méthode statique CreateSave pour obtenir une instance de Save
-            Save save = saveFactory.CreateSave(work.saveType);
+            string? saveType = work?.saveType;
+            Save save = saveFactory.CreateSave(saveType);
         }
 
 

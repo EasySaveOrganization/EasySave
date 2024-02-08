@@ -2,14 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\EasySaveProjectCode",
-    "\\EasySaveProjectCode\\EasySaveProject",
-    "\\EasySaveProjectCode\\EasySaveProject\\SaveCompleteDiff",
-    "\\EasySaveProjectCode\\EasySaveProject\\SaveWork"
+    "\\EasySaveProjectCode\\EasySaveProject"
   ],
-<<<<<<< Updated upstream
-  "SelectedNode": "\\EasySaveProjectCode\\EasySaveProject.sln",
-=======
   "SelectedNode": "\\EasySaveProjectCode\\EasySaveProject\\MenuRouteur.cs",
->>>>>>> Stashed changes
   "PreviewInSolutionExplorer": false
 }
