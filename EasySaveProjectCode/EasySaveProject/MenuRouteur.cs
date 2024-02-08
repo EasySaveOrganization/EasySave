@@ -64,20 +64,21 @@ namespace EasySaveProject
             }
             private void AddWork()
             {
-                Console.WriteLine("Adding work...");
-                // Code to add work
+                SaveWorkView saveworkview = new SaveWorkView();
+                saveworkview.Show();
             }
 
             private void ProgressView()
             {
-                Console.WriteLine("Progress View...");
-                // Code to progress view work
+                ProgressView progressview = new ProgressView();
+                progressview.show();
             }
 
             private void Settings()
             {
-                Console.WriteLine("Settings View...");
-                // Code to settings
+               SettingView settingView = new SettingView(); 
+               
+                settingView.show();
             }
 
             private void ExecuteWork()

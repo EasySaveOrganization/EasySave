@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj": {}
+    "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj": {
+    "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
+        "projectUniqueName": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
         "projectName": "EasySaveProject",
-        "projectPath": "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
-        "packagesPath": "C:\\Users\\MALEK\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\obj\\",
+        "projectPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
+        "packagesPath": "C:\\Users\\comet\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\MALEK\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\comet\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

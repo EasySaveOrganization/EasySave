@@ -15,7 +15,10 @@ namespace EasySaveProject
         }
         public void show()
         {
-            Console.WriteLine("Welcome to the Progress View");
+            LanguageManager languageManager = LanguageManager.GetInstance();
+            string translatedText = languageManager.Translate("Welcome to the Progress View");
+            Console.WriteLine(translatedText);
+            
         }
     }
 }

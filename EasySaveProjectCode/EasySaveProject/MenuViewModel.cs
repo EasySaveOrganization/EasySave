@@ -14,7 +14,7 @@ namespace EasySaveProject
             AddWork = 0,
             ExecuteWork = 1,
             ProgressView = 2,
-            Settings = 3
+            Settings = 3,
         }
         public void redirect(int input)
         {

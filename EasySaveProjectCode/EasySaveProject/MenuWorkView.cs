@@ -15,7 +15,9 @@ namespace EasySaveProject
         
         public MenuWorkView() 
         {
-            message = "Hello world this is the menu type  : 0 to Add work, 1 to Execute work, 2 for the progress View, 3 for the settings ";
+            LanguageManager languageManager = LanguageManager.GetInstance();
+            string translatedText = languageManager.Translate("Hello world this is the menu type  : 0 to Add work, 1 to Execute work, 2 for the progress View, 3 for the settings ");
+            message =  translatedText;
         } 
         public void show()
         {
