@@ -3,8 +3,8 @@
 using EasySaveProject;
 
 
-//MenuWorkView menuworkview = new MenuWorkView();
-//menuworkview.show();
+MenuWorkView menuworkview = new MenuWorkView();
+menuworkview.show();
 
-SaveWorkView saveworkview = new SaveWorkView();
-saveworkview.Show();
+/*SaveWorkView saveworkview = new SaveWorkView();
+saveworkview.Show();*/
