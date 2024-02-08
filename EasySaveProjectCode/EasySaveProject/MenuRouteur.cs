@@ -83,7 +83,9 @@ namespace EasySaveProject
 
             private void ExecuteWork()
             {
-                Console.WriteLine("Executing work...");
+                SaveCompleteView savecompleteview = new SaveCompleteView();
+                savecompleteview.show();
+
                 // Code to execute work
             }
         }
