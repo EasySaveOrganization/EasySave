@@ -19,6 +19,7 @@ namespace EasySaveProject
             // Utilisez la méthode statique CreateSave pour obtenir une instance de Save
             string? saveType = work?.saveType;
             Save save = saveFactory.CreateSave(saveType);
+            save.ExecuteSave(work);
         }
 
 

@@ -19,6 +19,7 @@ namespace EasySaveProject
             foreach (var work in workList)
             {
                 Console.WriteLine(i + " - Name of the save work : " + work.saveName + "\n");
+                i += 1;
             }
             string? inputSavework = Console.ReadLine();
             foreach (var work in workList)
