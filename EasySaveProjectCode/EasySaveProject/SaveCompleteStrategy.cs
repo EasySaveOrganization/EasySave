@@ -15,16 +15,11 @@ namespace EasySaveProject.SaveCompleteDiff
                 // Vérifie si le fichier source existe
                 if (File.Exists(data.sourceRepo))
                 {
-                    // Obtient le nom du fichier à partir du chemin source
-                    string fileName = Path.GetFileName(data.sourceRepo);
-
-                    // Construit le chemin de destination complet
-                    string targetrepo = Path.Combine(data.targetRepo, fileName);
 
                     // Copie le fichier source vers la destination
-                    File.Copy(data.sourceRepo, targetrepo, true);
+                    File.Copy(data.sourceRepo, data.targetRepo, true);
 
-                    Console.WriteLine($"File copied from {data.sourceRepo} to {targetrepo}");
+                    Console.WriteLine($"File copied from {data.sourceRepo} to {data.targetRepo}");
                 }
                 else
                 {

@@ -61,8 +61,18 @@ namespace EasySaveProject.SaveWork
 
         private void SaveWorkListToFile()
         {
+            // Load existing data from the JSON file, if it exists
+            List<SaveWorkModel> existingData = LoadWorkListFromFile() ?? new List<SaveWorkModel>();
+
+            // Merge existing data with the current workList
+            if (existingData != null)
+            {
+                existingData.AddRange(workList);
+                workList = existingData;
+            }
+
             // Save data to the JSON file
-            string jsonData = JsonSerializer.Serialize(workList);
+            string jsonData = JsonSerializer.Serialize(workList, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(this.filePath, jsonData);
         }
     }
