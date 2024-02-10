@@ -1,12 +1,5 @@
 ﻿using EasySaveProject.SaveWork;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace EasySaveProject.Observer
 {
@@ -93,14 +86,14 @@ namespace EasySaveProject.Observer
             }
         }
 
-        public async Task write()
+        public async Task Write()
         {
             var workList = _workListService.LoadWorkListFromFile();
 
             foreach (var work in workList)
             {
                 work.state = status(work.totalFilesToCopy, work.nbFilesLeftToDo);
-                work.Progress = Progress(work.sourceRepo);
+                work.Progress =  Progress(work.sourceRepo);
             }
 
             string FileName = "state.json";

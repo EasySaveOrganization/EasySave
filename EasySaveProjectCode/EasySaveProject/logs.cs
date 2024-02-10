@@ -1,21 +1,16 @@
 ﻿using EasySaveProject.SaveWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EasySaveProject.Observer
 {
-    public class logs : observer
+    public class logs : IObserver
     {
-        private readonly FormatFactory _formatFactory;
-        private readonly WorkListService _workListService;
-        public logs (FormatFactory formatFactory, WorkListService workListService)
+        FormatStateFactory _formatFactory = new FormatStateFactory();
+        WorkListService _workListService = new WorkListService();
+
+        public logs()
         {
-            _formatFactory = formatFactory;
-            _workListService = workListService;
         }
+
 
         public async void update()
         {

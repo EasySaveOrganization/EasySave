@@ -1,34 +1,68 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EasySaveProject.Observer;
+using EasySaveProject.SaveCompleteDiff;
+using System;
+using System.IO;
 
-namespace EasySaveProject.SaveCompleteDiff
+namespace EasySaveProject
 {
-    public class SaveCompleteStrategy : Save
+    class SaveCompleteStrategy : Save
     {
+        observer events = new observer();
         public override void ExecuteSave(SaveWorkModel data)
         {
-            try
+            string sourcePath = data.sourceRepo;
+            string targetPath = data.targetRepo;
+
+            if (File.Exists(sourcePath))
             {
-                // Vérifie si le fichier source existe
-                if (File.Exists(data.sourceRepo))
-                {
-
-                    // Copie le fichier source vers la destination
-                    File.Copy(data.sourceRepo, data.targetRepo, true);
-
-                    Console.WriteLine($"File copied from {data.sourceRepo} to {data.targetRepo}");
-                }
-                else
-                {
-                    Console.WriteLine($"Source file {data.sourceRepo} does not exist.");
-                }
+                // Le chemin source pointe vers un fichier
+                File.Copy(sourcePath, Path.Combine(targetPath, Path.GetFileName(sourcePath)));
+                events.NotifyObserver();
+                Console.WriteLine("Fichier copié avec succès.");
             }
-            catch (Exception ex)
+            else if (Directory.Exists(sourcePath))
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                // Le chemin source pointe vers un répertoire
+                DirectoryCopy(sourcePath, Path.Combine(targetPath, Path.GetFileName(sourcePath)), true);
+                events.NotifyObserver();
+                Console.WriteLine("Répertoire copié avec succès.");
+            }
+            else
+            {
+                Console.WriteLine("Le chemin spécifié n'existe pas.");
+            }
+        }
+
+        // Méthode pour copier un répertoire récursivement
+        public static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
+        {
+            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
+            DirectoryInfo[] dirs = dir.GetDirectories();
+
+            if (!dir.Exists)
+            {
+                throw new DirectoryNotFoundException("Le répertoire source n'existe pas ou ne peut pas être trouvé : " + sourceDirName);
+            }
+
+            if (!Directory.Exists(destDirName))
+            {
+                Directory.CreateDirectory(destDirName);
+            }
+
+            FileInfo[] files = dir.GetFiles();
+            foreach (FileInfo file in files)
+            {
+                string tempPath = Path.Combine(destDirName, file.Name);
+                file.CopyTo(tempPath, false);
+            }
+
+            if (copySubDirs)
+            {
+                foreach (DirectoryInfo subdir in dirs)
+                {
+                    string tempPath = Path.Combine(destDirName, subdir.Name);
+                    DirectoryCopy(subdir.FullName, tempPath, copySubDirs);
+                }
             }
         }
     }

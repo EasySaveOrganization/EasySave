@@ -1,29 +1,20 @@
 ﻿using EasySaveProject.SaveWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace EasySaveProject.Observer
 {
-    public class State : observer
+    public class State : IObserver
     {
-        private readonly FormatStateFactory _formatStateFactory;
-        private readonly WorkListService _workListService;
+        FormatStateFactory _formatStateFactory = new FormatStateFactory();
+        WorkListService _workListService = new WorkListService();
 
-        public State (FormatStateFactory formatStateFactory, WorkListService workListService)
+        public State ()
         {
-            _formatStateFactory = formatStateFactory;
-            _workListService = workListService;
         }
 
        public async void update()
         {
             //create an instance of FormatStrategyJson
             var formatStateStrategy = _formatStateFactory.Factory(_workListService);
-            await formatStateStrategy.write();
+            await formatStateStrategy.Write();
         }
     }
 }
