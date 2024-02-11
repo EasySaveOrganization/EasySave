@@ -10,7 +10,6 @@ namespace EasySaveProject
 {
     public class ExecuteWorkService
     {
-        public SaveWorkModel work;
 
         public void executeWork(SaveWorkModel work)
         {

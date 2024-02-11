@@ -8,7 +8,7 @@ using EasySaveProject.SaveWork;
 
 namespace EasySaveProject
 {
-    internal class ProgressView : IObserver
+    internal class ProgressView
     {
         private ProgressViewModel _progressViewModel;
 
@@ -17,7 +17,7 @@ namespace EasySaveProject
             _progressViewModel = progressViewModel;
         }
 
-        public void update()
+        public void updateView()
         {
             Console.WriteLine("Update called on ProgressView.");
             _progressViewModel.states();
@@ -29,7 +29,7 @@ namespace EasySaveProject
             WorkListService workListService = new WorkListService();
             ProgressViewModel progressViewModel = new ProgressViewModel(workListService);
             ProgressView progressview = new ProgressView(progressViewModel);
-            progressview.update();
+            progressview.updateView();
         }
     }
 }
