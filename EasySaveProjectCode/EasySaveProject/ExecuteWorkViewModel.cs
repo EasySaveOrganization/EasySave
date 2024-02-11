@@ -1,4 +1,5 @@
-﻿using EasySaveProject.SaveWork;
+﻿using EasySaveProject.Observer;
+using EasySaveProject.SaveWork;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace EasySaveProject
     public class ExecuteWorkViewModel
     {
         private WorkListService workListService = new WorkListService();
+
         private ExecuteWorkService executeWorkService = new ExecuteWorkService();
 
         public void chooseSaveWork()

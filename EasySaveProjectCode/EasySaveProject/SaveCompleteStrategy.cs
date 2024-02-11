@@ -7,7 +7,7 @@ namespace EasySaveProject
 {
     class SaveCompleteStrategy : Save
     {
-        observer events = new observer();
+        observer events = observer.Instance;
         public override void ExecuteSave(SaveWorkModel data)
         {
             string sourcePath = data.sourceRepo;
