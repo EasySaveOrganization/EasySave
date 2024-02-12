@@ -12,11 +12,11 @@ namespace EasySaveProject.Observer
         }
 
 
-        public async void update()
+        public async void update(SaveWorkModel executedWork)
         {
             //create an instance of FormatStrategyJson
             var formatStrategy = _formatFactory.Factory(_workListService);
-            await formatStrategy.Write();
+            await formatStrategy.Write(executedWork);
             Console.WriteLine("Log file have been updated!");
         }
     }

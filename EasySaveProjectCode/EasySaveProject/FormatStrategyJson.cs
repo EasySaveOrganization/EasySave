@@ -14,16 +14,17 @@ namespace EasySaveProject.Observer
             _workListService = workList;
         }
 
-        public async Task Write()
+        public async Task Write(SaveWorkModel executedWork)
         {
             //retriever the work list 
             var workList = _workListService.LoadWorkListFromFile();
 
            //Add time
-           foreach (var work in workList)
+          /* foreach (var work in workList)
             {
                 work.Time = DateTime.Now;
-            }
+            }*/
+          workList.Add(executedWork);
 
             //create a file + give it a json extension
             string FileName = DateTime.Now.ToString("yyyy-MM-dd") + ".json";
@@ -42,7 +43,7 @@ namespace EasySaveProject.Observer
             }
 
             //Add the new information to the list
-            allWorks.AddRange(workList);
+            allWorks.Add(executedWork);
 
             //JsonSerializer method to convert the informations into JSON
             // new JsonSerializerOptions { WriteIndented = true } to make the JSON format more readable 

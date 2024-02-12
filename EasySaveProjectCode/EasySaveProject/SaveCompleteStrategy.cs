@@ -17,14 +17,14 @@ namespace EasySaveProject
             {
                 // Le chemin source pointe vers un fichier
                 File.Copy(sourcePath, Path.Combine(targetPath, Path.GetFileName(sourcePath)));
-                events.NotifyObserver();
+                events.NotifyObserver(data);
                 Console.WriteLine("Fichier copié avec succès.");
             }
             else if (Directory.Exists(sourcePath))
             {
                 // Le chemin source pointe vers un répertoire
                 DirectoryCopy(sourcePath, Path.Combine(targetPath, Path.GetFileName(sourcePath)), true);
-                events.NotifyObserver();
+                events.NotifyObserver(data);
                 Console.WriteLine("Répertoire copié avec succès.");
             }
             else

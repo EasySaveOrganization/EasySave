@@ -8,7 +8,7 @@ namespace EasySaveProject.Observer
 {
      public interface IObserver
     {
-        void update();
+        void update(SaveWorkModel executedWork);
     }
 
 }
