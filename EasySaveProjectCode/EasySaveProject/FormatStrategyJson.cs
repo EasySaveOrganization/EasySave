@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.Json;
-using System.Runtime.CompilerServices;
 using EasySaveProject.SaveWork;
 
 namespace EasySaveProject.Observer
@@ -32,7 +27,8 @@ namespace EasySaveProject.Observer
 
             //create a file + give it a json extension
             string FileName = DateTime.Now.ToString("yyyy-MM-dd") + ".json";
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FileName);
+            string userName = Environment.UserName;
+            string filePath = $"C:\\Users\\{userName}\\Desktop\\logs.json";
 
             //list to have the have the existant informations + the new ones 
             List<SaveWorkModel> allWorks = new List<SaveWorkModel>();
@@ -54,7 +50,6 @@ namespace EasySaveProject.Observer
 
             //Writing the json in the file 
             File.WriteAllText(filePath, jsonFile);
-            Console.WriteLine(jsonFile);
         }
     }
 }

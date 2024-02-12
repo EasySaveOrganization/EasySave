@@ -1,22 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EasySaveProject.Observer
 {
     public class observer
     {
+        private static observer _instance;
         private List<IObserver> _observers;
 
         public observer()
         {
             _observers = new List<IObserver>();
         }
+
+        public static observer Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new observer();
+                }
+                return _instance;
+            }
+        }
+
+
         public void Subscribe(IObserver observer)
         {  
-            _observers.Add(observer); 
+            _observers.Add(observer);
         }
 
         public void Detach (IObserver observer)
@@ -29,6 +40,7 @@ namespace EasySaveProject.Observer
             _observers.ForEach(observ =>
             {
                 observ.update();
+                
             });
         }
     }

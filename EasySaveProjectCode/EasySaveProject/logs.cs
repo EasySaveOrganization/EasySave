@@ -4,7 +4,7 @@ namespace EasySaveProject.Observer
 {
     public class logs : IObserver
     {
-        FormatStateFactory _formatFactory = new FormatStateFactory();
+        FormatFactory _formatFactory = new FormatFactory();
         WorkListService _workListService = new WorkListService();
 
         public logs()
@@ -17,6 +17,7 @@ namespace EasySaveProject.Observer
             //create an instance of FormatStrategyJson
             var formatStrategy = _formatFactory.Factory(_workListService);
             await formatStrategy.Write();
+            Console.WriteLine("Log file have been updated!");
         }
     }
 }
