@@ -10,7 +10,7 @@ namespace EasySaveProject.Observer
         {
         }
 
-       public async void update()
+       public async void update(SaveWorkModel executedWork)
         {
             //create an instance of FormatStrategyJson
             var formatStateStrategy = _formatStateFactory.Factory(_workListService);

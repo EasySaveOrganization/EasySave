@@ -35,11 +35,11 @@ namespace EasySaveProject.Observer
             _observers.Remove(observer);
         }
 
-        public void NotifyObserver() 
+        public void NotifyObserver(SaveWorkModel executedWork) 
         {
             _observers.ForEach(observ =>
             {
-                observ.update();
+                observ.update(executedWork);
                 
             });
         }
