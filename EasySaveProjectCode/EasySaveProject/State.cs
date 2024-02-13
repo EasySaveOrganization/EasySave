@@ -14,7 +14,8 @@ namespace EasySaveProject.Observer
         {
             //create an instance of FormatStrategyJson
             var formatStateStrategy = _formatStateFactory.Factory(_workListService);
-            await formatStateStrategy.Write();
+            await formatStateStrategy.Write(executedWork);
+            Console.WriteLine("State file has been updated");
         }
     }
 }

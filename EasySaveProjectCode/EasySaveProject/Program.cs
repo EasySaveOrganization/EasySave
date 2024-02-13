@@ -7,7 +7,9 @@ using EasySaveProject.Observer;
 
 observer events = observer.Instance;
 logs logs = new logs(); 
+State state = new State();
 events.Subscribe(logs);
+events.Subscribe(state);
 
 SettingViewModel settingViewModel = new SettingViewModel();
 settingViewModel.DisplayLanguageOptions();
