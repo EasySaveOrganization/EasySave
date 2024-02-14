@@ -20,7 +20,6 @@ namespace logsTest
             // Initialize your Logs class, which is assumed to be the observer.
             logsObserver = new logs();
             observer events = observer.Instance;
-            events.Subscribe(logsObserver);
         }
 
         [Test]

@@ -1,5 +1,8 @@
 ﻿using EasySaveProject.Observer;
 using EasySaveProject.SaveWork;
+using EasySaveProject.ObserverFolder;
+
+
 namespace EasySaveProject.SateFolder
 {
     public class State : IObserver
