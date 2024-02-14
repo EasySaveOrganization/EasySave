@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using EasySaveProject.SaveWork;
+using EasySaveProject.ExecuteFolder;
 
-namespace EasySaveProject
+namespace EasySaveProject.SateFolder
 {
     public class ProgressViewModel
     {
@@ -39,4 +39,4 @@ namespace EasySaveProject
         }
 
     }
-} 
+}

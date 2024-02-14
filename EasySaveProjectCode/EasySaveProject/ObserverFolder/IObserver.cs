@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasySaveProject.Observer
+namespace EasySaveProject.ObserverFolder
 {
-     public interface IObserver
+    public interface IObserver
     {
         void update(SaveWorkModel executedWork);
     }

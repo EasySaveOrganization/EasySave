@@ -1,5 +1,6 @@
-﻿using EasySaveProject.Observer;
-using EasySaveProject.SaveCompleteDiff;
+﻿using EasySaveProject.ObserverFolder;
+using EasySaveProject.SaveFolder;
+using EasySaveProject.SaveWorkFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace EasySaveProject
+namespace EasySaveProject.ExecuteFolder
 {
     public class ExecuteWorkService
     {

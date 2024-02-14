@@ -1,7 +1,7 @@
 ﻿using EasySaveProject.SaveWork;
 using System.Text.Json;
 
-namespace EasySaveProject.Observer
+namespace EasySaveProject.SateFolder
 {
     public class FormatStateStrategyJson
     {

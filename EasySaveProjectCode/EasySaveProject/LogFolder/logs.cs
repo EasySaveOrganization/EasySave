@@ -1,6 +1,7 @@
-﻿using EasySaveProject.SaveWork;
+﻿using EasySaveProject.Observer;
+using EasySaveProject.SaveWork;
 
-namespace EasySaveProject.Observer
+namespace EasySaveProject.LogFolder
 {
     public class logs : IObserver
     {

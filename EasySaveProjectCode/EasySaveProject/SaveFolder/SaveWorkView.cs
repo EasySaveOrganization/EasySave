@@ -1,9 +1,10 @@
-﻿using EasySaveProject.SaveWork;
+﻿using EasySaveProject.LanguageFolder;
+using EasySaveProject.SaveWorkFolder;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace EasySaveProject
+namespace EasySaveProject.SaveFolder
 {
     internal class SaveWorkView : View
     {

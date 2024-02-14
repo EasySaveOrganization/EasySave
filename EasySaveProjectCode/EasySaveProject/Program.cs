@@ -1,9 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using EasySaveProject;
-using EasySaveProject.SaveCompleteDiff;
-using EasySaveProject.SaveWork;
-using EasySaveProject.Observer;
+
+using EasySaveProject.SaveWorkFolder;
+using EasySaveProject.LanguageFolder;
+using EasySaveProject.MenuFolder;
+using EasySaveProject.SateFolder;
+using EasySaveProject.LogFolder;
+using EasySaveProject.ObserverFolder;
 
 observer events = observer.Instance;
 logs logs = new logs(); 

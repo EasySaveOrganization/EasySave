@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using EasySaveProject; // This should match the namespace of your LanguageManager class
+using EasySaveProject.LanguageFolder;
 
 namespace Unit_test
 {

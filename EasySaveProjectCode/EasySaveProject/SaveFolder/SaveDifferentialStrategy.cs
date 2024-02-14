@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace EasySaveProject.SaveCompleteDiff
+namespace EasySaveProject.SaveFolder
 {
     public class SaveDifferentialStrategy : Save
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EasySaveProject.Observer;
-using EasySaveProject.SaveWork;
+using EasySaveProject.ExecuteFolder;
+using EasySaveProject.ObserverFolder;
 
-namespace EasySaveProject
+namespace EasySaveProject.SateFolder
 {
     internal class ProgressView
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EasySaveProject.Observer
+namespace EasySaveProject.ObserverFolder
 {
     public class observer
     {
@@ -26,16 +26,16 @@ namespace EasySaveProject.Observer
 
 
         public void Subscribe(IObserver observer)
-        {  
+        {
             _observers.Add(observer);
         }
 
-        public void Detach (IObserver observer)
+        public void Detach(IObserver observer)
         {
             _observers.Remove(observer);
         }
 
-        public void NotifyObserver(SaveWorkModel executedWork) 
+        public void NotifyObserver(SaveWorkModel executedWork)
         {
             _observers.ForEach(observ =>
             {
