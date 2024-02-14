@@ -1,4 +1,4 @@
-﻿using EasySaveProject.Observer;
+﻿using EasySaveProject.ObserverFolder;
 using EasySaveProject.SaveWork;
 
 namespace EasySaveProject.LogFolder

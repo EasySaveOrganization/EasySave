@@ -109,3 +109,13 @@ C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySavePro
 C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net8.0\Unit test.pdb
 C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net8.0\Unit test.genruntimeconfig.cache
 C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net8.0\ref\Unit test.dll
+C:\Users\Valentin GIROD\ProjetEasySave\EasySaveProjectCode\Unit test\bin\Debug\net8.0\CoverletSourceRootsMapping_Unit test
+C:\Users\Valentin GIROD\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net8.0\Unit test.csproj.AssemblyReference.cache
+C:\Users\Valentin GIROD\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net8.0\Unit test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Valentin GIROD\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net8.0\Unit test.AssemblyInfoInputs.cache
+C:\Users\Valentin GIROD\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net8.0\Unit test.AssemblyInfo.cs
+C:\Users\Valentin GIROD\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net8.0\Unit test.csproj.CoreCompileInputs.cache
+C:\Users\Valentin GIROD\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net8.0\Unit test.sourcelink.json
+C:\Users\Valentin GIROD\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net8.0\Unit test.dll
+C:\Users\Valentin GIROD\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net8.0\refint\Unit test.dll
+C:\Users\Valentin GIROD\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net8.0\Unit test.pdb

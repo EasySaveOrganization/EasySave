@@ -1,59 +1,101 @@
-﻿using System;
+﻿using EasySaveProject.Observer;
+using EasySaveProject.ObserverFolder;
+using EasySaveProject.SaveFolder;
+using System;
 using System.IO;
 
-namespace EasySaveProject.SaveFolder
+namespace EasySaveProject
 {
-    public class SaveDifferentialStrategy : Save
+    class SaveDifferentialStrategy : Save
     {
+        observer events = observer.Instance;
+
         public override void ExecuteSave(SaveWorkModel data)
         {
-            try
+            string sourcePath = data.sourceRepo;
+            string targetPath = data.targetRepo;
+
+            if (File.Exists(sourcePath))
             {
-                // Vérifie si le fichier source existe
-                if (File.Exists(data.sourceRepo))
+                // Le chemin source pointe vers un fichier
+                string targetFilePath = Path.Combine(targetPath, Path.GetFileName(sourcePath));
+                if (File.Exists(targetFilePath))
                 {
-                    // Obtient la date de dernière modification du fichier source
-                    DateTime lastModifiedSource = File.GetLastWriteTime(data.sourceRepo);
-
-                    // Obtient le nom du fichier à partir du chemin source
-                    string fileName = Path.GetFileName(data.sourceRepo);
-
-                    // Construit le chemin de destination complet
-                    string targetRepo = Path.Combine(data.targetRepo, fileName);
-
-                    // Vérifie si le fichier de destination existe
-                    if (File.Exists(targetRepo))
+                    DateTime sourceLastModified = File.GetLastWriteTime(sourcePath);
+                    DateTime targetLastModified = File.GetLastWriteTime(targetFilePath);
+                    if (sourceLastModified > targetLastModified)
                     {
-                        // Obtient la date de dernière modification du fichier de destination
-                        DateTime lastModifiedDestination = File.GetLastWriteTime(targetRepo);
-
-                        // Compare les dates de dernière modification pour déterminer si le fichier source a été modifié
-                        if (lastModifiedSource > lastModifiedDestination)
-                        {
-                            // Copie le fichier source vers la destination
-                            File.Copy(data.sourceRepo, targetRepo, true);
-                            Console.WriteLine($"File copied from {data.sourceRepo} to {targetRepo}");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Source file {data.sourceRepo} is not newer than destination file {targetRepo}.");
-                        }
+                        File.Copy(sourcePath, targetFilePath, true);
+                        events.NotifyObserver(data);
+                        Console.WriteLine("Opération sur le fichier terminée.");
                     }
                     else
                     {
-                        // Copie le fichier source vers la destination
-                        File.Copy(data.sourceRepo, targetRepo, true);
-                        Console.WriteLine($"File copied from {data.sourceRepo} to {targetRepo}");
+                        Console.WriteLine("Le fichier source n'a pas été modifié depuis la dernière sauvegarde.");
                     }
                 }
                 else
                 {
-                    Console.WriteLine($"Source file {data.sourceRepo} does not exist.");
+                    File.Copy(sourcePath, targetFilePath);
+                    events.NotifyObserver(data);
+                    Console.WriteLine("Opération sur le fichier terminée.");
                 }
             }
-            catch (Exception ex)
+            else if (Directory.Exists(sourcePath))
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                // Le chemin source pointe vers un répertoire
+                DirectoryCopy(sourcePath, targetPath, true);
+                events.NotifyObserver(data);
+                Console.WriteLine("Opération sur le dossier terminée.");
+            }
+            else
+            {
+                Console.WriteLine("Le chemin spécifié n'existe pas.");
+            }
+        }
+
+        // Méthode pour copier un répertoire récursivement
+        private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
+        {
+            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
+            DirectoryInfo[] dirs = dir.GetDirectories();
+
+            if (!dir.Exists)
+            {
+                throw new DirectoryNotFoundException("Le répertoire source n'existe pas ou ne peut pas être trouvé : " + sourceDirName);
+            }
+
+            if (!Directory.Exists(destDirName))
+            {
+                Directory.CreateDirectory(destDirName);
+            }
+
+            FileInfo[] files = dir.GetFiles();
+            foreach (FileInfo file in files)
+            {
+                string destFilePath = Path.Combine(destDirName, file.Name);
+                if (File.Exists(destFilePath))
+                {
+                    DateTime sourceLastModified = file.LastWriteTime;
+                    DateTime destLastModified = File.GetLastWriteTime(destFilePath);
+                    if (sourceLastModified > destLastModified)
+                    {
+                        file.CopyTo(destFilePath, true);
+                    }
+                }
+                else
+                {
+                    file.CopyTo(destFilePath);
+                }
+            }
+
+            if (copySubDirs)
+            {
+                foreach (DirectoryInfo subdir in dirs)
+                {
+                    string tempPath = Path.Combine(destDirName, subdir.Name);
+                    DirectoryCopy(subdir.FullName, tempPath, copySubDirs);
+                }
             }
         }
     }

@@ -1137,23 +1137,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rapha\\.nuget\\packages\\": {},
+    "C:\\Users\\Valentin GIROD\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
+      "projectUniqueName": "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
       "projectName": "Unit test",
-      "projectPath": "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
-      "packagesPath": "C:\\Users\\rapha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\obj\\",
+      "projectPath": "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
+      "packagesPath": "C:\\Users\\Valentin GIROD\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\rapha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Valentin GIROD\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1169,8 +1169,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj": {
-              "projectPath": "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj"
+            "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj": {
+              "projectPath": "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj"
             }
           }
         }
