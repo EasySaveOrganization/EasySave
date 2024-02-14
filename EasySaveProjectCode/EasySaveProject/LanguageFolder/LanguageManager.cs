@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasySaveProject
+namespace EasySaveProject.LanguageFolder
 {
     public enum Languages
     {

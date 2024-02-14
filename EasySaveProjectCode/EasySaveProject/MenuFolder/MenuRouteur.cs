@@ -1,12 +1,14 @@
-﻿using EasySaveProject.SaveWork;
+﻿using EasySaveProject.ExecuteFolder;
+using EasySaveProject.LanguageFolder;
+using EasySaveProject.SaveWork;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static EasySaveProject.MenuViewModel;
+using static EasySaveProject.MenuFolder.MenuViewModel;
 
-namespace EasySaveProject
+namespace EasySaveProject.MenuFolder
 {
     internal class MenuRouteur
     {
@@ -79,8 +81,8 @@ namespace EasySaveProject
 
             private void Settings()
             {
-               SettingView settingView = new SettingView(); 
-               
+                SettingView settingView = new SettingView();
+
                 settingView.show();
             }
 

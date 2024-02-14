@@ -1,12 +1,11 @@
-﻿using EasySaveProject.Observer;
-using EasySaveProject.SaveWork;
+﻿using EasySaveProject.ObserverFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasySaveProject
+namespace EasySaveProject.ExecuteFolder
 {
     public class ExecuteWorkViewModel
     {

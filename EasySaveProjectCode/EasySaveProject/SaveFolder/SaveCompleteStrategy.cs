@@ -1,9 +1,8 @@
 ﻿using EasySaveProject.Observer;
-using EasySaveProject.SaveCompleteDiff;
 using System;
 using System.IO;
 
-namespace EasySaveProject
+namespace EasySaveProject.SaveFolder
 {
     class SaveCompleteStrategy : Save
     {

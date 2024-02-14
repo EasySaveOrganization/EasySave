@@ -1,10 +1,11 @@
-﻿using System;
+﻿using EasySaveProject.ExecuteFolder;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasySaveProject
+namespace EasySaveProject.ExecuteFolder
 {
     internal class ExecuteWorkView : View
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static EasySaveProject.MenuRouteur;
+using static EasySaveProject.MenuFolder.MenuRouteur;
 
-namespace EasySaveProject
+namespace EasySaveProject.MenuFolder
 {
     internal class MenuViewModel
     {

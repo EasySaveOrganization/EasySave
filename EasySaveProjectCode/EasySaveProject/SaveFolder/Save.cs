@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasySaveProject.SaveCompleteDiff
+namespace EasySaveProject.SaveFolder
 {
     public abstract class Save
     {

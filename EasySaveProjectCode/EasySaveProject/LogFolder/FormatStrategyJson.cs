@@ -2,14 +2,14 @@
 using System.Text.Json;
 using EasySaveProject.SaveWork;
 
-namespace EasySaveProject.Observer
+namespace EasySaveProject.LogFolder
 {
-  public class FormatStrategyJson
+    public class FormatStrategyJson
     {
         private readonly WorkListService _workListService;
 
         //constructor
-        public FormatStrategyJson(WorkListService workList) 
+        public FormatStrategyJson(WorkListService workList)
         {
             _workListService = workList;
         }
@@ -19,12 +19,12 @@ namespace EasySaveProject.Observer
             //retriever the work list 
             var workList = _workListService.LoadWorkListFromFile();
 
-           //Add time
-          /* foreach (var work in workList)
-            {
-                work.Time = DateTime.Now;
-            }*/
-          workList.Add(executedWork);
+            //Add time
+            /* foreach (var work in workList)
+              {
+                  work.Time = DateTime.Now;
+              }*/
+            workList.Add(executedWork);
 
             //create a file + give it a json extension
             string FileName = DateTime.Now.ToString("yyyy-MM-dd") + ".json";

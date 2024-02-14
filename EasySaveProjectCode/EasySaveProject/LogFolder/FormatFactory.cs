@@ -1,10 +1,10 @@
-﻿using EasySaveProject.SaveWork;
+﻿using EasySaveProject.ExecuteFolder;
 
-namespace EasySaveProject.Observer
+namespace EasySaveProject.LogFolder
 {
     public class FormatFactory
     {
-        public FormatStrategyJson Factory (WorkListService workListService) 
+        public FormatStrategyJson Factory(WorkListService workListService)
         {
             /*switch ()
             {
