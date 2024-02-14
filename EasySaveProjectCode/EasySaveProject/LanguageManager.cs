@@ -12,7 +12,7 @@ namespace EasySaveProject
         ENGLISH = 0,
         FRENCH = 1
     }
-    internal class LanguageManager
+    public class LanguageManager
     {
         private static LanguageManager instance;
         private Languages currentLanguage;
@@ -20,7 +20,7 @@ namespace EasySaveProject
         private Dictionary<string, string> frenchToEnglish;
 
         // Private constructor to prevent instantiation from outside the class.
-        private LanguageManager()
+        public LanguageManager()
         {
             // Initialize with default language, English.
             currentLanguage = Languages.ENGLISH;

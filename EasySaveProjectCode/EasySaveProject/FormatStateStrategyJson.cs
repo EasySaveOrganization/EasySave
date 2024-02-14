@@ -18,7 +18,7 @@ namespace EasySaveProject.Observer
         }
 
         //method to calculate size of file within the repos
-        public long GetSize(string repos)
+        /*public long GetSize(string repos)
         {
             long size = 0;
 
@@ -35,10 +35,10 @@ namespace EasySaveProject.Observer
             }
 
             return size;
-        }
+        }*/
 
         //Method to calculate progress
-        public int Progress(string sourceRepo)
+        /*public int Progress(string sourceRepo)
         {
             //Get the size 
             long totalSize = GetSize(sourceRepo);
@@ -50,7 +50,7 @@ namespace EasySaveProject.Observer
             int result = (int)Math.Min(progress, 100);
 
             return result;
-        }
+        }*/
 
         public void UpdateCopiedSize(long size)
         {
@@ -86,18 +86,20 @@ namespace EasySaveProject.Observer
             }
         }
 
-        public async Task Write()
+        public async Task Write(SaveWorkModel executedWork)
         {
             var workList = _workListService.LoadWorkListFromFile();
 
-            foreach (var work in workList)
+            /*foreach (var work in workList)
             {
                 work.state = status(work.totalFilesToCopy, work.nbFilesLeftToDo);
-                work.Progress =  Progress(work.sourceRepo);
-            }
+                //work.Progress =  Progress(work.sourceRepo);
+            }*/
+            workList.Add(executedWork);
 
             string FileName = "state.json";
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FileName);
+            string userName = Environment.UserName;
+            string filePath = $"C:\\Users\\{userName}\\Desktop\\State.json";
 
             //list to have the have the existant informations + the new ones 
             List<SaveWorkModel> allWorks = new List<SaveWorkModel>();
@@ -111,7 +113,7 @@ namespace EasySaveProject.Observer
             }
 
             //Add the new information to the list
-            allWorks.AddRange(workList);
+            allWorks.Add(executedWork);
 
             //JsonSerializer method to convert the informations into JSON
             // new JsonSerializerOptions { WriteIndented = true } to make the JSON format more readable 

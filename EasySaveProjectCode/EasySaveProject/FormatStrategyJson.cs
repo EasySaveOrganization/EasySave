@@ -52,5 +52,6 @@ namespace EasySaveProject.Observer
             //Writing the json in the file 
             File.WriteAllText(filePath, jsonFile);
         }
+
     }
 }

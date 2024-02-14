@@ -40,7 +40,6 @@ namespace EasySaveProject.Observer
             _observers.ForEach(observ =>
             {
                 observ.update(executedWork);
-                
             });
         }
     }
