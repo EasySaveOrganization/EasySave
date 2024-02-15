@@ -1,5 +1,7 @@
 ﻿using EasySaveProject.ExecuteFolder;
 using EasySaveProject.LanguageFolder;
+using EasySaveProject.SateFolder;
+using EasySaveProject.SaveFolder;
 using EasySaveProject.SaveWork;
 using System;
 using System.Collections.Generic;

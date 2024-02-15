@@ -1,5 +1,9 @@
 ﻿using NUnit.Framework;
+<<<<<<< Updated upstream
 using EasySaveProject.LanguageFolder;
+=======
+using EasySaveProject; 
+>>>>>>> Stashed changes
 
 namespace Unit_test
 {
@@ -11,7 +15,7 @@ namespace Unit_test
         [SetUp]
         public void Setup()
         {
-            // Initialize your LanguageManager class
+            // Initialize LanguageManager class
             languageManager = new LanguageManager();
         }
 
@@ -19,7 +23,7 @@ namespace Unit_test
         public void SwitchLanguage_ToFrench_ShouldSwitchToFrench()
         {
             // Arrange
-            var frenchLanguage = Languages.FRENCH; // Assuming Languages is an enum with FRENCH and ENGLISH
+            var frenchLanguage = Languages.FRENCH; 
 
             // Act
             languageManager.SwitchLanguages(frenchLanguage);
@@ -30,7 +34,7 @@ namespace Unit_test
         public void SwitchLanguage_ToEnglish_ShouldSwitchToEnglish()
         {
             // Arrange
-            var englishLanguage = Languages.ENGLISH; // Assuming Languages is an enum with FRENCH and ENGLISH
+            var englishLanguage = Languages.ENGLISH; 
 
             // Act
             languageManager.SwitchLanguages(englishLanguage);

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EasySaveProject.ExecuteFolder;
-using EasySaveProject.ObserverFolder;
+using EasySaveProject.Observer;
+using EasySaveProject.SaveWork;
+using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace EasySaveProject.SateFolder
 {

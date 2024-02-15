@@ -1,0 +1,7 @@
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\Unit test\bin\Debug\net6.0-windows\CoverletSourceRootsMapping_Unit test
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net6.0-windows\Unit test.csproj.AssemblyReference.cache
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net6.0-windows\Unit test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net6.0-windows\Unit test.AssemblyInfoInputs.cache
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net6.0-windows\Unit test.AssemblyInfo.cs
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net6.0-windows\Unit test.csproj.CoreCompileInputs.cache
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\ProjetEasySave\EasySaveProjectCode\Unit test\obj\Debug\net6.0-windows\Unit test.sourcelink.json

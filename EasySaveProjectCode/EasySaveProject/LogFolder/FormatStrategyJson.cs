@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Text.Json;
 using EasySaveProject.SaveWork;
+using System.Collections.Generic;
+using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace EasySaveProject.LogFolder
 {
@@ -29,7 +33,7 @@ namespace EasySaveProject.LogFolder
             //create a file + give it a json extension
             string FileName = DateTime.Now.ToString("yyyy-MM-dd") + ".json";
             string userName = Environment.UserName;
-            string filePath = $"C:\\Users\\{userName}\\Desktop\\logs.json";
+            string filePath = $"C:\\Users\\{userName}\\Desktop\\{FileName}";
 
             //list to have the have the existant informations + the new ones 
             List<SaveWorkModel> allWorks = new List<SaveWorkModel>();

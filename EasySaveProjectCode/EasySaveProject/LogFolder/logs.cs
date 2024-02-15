@@ -18,7 +18,6 @@ namespace EasySaveProject.LogFolder
             //create an instance of FormatStrategyJson
             var formatStrategy = _formatFactory.Factory(_workListService);
             await formatStrategy.Write(executedWork);
-            Console.WriteLine("Log file have been updated!");
         }
     }
 }

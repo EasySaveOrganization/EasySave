@@ -23,9 +23,18 @@ namespace EasySaveProject.MenuFolder
         public void show()
         {
             Console.WriteLine(message);
+
             string inputString = Console.ReadLine();
-            int input = int.Parse(inputString);
-            menuviewmodel.redirect(input);
+            if (string.IsNullOrEmpty(inputString))
+            {
+                // Handle the case where inputString is null or empty.
+                // You might want to prompt the user again or return a default value.
+            }
+            else
+            {
+                int input = int.Parse(inputString);
+                menuviewmodel.redirect(input);
+            }
 
         }
 

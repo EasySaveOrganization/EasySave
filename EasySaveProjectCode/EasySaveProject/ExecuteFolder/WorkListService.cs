@@ -21,15 +21,10 @@ namespace EasySaveProject.SaveWork
         // Méthode pour ajouter un travail
         public void AddWork(SaveWorkModel work)
         {
-            if (workList?.Count < 5)
-            {
-                workList?.Add(work);
-                SaveWorkListToFile();
-            }
-            else
-            {
-                throw new InvalidOperationException("The work list already contains 5 items.");
-            }
+            
+            workList?.Add(work);
+            SaveWorkListToFile();
+            
         }
 
 
