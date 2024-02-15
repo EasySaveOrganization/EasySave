@@ -3,9 +3,9 @@ using EasySaveProject.SaveWork;
 
 namespace EasySaveProject.LogFolder
 {
-    public class FormatFactory
+    public class FormatLogsFactory
     {
-        public FormatStrategyJson Factory(WorkListService workListService)
+        public FormatLogsStrategyJson Factory(WorkListService workListService)
         {
             /*switch ()
             {
@@ -14,7 +14,7 @@ namespace EasySaveProject.LogFolder
                 default:
                     throw new ArgumentException("Unsupported format type.");
             }*/
-            return new FormatStrategyJson(workListService);
+            return new FormatLogsStrategyJson(workListService);
         }
     }
 }

@@ -9,7 +9,8 @@ public class SaveWorkModel
     public string? saveType { get; set; }
     public TimeSpan FileTransferTime { get; set; } 
     public DateTime Time { get; set; } 
-    public int totalFilesToCopy { get; set; } 
+    public int totalFilesToCopy { get; set; }
+    public long totalFilesSize { get; set; }
     public int nbFilesLeftToDo { get; set; } 
     public int Progress { get; set; } 
     public string state { get; set; }
