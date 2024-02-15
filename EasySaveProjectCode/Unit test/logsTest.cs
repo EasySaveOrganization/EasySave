@@ -27,8 +27,8 @@ namespace logsTest
         {
             // Arrange
             var workListService = new WorkListService();
-            var formatFactory = new FormatFactory();
-            var formatStrategyJson = new FormatStrategyJson(workListService);
+            var formatFactory = new FormatLogsFactory();
+            var formatStrategyJson = new FormatLogsStrategyJson(workListService);
             var logs = new logs(); // Assuming Logs has a parameterless constructor
             string userName = Environment.UserName;
             string filePath = $"C:\\Users\\{userName}\\Desktop\\logs.json";
