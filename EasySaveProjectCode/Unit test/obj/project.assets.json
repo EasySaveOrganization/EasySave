@@ -1146,23 +1146,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rapha\\.nuget\\packages\\": {},
+    "C:\\Users\\MALEK\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
+      "projectUniqueName": "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
       "projectName": "Unit test",
-      "projectPath": "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
-      "packagesPath": "C:\\Users\\rapha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\obj\\",
+      "projectPath": "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
+      "packagesPath": "C:\\Users\\MALEK\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\rapha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MALEK\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1178,8 +1178,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj": {
-              "projectPath": "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj"
+            "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj": {
+              "projectPath": "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj"
             }
           }
         }
@@ -1230,6 +1230,20 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.26, 6.0.26]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.26, 6.0.26]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.26, 6.0.26]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"

@@ -35,7 +35,8 @@
         <TextBox Grid.Row="7" x:Name="txtType"/>
 
         <Button Grid.Row="9"  Click="btnValider_Click" Content="Valider" Margin="0,40,0,-40" RenderTransformOrigin="0.619,-1.096"/>
-
+        <Button Grid.Row="7"  Command="{Binding ExecuteWorkCommand}" Content="ExecteWork" Margin="0,87,0,-87" RenderTransformOrigin="0.619,-1.096"/>
+        <Button Grid.Row="7"  Command="{Binding SettingsCommand}" Content="Settings" Margin="0,150,0,-150" RenderTransformOrigin="0.619,-1.096"/>
     </Grid>
 
 </Page>
