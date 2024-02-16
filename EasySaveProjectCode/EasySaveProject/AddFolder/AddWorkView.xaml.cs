@@ -10,10 +10,13 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using EasySaveProject.AddFolder;
 using EasySaveProject.LanguageFolder;
+using EasySaveProject.SaveFolder;
 
 namespace EasySaveProject.AddFolder
 {
@@ -24,11 +27,27 @@ namespace EasySaveProject.AddFolder
     //private SaveWorkViewModel saveWorkViewModel = new SaveWorkViewModel();
     public partial class AddWorkView : Page
     {
+        private SaveWorkViewModel saveWorkViewModel;
+
         public AddWorkView()
         {
             InitializeComponent();
-            //this.DataContext = saveWorkViewModel;
+            saveWorkViewModel = new SaveWorkViewModel();
+            DataContext = saveWorkViewModel;
         }
 
+        private void btnValider_Click(object sender, RoutedEventArgs e)
+        {
+            string name = txtName.Text;
+            string target = txtTarget.Text;
+            string source = txtSource.Text;
+            string type = txtType.Text;
+
+            // Appeler la méthode AddWork du ViewModel
+            saveWorkViewModel.AddWork(name, target, source, type);
+
+            MessageBox.Show("Les données de sauvegarde ont été validées et ajoutées avec succès.");
+        }
     }
 }
+

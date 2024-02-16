@@ -3,8 +3,9 @@
     "",
     "\\EasySaveProjectCode",
     "\\EasySaveProjectCode\\EasySaveProject",
-    "\\EasySaveProjectCode\\Unit test"
+    "\\EasySaveProjectCode\\EasySaveProject\\ExecuteFolder",
+    "\\EasySaveProjectCode\\EasySaveProject\\MenuFolder"
   ],
-  "SelectedNode": "\\EasySaveProjectCode\\Unit test\\logsTest.cs",
+  "SelectedNode": "\\EasySaveProjectCode\\EasySaveProject\\ExecuteFolder\\WorkListService.cs",
   "PreviewInSolutionExplorer": false
 }
