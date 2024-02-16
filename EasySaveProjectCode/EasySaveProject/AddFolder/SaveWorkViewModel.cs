@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EasySaveProject.SaveWork;
 
-namespace EasySaveProject.SaveWorkFolder
+namespace EasySaveProject.AddFolder
 {
     public class SaveWorkViewModel
     {

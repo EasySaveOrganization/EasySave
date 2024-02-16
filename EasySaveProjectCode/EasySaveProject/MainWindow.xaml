@@ -3,15 +3,24 @@
 	   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:local="clr-namespace:EasySaveProject.MenuFolder" 
 	   mc:Ignorable="d"
-	   Title="EasySave" Height="550" Width="1115">
+	   Title="EasySave" Height="550" Width="1115"
+        Background="#EAE7DC">
 
+    <!-- Set the DataContext for the Window -->
+    <Window.DataContext>
+        <local:MenuViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Frame x:Name="Main"/>
+        
+            <TextBlock Text="Menu" FontSize="40" FontWeight="Bold" Margin="492,56,491,408" />
+           <Button Content="Add work" Margin="418,161,417,321" Command="{Binding AddWorkCommand}" Background="#D8C3A5" />
+        <Button Content="Execute work" Margin="418,243,417,237"  Command="{Binding ExecuteWorkCommand}" Background="#D8C3A5"/>
+        <Button Content="Settings" Margin="418,321,417,162" Command="{Binding SettingsCommand}" Background="#D8C3A5"/> 
+        
 
-    <Grid Background="White">
-        <Frame  Grid.Column="1" Grid.Row="1" Content="{Binding}" NavigationUIVisibility="Hidden"/>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24">
-            It's EasySave 2.0!
-        </TextBlock>
     </Grid>
 </Window>
 

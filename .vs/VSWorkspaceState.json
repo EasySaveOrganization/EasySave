@@ -2,7 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\EasySaveProjectCode",
-    "\\EasySaveProjectCode\\EasySaveProject"
+    "\\EasySaveProjectCode\\EasySaveProject",
+    "\\EasySaveProjectCode\\Unit test"
   ],
+  "SelectedNode": "\\EasySaveProjectCode\\Unit test\\logsTest.cs",
   "PreviewInSolutionExplorer": false
 }

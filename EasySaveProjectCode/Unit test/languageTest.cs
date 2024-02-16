@@ -1,9 +1,6 @@
 ﻿using NUnit.Framework;
-<<<<<<< Updated upstream
 using EasySaveProject.LanguageFolder;
-=======
 using EasySaveProject; 
->>>>>>> Stashed changes
 
 namespace Unit_test
 {
