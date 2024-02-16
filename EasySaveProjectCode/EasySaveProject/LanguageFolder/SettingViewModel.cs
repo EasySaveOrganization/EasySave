@@ -1,58 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace EasySaveProject.LanguageFolder
 {
-    internal class SettingViewModel
+    internal class SettingViewModel : INotifyPropertyChanged
     {
         private readonly LanguageManager languageManager;
+        public event PropertyChangedEventHandler PropertyChanged;
+        public ICommand SwitchToFrenchCommand { get; private set; }
+        public ICommand SwitchToEnglishCommand { get; private set; }
 
         public SettingViewModel()
         {
             // Get the instance of the LanguageManager when the view is created.
             languageManager = LanguageManager.GetInstance();
+            SwitchToFrenchCommand = new RelayCommand(_ => SwitchLanguage(Languages.FRENCH), param => CanTranslate());
+            SwitchToEnglishCommand = new RelayCommand(_ => SwitchLanguage(Languages.ENGLISH), param => CanTranslate());
         }
 
-        public void DisplayLanguageOptions()
+        private bool CanTranslate()
         {
-            // Display language options to the user.
-            Console.WriteLine("Select your language:");
-            Console.WriteLine("1: English");
-            Console.WriteLine("2: French");
-
-            // Read user input.
-            string input = Console.ReadLine();
-
-            // Set the language based on user input.
-            switch (input)
-            {
-                case "1":
-                    languageManager.SwitchLanguages(Languages.ENGLISH);
-                    Console.WriteLine("Language set to English.");
-                    break;
-                case "2":
-                    languageManager.SwitchLanguages(Languages.FRENCH);
-                    Console.WriteLine("Language set to French.");
-                    break;
-                default:
-                    Console.WriteLine("Invalid selection. Language set to English by default.");
-                    languageManager.SwitchLanguages(Languages.ENGLISH);
-                    break;
-            }
-
-            // Optionally, after switching languages, you could refresh the view to show translated texts.
-            RefreshView();
+            return true;
+        }
+        public string TranslatedText
+        {
+            get => languageManager.Translate("Hello");
         }
 
+        private void SwitchLanguage(Languages language)
+        {
+            languageManager.SwitchLanguages(language);
+            // Notify the View that the language has changed
+            OnPropertyChanged(nameof(TranslatedText));
+        }
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        public string LocalizedWelcomeMessage => languageManager.Translate("WelcomeMessageKey");
         private void RefreshView()
         {
-            // This method would update all display elements with the appropriate language.
-            // For example:
-            Console.WriteLine(languageManager.Translate("Hello"));
-            // ... Update other UI elements as needed.
+
+            OnPropertyChanged(nameof(LocalizedWelcomeMessage));
+
         }
     }
 }

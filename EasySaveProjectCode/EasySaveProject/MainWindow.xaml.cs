@@ -16,7 +16,6 @@ namespace EasySaveProject
 
         public void NavigateHome(Page page)
         {
-            // Assuming 'MainFrame' is the name of your Frame control in MainWindow.xaml
             Main.Navigate(page);
         }
     }

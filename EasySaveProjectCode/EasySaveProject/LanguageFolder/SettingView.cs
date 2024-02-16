@@ -11,7 +11,7 @@ namespace EasySaveProject.LanguageFolder
         public void show()
         {
             SettingViewModel settingViewModel = new SettingViewModel();
-            settingViewModel.DisplayLanguageOptions();
+            //settingViewModel.DisplayLanguageOptions();
         }
     }
 }

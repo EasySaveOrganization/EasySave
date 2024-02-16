@@ -23,7 +23,7 @@ namespace EasySaveProject.AddFolder
             }
             catch (InvalidOperationException ex)
             {
-                Console.WriteLine(ex.Message);
+                //Console.WriteLine(ex.Message);
             }
         }
     }
