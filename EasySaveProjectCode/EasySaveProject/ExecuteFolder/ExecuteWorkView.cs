@@ -13,8 +13,7 @@ namespace EasySaveProject.ExecuteFolder
 
         public void Show()
         {
-            Console.WriteLine("Welcome to the Execute Work view!");
-            executeWorkViewModel.chooseSaveWork();
+            
         }
     }
 }

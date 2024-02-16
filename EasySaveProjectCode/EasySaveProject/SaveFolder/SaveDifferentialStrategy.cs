@@ -27,18 +27,18 @@ namespace EasySaveProject
                     {
                         File.Copy(sourcePath, targetFilePath, true);
                         events.NotifyObserver(data);
-                        Console.WriteLine("Opération sur le fichier terminée.");
+                        //Console.WriteLine("Opération sur le fichier terminée.");
                     }
                     else
                     {
-                        Console.WriteLine("Le fichier source n'a pas été modifié depuis la dernière sauvegarde.");
+                        //Console.WriteLine("Le fichier source n'a pas été modifié depuis la dernière sauvegarde.");
                     }
                 }
                 else
                 {
                     File.Copy(sourcePath, targetFilePath);
                     events.NotifyObserver(data);
-                    Console.WriteLine("Opération sur le fichier terminée.");
+                    //Console.WriteLine("Opération sur le fichier terminée.");
                 }
             }
             else if (Directory.Exists(sourcePath))
@@ -46,11 +46,11 @@ namespace EasySaveProject
                 // Le chemin source pointe vers un répertoire
                 DirectoryCopy(sourcePath, targetPath, true);
                 events.NotifyObserver(data);
-                Console.WriteLine("Opération sur le dossier terminée.");
+                //Console.WriteLine("Opération sur le dossier terminée.");
             }
             else
             {
-                Console.WriteLine("Le chemin spécifié n'existe pas.");
+               // Console.WriteLine("Le chemin spécifié n'existe pas.");
             }
         }
 

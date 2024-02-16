@@ -9,19 +9,16 @@
       Title="ExecuteWork">
 
     <Grid>
-        <StackPanel Margin="20,20,20,106">
-            <TextBlock Text="Execute Work" FontSize="16" FontWeight="Bold" />
-            <ListView Name="WorkList" ItemsSource="{Binding Works}" BorderBrush="#cdcdcd" Margin="25,70,25,25" Padding="0">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding saveName}" Header="Work Name"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding sourceRepo}" Header="Source Repo"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding targetRepo}" Header="Target Repo"/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-           <!-- <Button Content="Return" Command="{Binding ReturnCommand}" Height="35"/> -->
-
-        </StackPanel>
+        <TextBlock Text="Execute Work" FontSize="16" FontWeight="Bold" />
+        <ListView Name="WorkList" ItemsSource="{Binding Works}" BorderBrush="#cdcdcd" Margin="25,70,25,173" Padding="0" SelectedItem="{Binding SelectedWork, Mode=TwoWay}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding saveName}" Header="Work Name"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding sourceRepo}" Header="Source Repo"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding targetRepo}" Header="Target Repo"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Execute" Click="BtnExecute_Click" Margin="592,367,42,0" Height="37" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
     </Grid>
 </Page>

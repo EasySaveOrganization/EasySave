@@ -4,6 +4,7 @@ using EasySaveProject.SaveWork;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,12 +13,16 @@ using System.Windows.Input;
 
 namespace EasySaveProject.ExecuteFolder
 {
-    public class ExecuteWorkViewModel
+    public class ExecuteWorkViewModel : INotifyPropertyChanged
     {
         private WorkListService workListService = new WorkListService();
 
         private ExecuteWorkService executeWorkService = new ExecuteWorkService();
         public ObservableCollection<SaveWorkModel> Works { get; private set; }
+        
+        //a field that will hold the selected work
+        private SaveWorkModel _selectedWork;
+        public event PropertyChangedEventHandler PropertyChanged;
        
 
         //constructor
@@ -26,25 +31,26 @@ namespace EasySaveProject.ExecuteFolder
             Works = new ObservableCollection<SaveWorkModel>(workListService.LoadWorkListFromFile());
         }
 
-
-        public void chooseSaveWork()
+        public void ExecuteSelectedWork(SaveWorkModel workToExecute)
         {
-            var workList = workListService.LoadWorkListFromFile();
-            int i = 0;
-            foreach (var work in workList)
-            {
-                Console.WriteLine(i + " - Name of the save work : " + work.saveName + "\n");
-                i += 1;
-            }
-            string? inputSavework = Console.ReadLine();
-            foreach (var work in workList)
-            {
-                if (work.saveName == inputSavework)
-                {
-                    executeWorkService.executeWork(work);
-                }
-            }
+            // Assuming you have a method to execute the work
+            executeWorkService.executeWork(workToExecute);
+            // Optionally, refresh the list or update UI here
+        }
 
+        public SaveWorkModel SelectedWork
+        {
+            get => _selectedWork;
+            set
+            {
+                _selectedWork = value;
+                OnPropertyChanged(nameof(SelectedWork));
+            }
+        }
+        
+        protected virtual void OnPropertyChanged(string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
