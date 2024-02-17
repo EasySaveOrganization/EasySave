@@ -1,107 +1,126 @@
 ﻿using EasySaveProject.SaveWork;
-using System;
-using System.IO;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
 
 namespace EasySaveProject.SateFolder
 {
     public class FormatStateStrategyJson
     {
+        //the workList we already have
+        private readonly WorkListService _workListService;
 
-        private string stateFilePath;
+        //Variable to stock the file copied
+        private long _Copied;
 
         //constructor
         public FormatStateStrategyJson(WorkListService workList)
         {
-            string userName = Environment.UserName;
-            this.stateFilePath = $"C:\\Users\\{userName}\\Desktop\\EasySaveContent\\State.json";
+            _workListService = workList;
         }
 
-
-        public async Task Write(SaveWorkModel data)
+        //method to calculate size of file within the repos
+        /*public long GetSize(string repos)
         {
-            try
+            long size = 0;
+
+            //retriever all the file paths and include all subdirectories in the search
+            string[] files = Directory.GetFiles(repos, "*.*", SearchOption.AllDirectories);
+
+            foreach (string file in files)
             {
-                JObject stateObject;
+                //create a fileInfo object
+                FileInfo fileInfo = new FileInfo(file);
 
-                if (File.Exists(stateFilePath))
-                {
-                    // Charge le contenu actuel du fichier state
-                    string currentState = File.ReadAllText(stateFilePath);
-
-                    // Vérifie si le fichier state est vide
-                    if (string.IsNullOrWhiteSpace(currentState))
-                    {
-                        // Initialise un nouvel objet JObject
-                        stateObject = new JObject();
-                    }
-                    else
-                    {
-                        // Essaye de parser le contenu JSON
-                        try
-                        {
-                            stateObject = JObject.Parse(currentState);
-                        }
-                        catch (JsonReaderException)
-                        {
-                            // En cas d'erreur de parsing, crée un nouvel objet JObject
-                            stateObject = new JObject();
-                        }
-                    }
-                }
-                else
-                {
-                    // Si le fichier state n'existe pas, crée un nouvel objet JObject
-                    stateObject = new JObject();
-                }
-
-                // Recherche le travail de sauvegarde correspondant
-                JToken existingToken;
-                if (stateObject.TryGetValue(data.saveName, out existingToken))
-                {
-                    // Si le travail de sauvegarde existe, met à jour ses propriétés
-                    existingToken["SourceFilePath"] = data.sourceRepo;
-                    existingToken["TargetFilePath"] = data.targetRepo;
-                    existingToken["State"] = data.state;
-                    existingToken["TotalFilesToCopy"] = data.totalFilesToCopy;
-                    existingToken["TotalFilesSize"] = data.FileSize;
-                    existingToken["NbFilesLeftToDo"] = data.nbFilesLeftToDo;
-                    existingToken["Progression"] = data.Progress;
-
-                    // Si l'état du travail est "END", vide toutes les informations sauf le nom du travail
-                    if (data.state == "END")
-                    {
-                        existingToken["SourceFilePath"] = "";
-                        existingToken["TargetFilePath"] = "";
-                        existingToken["TotalFilesToCopy"] = 0;
-                        existingToken["TotalFilesSize"] = 0;
-                        existingToken["NbFilesLeftToDo"] = 0;
-                        existingToken["Progression"] = 0;
-                    }
-                }
-                else
-                {
-                    // Si le travail de sauvegarde n'existe pas, l'ajoute à l'objet state
-                    stateObject[data.saveName] = new JObject(
-                        new JProperty("SourceFilePath", data.sourceRepo),
-                        new JProperty("TargetFilePath", data.targetRepo),
-                        new JProperty("State", data.state),
-                        new JProperty("TotalFilesToCopy", data.totalFilesToCopy),
-                        new JProperty("TotalFilesSize", data.FileSize),
-                        new JProperty("NbFilesLeftToDo", data.nbFilesLeftToDo),
-                        new JProperty("Progression", data.Progress)
-                    );
-                }
-
-                // Écrit l'objet state dans le fichier state
-                File.WriteAllText(stateFilePath, stateObject.ToString());
+                // accumulate the size of the current file
+                size += fileInfo.Length;
             }
-            catch (Exception ex)
+
+            return size;
+        }*/
+
+        //Method to calculate progress
+        /*public int Progress(string sourceRepo)
+        {
+            //Get the size 
+            long totalSize = GetSize(sourceRepo);
+
+            //Calculate the pourcentage of the progress
+            double progress = ((double)_Copied / totalSize) * 100;
+
+            //ensure thta it does not exceed 100%
+            int result = (int)Math.Min(progress, 100);
+
+            return result;
+        }*/
+
+        public void UpdateCopiedSize(long size)
+        {
+            _Copied += size;
+        }
+
+        public string status(int totalFiles, int nbFilesLeft)
+        {
+            int x = 0;
+            if (totalFiles > nbFilesLeft)
             {
-                Console.WriteLine("Une erreur est survenue lors de l'écriture dans le fichier state : " + ex.Message);
+                x = 1;
+            }
+            else if (totalFiles > nbFilesLeft && nbFilesLeft == 0)
+            {
+                x = 2;
+            }
+            else if (totalFiles == 0)
+            {
+                x = 3;
+            }
+
+            switch (x)
+            {
+                case 1:
+                    return "InProgress";
+                case 2:
+                    return "Active";
+                case 3:
+                    return "End";
+                default:
+                    return "Error";
             }
         }
 
+        public async Task Write(SaveWorkModel executedWork)
+        {
+            var workList = _workListService.LoadWorkListFromFile();
+
+            /*foreach (var work in workList)
+            {
+                work.state = status(work.totalFilesToCopy, work.nbFilesLeftToDo);
+                //work.Progress =  Progress(work.sourceRepo);
+            }*/
+            workList.Add(executedWork);
+
+            string FileName = "state.json";
+            string userName = Environment.UserName;
+            string filePath = $"C:\\Users\\{userName}\\Desktop\\State.json";
+
+            //list to have the have the existant informations + the new ones 
+            List<SaveWorkModel> allWorks = new List<SaveWorkModel>();
+
+            //check if the fie already exists 
+            if (File.Exists(filePath))
+            {
+                //if the file exists deserialize it and read it
+                string existingJson = await File.ReadAllTextAsync(filePath);
+                allWorks = JsonSerializer.Deserialize<List<SaveWorkModel>>(existingJson) ?? new List<SaveWorkModel>();
+            }
+
+            //Add the new information to the list
+            allWorks.Add(executedWork);
+
+            //JsonSerializer method to convert the informations into JSON
+            // new JsonSerializerOptions { WriteIndented = true } to make the JSON format more readable 
+            string jsonFile = JsonSerializer.Serialize(allWorks, new JsonSerializerOptions { WriteIndented = true });
+
+            //Writing the json in the file 
+            File.WriteAllText(filePath, jsonFile);
+        }
     }
 }

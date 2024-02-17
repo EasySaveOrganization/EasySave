@@ -15,14 +15,21 @@ namespace EasySaveProject.SaveWork
             // Initialize workList, possibly load data from the file
             workList = LoadWorkListFromFile() ?? new List<SaveWorkModel>();
             string userName = Environment.UserName;
-            this.filePath = $"C:\\Users\\{userName}\\Desktop\\EasySaveContent\\worklist.json";
+            this.filePath = $"C:\\Users\\{userName}\\Desktop\\worklist.json";
         }
 
         // Méthode pour ajouter un travail
         public void AddWork(SaveWorkModel work)
         {
-            workList?.Add(work);
-            SaveWorkListToFile();
+            if (workList?.Count < 5)
+            {
+                workList?.Add(work);
+                SaveWorkListToFile();
+            }
+            else
+            {
+                throw new InvalidOperationException("The work list already contains 5 items.");
+            }
         }
 
 

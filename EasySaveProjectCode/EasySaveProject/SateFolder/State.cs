@@ -19,6 +19,7 @@ namespace EasySaveProject.SateFolder
             //create an instance of FormatStrategyJson
             var formatStateStrategy = _formatStateFactory.Factory(_workListService);
             await formatStateStrategy.Write(executedWork);
+            Console.WriteLine("State file has been updated");
         }
     }
 }

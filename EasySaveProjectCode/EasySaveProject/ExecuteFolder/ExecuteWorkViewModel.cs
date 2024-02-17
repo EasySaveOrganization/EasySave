@@ -17,21 +17,20 @@ namespace EasySaveProject.ExecuteFolder
         public void chooseSaveWork()
         {
             var workList = workListService.LoadWorkListFromFile();
-            int i = 1;
+            int i = 0;
             foreach (var work in workList)
             {
                 Console.WriteLine(i + " - Name of the save work : " + work.saveName + "\n");
                 i += 1;
             }
-            int selectedIndex;
-            while (!int.TryParse(Console.ReadLine(), out selectedIndex) || selectedIndex < 1 || selectedIndex > workList.Count)
+            string? inputSavework = Console.ReadLine();
+            foreach (var work in workList)
             {
-                Console.WriteLine("Veuillez entrer un numéro valide.");
-                Console.Write("Veuillez entrer le numéro du travail que vous souhaitez exécuter : ");
+                if (work.saveName == inputSavework)
+                {
+                    executeWorkService.executeWork(work);
+                }
             }
-            // Récupération du travail sélectionné
-            SaveWorkModel selectedWork = workList[selectedIndex - 1];
-            executeWorkService.executeWork(selectedWork);
 
         }
     }
