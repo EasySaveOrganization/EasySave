@@ -16,8 +16,8 @@ namespace EasySaveProject.LogFolder
         public async void update(SaveWorkModel executedWork)
         {
             //create an instance of FormatStrategyJson
-            var formatStrategy = _formatFactory.Factory(_workListService);
-            await formatStrategy.Write(executedWork);
+            var formatStrategy = _formatFactory.Factory(executedWork);
+            await formatStrategy.write(executedWork);
         }
     }
 }

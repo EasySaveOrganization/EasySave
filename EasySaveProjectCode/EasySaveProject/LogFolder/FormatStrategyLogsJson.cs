@@ -5,19 +5,19 @@ using Newtonsoft.Json.Linq;
 
 namespace EasySaveProject.LogFolder
 {
-    public class FormatLogsStrategyJson
+    public class FormatLogsStrategyJson : FormatLogs
     {
         private string logsFilePath;
 
         //constructor
-        public FormatLogsStrategyJson(WorkListService workList)
+        public FormatLogsStrategyJson(SaveWorkModel data)
         {
             string fileName = DateTime.Now.ToString("yyyy-MM-dd") + ".json";
             string userName = Environment.UserName;
             logsFilePath = $"C:\\Users\\{userName}\\Desktop\\EasySaveContent\\{fileName}"; // Correction ici
         }
 
-        public async Task Write(SaveWorkModel data)
+        public override async Task write(SaveWorkModel data)
         {
             try
             {

@@ -5,19 +5,19 @@ using EasySaveProject.SaveWork;
 
 namespace EasySaveProject.LogFolder
 {
-    public class FormatLogsStrategyXml
+    public class FormatLogsStrategyXml : FormatLogs
     {
         private string logsFilePath;
 
         // Constructeur
-        public FormatLogsStrategyXml(WorkListService workList)
+        public FormatLogsStrategyXml(SaveWorkModel data)
         {
             string fileName = DateTime.Now.ToString("yyyy-MM-dd") + ".xml";
             string userName = Environment.UserName;
             logsFilePath = $"C:\\Users\\{userName}\\Desktop\\EasySaveContent\\{fileName}";
         }
 
-        public async Task Write(SaveWorkModel data)
+        public override async Task write(SaveWorkModel data)
         {
             try
             {
