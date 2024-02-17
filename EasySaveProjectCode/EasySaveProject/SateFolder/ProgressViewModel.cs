@@ -26,7 +26,7 @@ namespace EasySaveProject.SateFolder
 
             foreach (var work in workList)
             {
-                if (work.saveType == "ACTIVE")
+                if (work.saveType == "Active")
                 {
                     int progress = work.Progress;
                     Console.WriteLine(progress);

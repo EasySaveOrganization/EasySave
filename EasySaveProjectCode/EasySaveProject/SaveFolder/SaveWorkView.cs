@@ -29,29 +29,9 @@ namespace EasySaveProject.SaveFolder
             string? sourceRepo = Console.ReadLine();
             Console.Write("Save Type: ");
             string? saveType = Console.ReadLine();
-            Console.Write("Logs format (1 - Xml or 2 - Json): ");
-            string input = Console.ReadLine();
-            int logsFormat;
-            if (int.TryParse(input, out logsFormat))
-            {
-                // Vérifiez si l'entrée correspond à 1 ou 2
-                if (logsFormat == 1 || logsFormat == 2)
-                {
-                    // Ajoutez le travail en utilisant le ViewModel
-                    saveWorkViewModel.AddWork(saveName, targetRepo, sourceRepo, saveType, logsFormat);
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter 1 for XML or 2 for JSON.");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please enter a valid number.");
-            }
 
             // Ajouter le travail en utilisant le ViewModel
-            saveWorkViewModel.AddWork(saveName, targetRepo, sourceRepo, saveType, logsFormat);
+            saveWorkViewModel.AddWork(saveName, targetRepo, sourceRepo, saveType);
 
         }
     }
