@@ -11,7 +11,7 @@ pipeline {
         }  
         stage('Build') {  
             steps {  
-                bat "${dotnet} build" 
+                bat '"C:\\Program Files\\dotnet\\dotnet.exe" build' 
             }  
         }  
         stage('Test') {  
