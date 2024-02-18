@@ -43,7 +43,7 @@ namespace EasySaveProject.MenuFolder
             // Use the instance to call methods on it
             menuRouter.redirect(menuOption);
         }
-
+        
         public MenuViewModel() 
         {
             //Initialize command
@@ -51,6 +51,7 @@ namespace EasySaveProject.MenuFolder
             ExecuteWorkCommand = new RelayCommand(param => NavigateToExecuteWork(), param => CanNavigate());
             SettingsCommand = new RelayCommand(param => NavigateToSettings(), param => CanNavigate());
             LanguageManager.LanguageChanged += OnLanguageChanged;
+            
         }
 
         private void OnLanguageChanged(object sender, EventArgs e)

@@ -102,7 +102,7 @@ namespace EasySaveProject.SateFolder
             }*/
             workList.Add(executedWork);
 
-            string FileName = "state.json";
+            
             string userName = Environment.UserName;
             string filePath = $"C:\\Users\\{userName}\\Desktop\\State.json";
 

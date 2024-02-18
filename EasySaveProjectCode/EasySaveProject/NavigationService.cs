@@ -7,23 +7,22 @@ namespace EasySaveProject
     class NavigationService : INavigationService
     {
         //a dictionary to hold the maping of string keys to pag creation
-        private readonly Dictionary<string, Func<UserControl>> _pagesByKey;
+        private readonly Dictionary<string, Func<Page>> _pagesByKey;
         private readonly Frame _mainFrame;
 
         //constructor
         public NavigationService(Frame mainFrame)
         {
             _mainFrame = mainFrame;
-            _pagesByKey = new Dictionary<string, Func<UserControl>>();
+            _pagesByKey = new Dictionary<string, Func<Page>>();
         }
 
         //method to navigate to a page using its key
         public void NavigateTo(string pageKey)
         {
-            //check if the page key exists in the dictionary
-            if (_pagesByKey.TryGetValue(pageKey, out var createPageFunc))
+            if (_pagesByKey.TryGetValue(pageKey, out var createPage))
             {
-                var page = createPageFunc.Invoke();
+                var page = createPage();
                 _mainFrame.Navigate(page);
             }
             else
@@ -33,9 +32,8 @@ namespace EasySaveProject
         }
 
         //method to register a page with its creation function using a key
-        public void RegisterPage(string pageKey, Func<UserControl> createPageFunc)
+        public void RegisterPage(string pageKey, Func<Page> createPageFunc)
         {
-            //add the key to the dictionary
             _pagesByKey[pageKey] = createPageFunc;
         }
     }
