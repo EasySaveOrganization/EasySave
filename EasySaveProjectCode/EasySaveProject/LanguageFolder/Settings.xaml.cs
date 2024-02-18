@@ -26,11 +26,8 @@ namespace EasySaveProject.LanguageFolder
         {
             InitializeComponent();
             languageManager = LanguageManager.GetInstance();
+            this.DataContext = new SettingViewModel();
         }
-
-
-       
-
     } 
        
 }

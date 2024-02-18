@@ -1,13 +1,9 @@
 ﻿using EasySaveProject.AddFolder;
-using EasySaveProject.ObserverFolder;
+using EasySaveProject.LanguageFolder;
 using EasySaveProject.SaveWork;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -19,23 +15,43 @@ namespace EasySaveProject.ExecuteFolder
 
         private ExecuteWorkService executeWorkService = new ExecuteWorkService();
         public ObservableCollection<SaveWorkModel> Works { get; private set; }
-        
+
+        //Navigation Commands
+        public ICommand AddWorkCommand { get; private set; }
+        public ICommand ExecuteWorkCommand { get; private set; }
+        public ICommand SettingsCommand { get; private set; }
+
         //a field that will hold the selected work
         private SaveWorkModel _selectedWork;
+
         public event PropertyChangedEventHandler PropertyChanged;
-       
+        
+        public string WorkList => LanguageManager.GetInstance().Translate("Work List");
+        public string ExecuteButton => LanguageManager.GetInstance().Translate("Execute");
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         //constructor
         public ExecuteWorkViewModel()
         {
             Works = new ObservableCollection<SaveWorkModel>(workListService.LoadWorkListFromFile());
+            AddWorkCommand = new RelayCommand(param => NavigateToAddWork(), param => CanNavigate());
+            ExecuteWorkCommand = new RelayCommand(param => NavigateToExecuteWork(), param => CanNavigate());
+            SettingsCommand = new RelayCommand(param => NavigateToSettings(), param => CanNavigate());
+            LanguageManager.LanguageChanged += OnLanguageChanged;
+        }
+        private void OnLanguageChanged(object sender, EventArgs e) 
+        {
+            OnPropertyChanged(nameof(WorkList));
+            OnPropertyChanged(nameof(ExecuteButton));
         }
 
         public void ExecuteSelectedWork(SaveWorkModel workToExecute)
         {
-            // Assuming you have a method to execute the work
             executeWorkService.executeWork(workToExecute);
-            // Optionally, refresh the list or update UI here
         }
 
         public SaveWorkModel SelectedWork
@@ -47,10 +63,28 @@ namespace EasySaveProject.ExecuteFolder
                 OnPropertyChanged(nameof(SelectedWork));
             }
         }
-        
-        protected virtual void OnPropertyChanged(string propertyName = null)
+
+        //Navigation parts
+        //this will determine if the command can be executed
+        private bool CanNavigate()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            return true;
+        }
+
+        //This method finds the frame and uses it to navigate
+        private void NavigateToAddWork()
+        {
+            // Navigate to the AddWork page
+            Application.Current.MainWindow.Content = new AddWorkView();
+        }
+
+        private void NavigateToExecuteWork()
+        {
+            Application.Current.MainWindow.Content = new ExecuteWork();
+        }
+        private void NavigateToSettings()
+        {
+            Application.Current.MainWindow.Content = new Settings();
         }
     }
 }

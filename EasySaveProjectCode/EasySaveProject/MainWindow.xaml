@@ -8,19 +8,19 @@
 	   Title="EasySave" Height="550" Width="1115"
         Background="#EAE7DC">
 
-    <!-- Set the DataContext for the Window -->
+    <!-- Seting the DataContext for the Window -->
     <Window.DataContext>
         <local:MenuViewModel />
     </Window.DataContext>
+    
     <Grid>
         <Frame x:Name="Main"/>
         
-            <TextBlock Text="Menu" FontSize="40" FontWeight="Bold" Margin="492,56,491,408" />
-           <Button Content="Add work" Margin="418,161,417,321" Command="{Binding AddWorkCommand}" Background="#D8C3A5" />
-        <Button Content="Execute work" Margin="418,243,417,237"  Command="{Binding ExecuteWorkCommand}" Background="#D8C3A5"/>
-        <Button Content="Settings" Margin="418,321,417,162" Command="{Binding SettingsCommand}" Background="#D8C3A5"/> 
-        
-
+        <TextBlock Text="Menu" FontSize="40" FontWeight="Bold" Margin="492,56,491,408" />
+        <Button Content="{Binding AddWorkButton}" Margin="418,161,417,321" Command="{Binding AddWorkCommand}" Background="#D8C3A5" />
+        <Button Content="{Binding ExecuteWorkButton}" Margin="418,243,417,237"  Command="{Binding ExecuteWorkCommand}" Background="#D8C3A5"/>
+        <Button Content="{Binding SettingsButton}" Margin="418,321,417,162" Command="{Binding SettingsCommand}" Background="#D8C3A5"/> 
+  
     </Grid>
 </Window>
 

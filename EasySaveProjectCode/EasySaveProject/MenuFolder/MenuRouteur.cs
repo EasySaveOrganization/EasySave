@@ -31,10 +31,10 @@ namespace EasySaveProject.MenuFolder
             {
                 map = new Dictionary<Menu, Action>();
                 // Initialize map with Menu actions
-                map.Add(Menu.AddWork, AddWork);
-                map.Add(Menu.ExecuteWork, ExecuteWork);
+                
+               // map.Add(Menu.ExecuteWork, ExecuteWork);
                 map.Add(Menu.ProgressView, ProgressView);
-                map.Add(Menu.Settings, Settings);
+                
             }
 
             // Public static property to get the singleton instance
@@ -68,11 +68,7 @@ namespace EasySaveProject.MenuFolder
                     Console.WriteLine("Probleme dans la création");
                 }
             }
-            private void AddWork()
-            {
-                SaveWorkView saveworkview = new SaveWorkView();
-                saveworkview.Show();
-            }
+           
 
             private void ProgressView()
             {
@@ -82,20 +78,15 @@ namespace EasySaveProject.MenuFolder
                 progressview.show();
             }
 
-            private void Settings()
-            {
-                SettingView settingView = new SettingView();
-
-                settingView.show();
-            }
-
+           
+            /*
             private void ExecuteWork()
             {
                 ExecuteWorkView savecompleteview = new ExecuteWorkView();
                 savecompleteview.Show();
 
                 // Code to execute work
-            }
+            }*/
         }
 
 

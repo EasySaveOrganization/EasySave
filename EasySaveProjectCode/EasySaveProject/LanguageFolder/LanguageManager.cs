@@ -18,6 +18,8 @@ namespace EasySaveProject.LanguageFolder
         private Languages currentLanguage;
         private Dictionary<string, string> englishToFrench;
         private Dictionary<string, string> frenchToEnglish;
+        //public delegate void LanguageChangedEventHandler();
+        public static event EventHandler LanguageChanged;
 
         // Private constructor to prevent instantiation from outside the class.
         public LanguageManager()
@@ -33,8 +35,17 @@ namespace EasySaveProject.LanguageFolder
             {"Welcome to the Progress View","Bienvenu sur la vue progress"},
             {"Hello world this is the menu type  : 0 to Add work, 1 to Execute work, 2 for the progress View, 3 for the settings ","Bonjour ceci est notre menu tapez : 0 pour ajouter un travail, 2 pour la vue progrès, 3 pour les paramètres" },
             {"Welcome to the Save Work view!", "Bienvenu sur la vue de sauvegarde de travail" },
-            {"Enter the details for the new work:","Entrez les détails du nouveau travail"}
-            // Add more translations here.
+            {"Enter the details for the new work:","Entrez les détails du nouveau travail"},
+            { "BackupName", "Nom de la sauvegarde" },
+            { "TargetDirectory", "Répertoire cible" },
+            { "SourceDirectory", "Répertoire source" },
+            { "BackupType", "Type de sauvegarde" },
+            {"Validate", "Valider" },
+            {"Work List", "Liste de travail" },
+            {"Execute", "Executer" },
+            {"Add work", "Ajouter un travail" },
+            {"Execute work", "Executer un travail" },
+            {"Settings", "Reglages" },
         };
 
             frenchToEnglish = new Dictionary<string, string>
@@ -44,10 +55,23 @@ namespace EasySaveProject.LanguageFolder
             {"Bienvenu sur la vue progrés","Welcome to the Progress progress"},
             {"Bonjour ceci est notre menu tapez : 0 pour ajouter un travail, 2 pour la vue progrès, 3 pour les paramètres","Hello world this is the menu type  : 0 to Add work, 1 to Execute work, 2 for the progress View, 3 for the settings " },
             { "Bienvenu sur la vue de sauvegarde de travail","Welcome to the Save Work view!" },
-            {"Entrez les détails du nouveau travail","Enter the details for the new work:"}
-            
-            // Add more translations here.
+            {"Entrez les détails du nouveau travail","Enter the details for the new work:"},
+            { "Nom de la sauvegarde", "BackupName" },
+            { "Répertoire cible", "TargetDirectory" },
+            { "Répertoire source" , "SourceDirectory" },
+            { "Type de sauvegarde" , "BackupType" },
+            {"Valider" , "Validate" },   
+            {"Liste de travail" , "Work List" },
+            {"Executer" , "Execute" },
+            { "Ajouter un travail","Add work" },
+            {"Executer un travail","Execute work"},
+            {"Reglages" , "Settings" },
         };
+        }
+
+        protected void OnLanguageChanged()
+        {
+            LanguageChanged?.Invoke(this, EventArgs.Empty);
         }
 
         // Method to get the instance of the singleton.
@@ -70,6 +94,7 @@ namespace EasySaveProject.LanguageFolder
         public void SwitchLanguages(Languages language)
         {
             currentLanguage = language;
+            OnLanguageChanged();
             // Optionally, add logic to handle the UI update or other necessary operations when the language changes.
         }
 
@@ -94,9 +119,6 @@ namespace EasySaveProject.LanguageFolder
             // If the text is not found in the dictionary, return the original text.
             return text;
         }
-
-        // Optionally, you can create a property for InfoLanguage if needed.
-        // public InfoLanguage Info { get; set; }
     }
 
     // Usage:

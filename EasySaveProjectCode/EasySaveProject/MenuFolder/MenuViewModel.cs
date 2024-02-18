@@ -1,19 +1,26 @@
 ﻿using EasySaveProject.AddFolder;
 using EasySaveProject.ExecuteFolder;
 using EasySaveProject.LanguageFolder;
-using System;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
+using System.ComponentModel;
+
 using static EasySaveProject.MenuFolder.MenuRouteur;
+using System;
 
 namespace EasySaveProject.MenuFolder
 {
-    public class MenuViewModel
+    public class MenuViewModel : INotifyPropertyChanged
     {
         public ICommand AddWorkCommand { get; private set; }
         public ICommand ExecuteWorkCommand { get; private set; }
         public ICommand SettingsCommand { get; private set; }
+
+        public string AddWorkButton => LanguageManager.GetInstance().Translate("Add work");
+        public string ExecuteWorkButton => LanguageManager.GetInstance().Translate("Execute work");
+        public string SettingsButton => LanguageManager.GetInstance().Translate("Settings");
+        public event PropertyChangedEventHandler PropertyChanged;
+
 
         public enum Menu
         {
@@ -21,6 +28,10 @@ namespace EasySaveProject.MenuFolder
             ExecuteWork = 1,
             ProgressView = 2,
             Settings = 3,
+        }
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         public void redirect(int input)
         {
@@ -39,6 +50,14 @@ namespace EasySaveProject.MenuFolder
             AddWorkCommand = new RelayCommand(param => NavigateToAddWork(), param => CanNavigate()) ;
             ExecuteWorkCommand = new RelayCommand(param => NavigateToExecuteWork(), param => CanNavigate());
             SettingsCommand = new RelayCommand(param => NavigateToSettings(), param => CanNavigate());
+            LanguageManager.LanguageChanged += OnLanguageChanged;
+        }
+
+        private void OnLanguageChanged(object sender, EventArgs e)
+        {
+            OnPropertyChanged(nameof(AddWorkButton));
+            OnPropertyChanged(nameof(ExecuteWorkButton));
+            OnPropertyChanged(nameof(SettingsButton));
         }
 
         //this will determine if the command can be executed

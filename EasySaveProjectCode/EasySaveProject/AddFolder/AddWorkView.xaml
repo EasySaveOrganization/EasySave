@@ -22,19 +22,19 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="Nom de la sauvegarde :"/>
+        <TextBlock Grid.Row="0" Text="{Binding BackupName}"/>
         <TextBox Grid.Row="1" x:Name="txtName"/>
 
-        <TextBlock Grid.Row="2" Text="Répertoire cible :"/>
+        <TextBlock Grid.Row="2" Text="{Binding TargetDirectory}"/>
         <TextBox Grid.Row="3" x:Name="txtTarget"/>
 
-        <TextBlock Grid.Row="4" Text="Répertoire source :"/>
+        <TextBlock Grid.Row="4" Text="{Binding SourceDirectory}"/>
         <TextBox Grid.Row="5" x:Name="txtSource"/>
 
-        <TextBlock Grid.Row="6" Text="Type de sauvegarde :"/>
+        <TextBlock Grid.Row="6" Text="{Binding BackupType}"/>
         <TextBox Grid.Row="7" x:Name="txtType"/>
 
-        <Button Grid.Row="9"  Click="btnValider_Click" Content="Valider" Margin="0,40,0,-40" RenderTransformOrigin="0.619,-1.096"/>
+        <Button Grid.Row="9"  Click="btnValider_Click" Content="{Binding Validate}" Margin="0,40,0,-40" RenderTransformOrigin="0.619,-1.096"/>
         <Button Grid.Row="7"  Command="{Binding ExecuteWorkCommand}" Content="ExecteWork" Margin="0,87,0,-87" RenderTransformOrigin="0.619,-1.096"/>
         <Button Grid.Row="7"  Command="{Binding SettingsCommand}" Content="Settings" Margin="0,150,0,-150" RenderTransformOrigin="0.619,-1.096"/>
     </Grid>
