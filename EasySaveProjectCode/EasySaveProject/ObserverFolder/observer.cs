@@ -43,5 +43,6 @@ namespace EasySaveProject.ObserverFolder
                 observ.update(executedWork);
             });
         }
+        public int SubscriberCount => _observers.Count;
     }
 }

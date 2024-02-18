@@ -104,7 +104,7 @@ namespace EasySaveProject.SateFolder
 
             string FileName = "state.json";
             string userName = Environment.UserName;
-            string filePath = $"C:\\Users\\Desktop\\State.json";
+            string filePath = $"C:\\Users\\{userName}\\Desktop\\State.json";
 
             //list to have the have the existant informations + the new ones 
             List<SaveWorkModel> allWorks = new List<SaveWorkModel>();
