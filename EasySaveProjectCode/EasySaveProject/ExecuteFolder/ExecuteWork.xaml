@@ -13,9 +13,9 @@
         <ListView Name="WorkList" ItemsSource="{Binding Works}" BorderBrush="#cdcdcd" Margin="25,70,25,173" Padding="0" SelectedItem="{Binding SelectedWork, Mode=TwoWay}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding saveName}" Header="Work Name"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding sourceRepo}" Header="Source Repo"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding targetRepo}" Header="Target Repo"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding saveName}" Header="{Binding BackupName}"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding sourceRepo}" Header="{Binding SourceDirectory}"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding targetRepo}" Header="{Binding TargetDirectory}"/>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -18,10 +18,10 @@ namespace EasySaveProject.AddFolder
         public event PropertyChangedEventHandler PropertyChanged;
 
         //The binding names
-        public string BackupName => LanguageManager.GetInstance().Translate("BackupName");
-        public string TargetDirectory => LanguageManager.GetInstance().Translate("TargetDirectory");
-        public string SourceDirectory => LanguageManager.GetInstance().Translate("SourceDirectory");
-        public string BackupType => LanguageManager.GetInstance().Translate("BackupType");
+        public string BackupName => LanguageManager.GetInstance().Translate("Backup Name");
+        public string TargetDirectory => LanguageManager.GetInstance().Translate("Target Directory");
+        public string SourceDirectory => LanguageManager.GetInstance().Translate("Source Directory");
+        public string BackupType => LanguageManager.GetInstance().Translate("Backup Type");
         public string Validate => LanguageManager.GetInstance().Translate("Validate");
 
         // Method to notify when a property changes

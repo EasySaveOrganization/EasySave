@@ -28,6 +28,9 @@ namespace EasySaveProject.ExecuteFolder
         
         public string WorkList => LanguageManager.GetInstance().Translate("Work List");
         public string ExecuteButton => LanguageManager.GetInstance().Translate("Execute");
+        public string BackupName => LanguageManager.GetInstance().Translate("Backup Name");
+        public string TargetDirectory => LanguageManager.GetInstance().Translate("Target Directory");
+        public string SourceDirectory => LanguageManager.GetInstance().Translate("Source Directory");
 
         protected void OnPropertyChanged(string propertyName)
         {
@@ -47,6 +50,9 @@ namespace EasySaveProject.ExecuteFolder
         {
             OnPropertyChanged(nameof(WorkList));
             OnPropertyChanged(nameof(ExecuteButton));
+            OnPropertyChanged(nameof(BackupName));
+            OnPropertyChanged(nameof(TargetDirectory));
+            OnPropertyChanged(nameof(SourceDirectory));
         }
 
         public void ExecuteSelectedWork(SaveWorkModel workToExecute)
