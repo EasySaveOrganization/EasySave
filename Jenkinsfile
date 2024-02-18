@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo 'Restoring NuGet packages...'
                 // Restore NuGet packages
-                bat 'dotnet restore'
+                bat 'dotnet restore EasySave.sln'
             }
         }
 
