@@ -2,43 +2,51 @@ pipeline {
     agent any
 
     environment {
-        // Define environment variables
         DOTNET_CLI_HOME = '.dotnet'
     }
 
     stages {
+        stage('Find Solution File') {
+            steps {
+                script {
+                    // Use a Windows batch command to find the .sln file
+                    def slnFile = bat(script: 'dir /s /b *.sln', returnStdout: true).trim()
+                    // Set the .sln file path as an environment variable to use in later steps
+                    env.SLN_FILE = slnFile
+                    echo "Solution file found: ${env.SLN_FILE}"
+                }
+            }
+        }
+
         stage('Restore') {
             steps {
                 echo 'Restoring NuGet packages...'
-                // Restore NuGet packages
-                bat 'dotnet restore EasySaveProject.sln'
+                // Use the found .sln file for the restore command
+                bat "dotnet restore ${env.SLN_FILE}"
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Building the project...'
-                // Build the project
-                bat 'dotnet build --configuration Release'
+                // Use the found .sln file for the build command
+                bat "dotnet build ${env.SLN_FILE} --configuration Release"
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                // Run tests
-                bat 'dotnet test --logger "trx;LogFileName=unit_tests.xml"'
-                // Publish the test results to Jenkins (optional)
-                // junit 'unit_tests.xml'
+                // Add your test command here. Adjust accordingly if you need to specify a project or solution.
+                bat "dotnet test ${env.SLN_FILE} --logger \"trx;LogFileName=unit_tests.xml\""
             }
         }
 
         stage('Publish') {
             steps {
                 echo 'Publishing the application...'
-                // Publish the application
-                bat 'dotnet publish --configuration Release --output publish'
-                // Steps to deploy or archive the output can be added here
+                // Specify the project to publish if necessary, or adjust the command as needed.
+                bat "dotnet publish ${env.SLN_FILE} --configuration Release --output publish"
             }
         }
     }
@@ -46,7 +54,6 @@ pipeline {
     post {
         always {
             echo 'Cleaning up...'
-            // Clean up actions
             cleanWs()
         }
         success {
