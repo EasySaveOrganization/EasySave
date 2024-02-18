@@ -5,20 +5,21 @@ pipeline {
         stage('Build') {
             steps {
                 // Build your project
-                sh 'mvn clean install'
+                bat 'mvn clean install'
             }
         }
         stage('Test') {
             steps {
                 // Run tests
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
         stage('Deploy') {
             steps {
                 // Deploy your application
-                sh 'mvn deploy'
+                bat 'mvn deploy'
             }
         }
     }
 }
+
