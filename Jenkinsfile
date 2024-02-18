@@ -1,37 +1,33 @@
-pipeline {
-    agent any
-
-    environment {
-        // Define environment variables if any
-        DOTNET_SKIP_FIRST_TIME_EXPERIENCE = true
-        DOTNET_CLI_TELEMETRY_OPTOUT = true
-    }
-
-    stages {
-        stage('Restore') {
+pipeline {  
+    agent any  
+    environment {  
+        dotnet = 'C:\\Program Files\\dotnet\\dotnet.exe'  
+    }  
+    stages {  
+        stage('Checkout') {  
             steps {
-                // Restore NuGet packages
-                bat 'dotnet restore'
+                git url: 'https://github.com/raphi9864/EasySave.git', branch: 'main'
+            }  
+        }  
+        stage('Build') {  
+            steps {  
+                bat "${dotnet} build" 
+            }  
+        }  
+        stage('Test') {  
+            steps {  
+                bat "${dotnet} test"  
+            }  
+        }
+        stage("Release"){
+            steps {
+                bat "${dotnet} publish --configuration Release --output ./publish"
             }
         }
-        stage('Build') {
+        stage('Deploy') {
             steps {
-                // Build the project
-                bat 'dotnet build --configuration Release'
+                 bat 'dotnet publish -c Release -o C:\\Users'
             }
         }
-        stage('Test') {
-            steps {
-                // Run tests
-                bat 'dotnet test --configuration Release --no-build'
-            }
-        }
-        stage('Publish') {
-            steps {
-                // Publish the application
-                bat 'dotnet publish --configuration Release --output ./publish'
-            }
-        }
-        // Add additional stages for deployment if necessary
-    }
+    }  
 }
