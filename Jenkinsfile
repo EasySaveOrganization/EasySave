@@ -4,8 +4,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..' 
-                bat 'dotnet build --configuration Release'
-                archiveArtifacts artifacts: '**/bin/Release/net*/**/*', fingerprint: true
+               dir('ProjetEasySave') {
+               bat 'dotnet build --configuration Release'
+               }
             }
         }
         stage('Test') {
