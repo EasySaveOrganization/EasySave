@@ -25,12 +25,12 @@ public class SaveWorkModel
     }
     public SaveWorkModel()
     {
-        // Ne fait rien, mais nécessaire pour la désérialisation
+        // Does nothing, but necessary for deserialization
     }
-    // Méthode pour valider les données de sauvegarde
+    // Method to validate save data
     public bool Validate()
     {
-        // Implémentation de la logique de validation en utilisant les propriétés de l'objet instancié
+        // Implementation of validation logic using the properties of the instantiated object
         if (this.saveName != null && this.targetRepo != null && this.sourceRepo != null && this.saveType != null)
         {
             return true;

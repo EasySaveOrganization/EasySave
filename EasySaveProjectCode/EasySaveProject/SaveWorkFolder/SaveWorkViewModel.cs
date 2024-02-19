@@ -14,11 +14,10 @@ namespace EasySaveProject.SaveWorkFolder
         public void AddWork(string name, string target, string source, string type)
         {
             SaveWorkModel saveWorkModel = new SaveWorkModel(name, target, source, type);
-            // Initialiser les propriétés de saveWorkModel avec les données nécessaires
-
+            // Initialize the properties of saveWorkModel with the required data
             try
             {
-                // Ajouter le travail à la liste via le service
+                // Add the work to the list via the service
                 workListService.AddWork(saveWorkModel);
             }
             catch (InvalidOperationException ex)

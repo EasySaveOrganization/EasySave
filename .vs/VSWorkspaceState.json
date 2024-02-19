@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\EasySaveProjectCode",
-    "\\EasySaveProjectCode\\EasySaveProject"
+    "\\EasySaveProjectCode\\EasySaveProject",
+    "\\EasySaveProjectCode\\EasySaveProject\\ExecuteFolder",
+    "\\EasySaveProjectCode\\Unit test"
   ],
-  "SelectedNode": "\\EasySaveProjectCode\\EasySaveProject\\FormatStateStrategyJson.cs",
+  "SelectedNode": "\\EasySaveProjectCode\\Unit test\\logsTest.cs",
   "PreviewInSolutionExplorer": false
 }

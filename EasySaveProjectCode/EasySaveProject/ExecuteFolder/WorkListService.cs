@@ -18,7 +18,7 @@ namespace EasySaveProject.SaveWork
             this.filePath = $"C:\\Users\\{userName}\\Desktop\\worklist.json";
         }
 
-        // Méthode pour ajouter un travail
+        // Method to add a work
         public void AddWork(SaveWorkModel work)
         {
             if (workList?.Count < 5)
@@ -32,8 +32,7 @@ namespace EasySaveProject.SaveWork
             }
         }
 
-
-        // Méthode pour retirer un travail
+        // Method to remove a work
         public void RemoveWork(SaveWorkModel work)
         {
             workList?.Remove(work);
@@ -47,17 +46,16 @@ namespace EasySaveProject.SaveWork
             {
                 string jsonData = File.ReadAllText(filePath);
 
-                // Vérifie si le JSON est vide
+                // Check if the JSON is empty
                 if (!string.IsNullOrWhiteSpace(jsonData))
                 {
                     return JsonSerializer.Deserialize<List<SaveWorkModel>>(jsonData);
                 }
             }
 
-            // Si le fichier est vide ou n'existe pas, retourne une nouvelle liste vide
+            // If the file is empty or doesn't exist, return a new empty list
             return new List<SaveWorkModel>();
         }
-
 
         private void SaveWorkListToFile()
         {

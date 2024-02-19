@@ -15,25 +15,25 @@ namespace EasySaveProject.SaveFolder
 
             if (File.Exists(sourcePath))
             {
-                // Le chemin source pointe vers un fichier
+                // The source path points to a file
                 File.Copy(sourcePath, Path.Combine(targetPath, Path.GetFileName(sourcePath)));
                 events.NotifyObserver(data);
-                Console.WriteLine("Fichier copié avec succès.");
+                Console.WriteLine("File copied successfully.");
             }
             else if (Directory.Exists(sourcePath))
             {
-                // Le chemin source pointe vers un répertoire
+                // The source path points to a directory
                 DirectoryCopy(sourcePath, Path.Combine(targetPath, Path.GetFileName(sourcePath)), true);
                 events.NotifyObserver(data);
-                Console.WriteLine("Répertoire copié avec succès.");
+                Console.WriteLine("Directory copied successfully.");
             }
             else
             {
-                Console.WriteLine("Le chemin spécifié n'existe pas.");
+                Console.WriteLine("The specified path does not exist.");
             }
         }
 
-        // Méthode pour copier un répertoire récursivement
+        // Method to copy a directory recursively
         public static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
         {
             DirectoryInfo dir = new DirectoryInfo(sourceDirName);
@@ -41,7 +41,7 @@ namespace EasySaveProject.SaveFolder
 
             if (!dir.Exists)
             {
-                throw new DirectoryNotFoundException("Le répertoire source n'existe pas ou ne peut pas être trouvé : " + sourceDirName);
+                throw new DirectoryNotFoundException("The source directory does not exist or could not be found: " + sourceDirName);
             }
 
             if (!Directory.Exists(destDirName))
