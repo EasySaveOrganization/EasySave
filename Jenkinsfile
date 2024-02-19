@@ -5,28 +5,21 @@ pipeline {
         stage('Restore') {
             steps {
                 // Restore the dependencies
-                sh 'dotnet restore'
+                bat 'dotnet restore'
             }
         }
 
         stage('Build') {
             steps {
                 // Build the project
-                sh 'dotnet build --configuration Release'
+                bat 'dotnet build'
             }
         }
 
         stage('Test') {
             steps {
                 // Run tests if you have a test project
-                sh 'dotnet test'
-            }
-        }
-
-        stage('Publish') {
-            steps {
-                // Publish the application
-                sh 'dotnet publish --configuration Release --output ./publish'
+                bat 'dotnet test'
             }
         }
     }
