@@ -20,7 +20,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                dir('EasySaveProjectCode/Unit test') {
+                dir('EasySaveProjectCode') {
                   bat 'dotnet test'
                 }
             }
