@@ -1,40 +1,55 @@
 pipeline {
     agent any
+
+    tools {
+        // Make sure to specify the dotnet tool if it's available in your Jenkins configuration
+        // If not, you might need to ensure dotnet is available in the PATH
+        dotnet '5.0'
+    }
+
     stages {
+        stage('Restore') {
+            steps {
+                // Restore the dependencies
+                sh 'dotnet restore'
+            }
+        }
+
         stage('Build') {
             steps {
-                echo 'Building..' 
-               dir('ProjetEasySave') {
-               bat 'dotnet build --configuration Release'
-               }
+                // Build the project
+                sh 'dotnet build --configuration Release'
             }
         }
+
         stage('Test') {
             steps {
-                echo 'Testing..'
-                bat 'dotnet test --logger "trx;LogFileName=test_results.xml"'
-                publishTestResults '**/test_results.xml'
+                // Optionally run tests if you have a test project
+                // sh 'dotnet test --no-restore --verbosity normal'
             }
         }
-        stage('Deploy') {
-            when {
-                expression { currentBuild.result == null || currentBuild.result == 'SUCCESS' }
-            }
+
+        stage('Publish') {
             steps {
-                echo 'Deploying....'
-                bat 'dotnet publish --configuration Release -o ./publish'
+                // Publish the application
+                // Adjust the output directory as needed
+                sh 'dotnet publish --configuration Release --output ./publish'
             }
         }
     }
+
     post {
         always {
-            echo 'Cleaning up...'
+            // Clean up workspace after the pipeline run
+            cleanWs()
         }
         success {
-            echo 'Build, test, and deployment completed successfully.'
+            // Actions to take on success
+            echo 'Build and publish succeeded.'
         }
         failure {
-            echo 'An error occurred during the pipeline execution.'
+            // Actions to take if the pipeline fails
+            echo 'Build or publish failed.'
         }
     }
 }
