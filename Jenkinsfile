@@ -1,12 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        // Make sure to specify the dotnet tool if it's available in your Jenkins configuration
-        // If not, you might need to ensure dotnet is available in the PATH
-        dotnet '5.0'
-    }
-
     stages {
         stage('Restore') {
             steps {
@@ -18,22 +12,20 @@ pipeline {
         stage('Build') {
             steps {
                 // Build the project
-                sh 'dotnet restore'
                 sh 'dotnet build --configuration Release'
             }
         }
 
         stage('Test') {
             steps {
-                // Optionally run tests if you have a test project
-                 sh 'dotnet test'
+                // Run tests if you have a test project
+                sh 'dotnet test'
             }
         }
 
         stage('Publish') {
             steps {
                 // Publish the application
-                // Adjust the output directory as needed
                 sh 'dotnet publish --configuration Release --output ./publish'
             }
         }
