@@ -2,17 +2,40 @@ pipeline {
     agent any
 
     stages {
+        stage('Restore') {
+            steps {
+                // Assuming your .csproj or .sln file is in the 'YourProject' directory
+                dir('EasySaveProjectCode') {
+                    bat 'dotnet restore'
+                }
+            }
+        }
+
         stage('Build') {
             steps {
-                // Build the project
-                bat 'dotnet build'
+                dir('EasySaveProjectCode') {
+                    bat 'dotnet build --configuration Release'
+                }
             }
         }
 
         stage('Test') {
             steps {
-                // Run tests if you have a test project
-                bat 'dotnet test'
+                dir('EasySaveProjectCode') {
+                    // Update the path to the test project if it's different
+                    // This assumes your tests are in the same project directory
+                    // If your tests are in a different directory, specify that path here instead
+                    bat 'dotnet test'
+                }
+            }
+        }
+
+        stage('Publish') {
+            steps {
+                dir('EasySaveProjectCode') {
+                    // Adjust the output directory as needed
+                    bat 'dotnet publish --configuration Release --output ./publish'
+                }
             }
         }
     }
