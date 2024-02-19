@@ -17,7 +17,7 @@ namespace EasySaveProject
 
             if (File.Exists(sourcePath))
             {
-                // Le chemin source pointe vers un fichier
+                // The source path points to a file
                 string targetFilePath = Path.Combine(targetPath, Path.GetFileName(sourcePath));
                 if (File.Exists(targetFilePath))
                 {
@@ -43,7 +43,7 @@ namespace EasySaveProject
             }
             else if (Directory.Exists(sourcePath))
             {
-                // Le chemin source pointe vers un répertoire
+                // The source path points to a directory
                 DirectoryCopy(sourcePath, targetPath, true);
                 events.NotifyObserver(data);
                 Console.WriteLine("Opération sur le dossier terminée.");
@@ -54,7 +54,7 @@ namespace EasySaveProject
             }
         }
 
-        // Méthode pour copier un répertoire récursivement
+        // Method to copy a directory recursively
         private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
         {
             DirectoryInfo dir = new DirectoryInfo(sourceDirName);
