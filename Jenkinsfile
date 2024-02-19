@@ -18,6 +18,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Build the project
+                sh 'dotnet restore'
                 sh 'dotnet build --configuration Release'
             }
         }
@@ -25,7 +26,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Optionally run tests if you have a test project
-                // sh 'dotnet test --no-restore --verbosity normal'
+                 sh 'dotnet test'
             }
         }
 
