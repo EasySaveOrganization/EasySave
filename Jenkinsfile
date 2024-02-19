@@ -1,23 +1,20 @@
 pipeline {
     agent any
-
     stages {
         stage('Restore') {
             steps {
                 // Assuming your .csproj or .sln file is in the 'YourProject' directory
                // dir('EasySaveProjectCode') {
-                    //bat 'dotnet restore'
+                    //bat 'dotnet restore'}
                 echo 'Restoring'
-                }
             }
         }
 
         stage('Build') {
             steps {
                 //dir('EasySaveProjectCode') {
-                    //bat 'dotnet build --configuration Release'
+                    //bat 'dotnet build --configuration Release'}
                  echo 'Building'
-                }
             }
         }
 
