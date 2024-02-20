@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj": {}
+    "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj": {
+    "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
+        "projectUniqueName": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
         "projectName": "EasySaveProject",
-        "projectPath": "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
-        "packagesPath": "C:\\Users\\Valentin GIROD\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\obj\\",
+        "projectPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
+        "packagesPath": "C:\\Users\\comet\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\EasySaveProject\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Valentin GIROD\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\comet\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -70,21 +65,17 @@
         }
       }
     },
-    "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj": {
+    "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
+        "projectUniqueName": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
         "projectName": "Unit test",
-        "projectPath": "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
-        "packagesPath": "C:\\Users\\Valentin GIROD\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\obj\\",
+        "projectPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
+        "packagesPath": "C:\\Users\\comet\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\Unit test\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Valentin GIROD\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\comet\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -92,15 +83,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj": {
-                "projectPath": "C:\\Users\\Valentin GIROD\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj"
+              "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj": {
+                "projectPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj"
               }
             }
           }
