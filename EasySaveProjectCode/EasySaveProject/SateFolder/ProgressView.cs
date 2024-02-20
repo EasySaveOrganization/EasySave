@@ -8,7 +8,7 @@ using EasySaveProject.ObserverFolder;
 
 namespace EasySaveProject.SateFolder
 {
-    internal class ProgressView
+    public class ProgressView
     {
         private ProgressViewModel _progressViewModel;
 
