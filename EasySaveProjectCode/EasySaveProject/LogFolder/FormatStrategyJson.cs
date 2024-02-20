@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text.Json;
-using EasySaveProject.SaveWorkFolder;
+using EasySaveProject.SaveFolder;
 
 namespace EasySaveProject.LogFolder
 {
