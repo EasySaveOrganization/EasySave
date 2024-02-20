@@ -1,5 +1,5 @@
-﻿using EasySaveProject.Observer;
-using EasySaveProject.SaveWork;
+﻿using EasySaveProject.ObserverFolder;
+using EasySaveProject.SaveWorkFolder;
 using EasySaveProject.ObserverFolder;
 
 
