@@ -5,16 +5,18 @@ namespace EasySaveProject.LogFolder
 {
     public class FormatLogsFactory
     {
-        public FormatLogsStrategyJson Factory(WorkListService workListService)
+        public FormatLogs Factory(SaveWorkModel executedWork)
         {
-            /*switch ()
+            switch (executedWork.logsFormat)
             {
-                case "json":
-                    return new FormatStrategyJson(workListService);
+                case 1: // Xml case
+                    return new FormatLogsStrategyXml(executedWork);
+                case 2: // Json case
+                    return new FormatLogsStrategyJson(executedWork);
                 default:
                     throw new ArgumentException("Unsupported format type.");
-            }*/
-            return new FormatLogsStrategyJson(workListService);
+            }
+
         }
     }
 }

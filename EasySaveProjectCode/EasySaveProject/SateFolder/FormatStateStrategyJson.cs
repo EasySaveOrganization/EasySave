@@ -9,9 +9,6 @@ namespace EasySaveProject.SateFolder
     public class FormatStateStrategyJson
     {
 
-        //Variable to stock the file copied
-        private long _Copied;
-
         private string stateFilePath;
 
         //constructor
