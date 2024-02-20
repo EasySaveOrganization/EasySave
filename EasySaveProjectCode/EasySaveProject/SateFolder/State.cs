@@ -1,6 +1,6 @@
 ﻿using EasySaveProject.ObserverFolder;
-using EasySaveProject.SaveWorkFolder;
-using EasySaveProject.ObserverFolder;
+using EasySaveProject.SaveWork;
+using EasySaveProject.Observer;
 
 
 namespace EasySaveProject.SateFolder
