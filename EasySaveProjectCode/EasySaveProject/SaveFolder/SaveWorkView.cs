@@ -6,7 +6,7 @@ using System.IO;
 
 namespace EasySaveProject.SaveFolder
 {
-    internal class SaveWorkView : View
+    public class SaveWorkView : View
     {
         public SaveWorkViewModel saveWorkViewModel = new SaveWorkViewModel();
 
