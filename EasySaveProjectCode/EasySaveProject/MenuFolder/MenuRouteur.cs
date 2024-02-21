@@ -23,17 +23,12 @@ namespace EasySaveProject.MenuFolder
             // Lock synchronization object
             private static readonly object _lock = new object();
 
-            // Dictionary to map Menu enums to actions
-            public Dictionary<Menu, Action> map;
+           
 
             // Private constructor
             private MenuRouter()
             {
-                map = new Dictionary<Menu, Action>();
-                // Initialize map with Menu actions
-                
-               // map.Add(Menu.ExecuteWork, ExecuteWork);
-                map.Add(Menu.ProgressView, ProgressView);
+               
                 
             }
 
@@ -56,26 +51,13 @@ namespace EasySaveProject.MenuFolder
                 }
             }
 
-            // Method to redirect to the action associated with a Menu enum
-            public void redirect(Menu menu)
-            {
-                if (map.TryGetValue(menu, out Action action))
-                {
-                    action?.Invoke();
-                }
-                else
-                {
-                    Console.WriteLine("Probleme dans la création");
-                }
-            }
+           
            
 
             private void ProgressView()
             {
                 WorkListService workListService = new WorkListService();
                 ProgressViewModel progressViewModel = new ProgressViewModel(workListService);
-                ProgressView progressview = new ProgressView(progressViewModel);
-                progressview.show();
             }
 
            

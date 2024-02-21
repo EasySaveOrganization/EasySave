@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zzdkmtdf/oruCclKP0gD/1zH23ia2jmMn2xEfZ2iVqxoIOe0z4+nzeHwE6dl94Nt0mVba7uaktxNkESHkS1luw==",
+  "dgSpecHash": "NdGZrAzWq1EOqnAJossiNLaj7uitJuairTI4PMwJKvyhEHtQMUPII9Etj3cJpmOPwFdPz0vClKAAR3ZmZMwaWA==",
   "success": true,
   "projectFilePath": "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\ProjetEasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
   "expectedPackageFiles": [
@@ -19,10 +19,7 @@
     "C:\\Users\\MALEK\\.nuget\\packages\\nunit.analyzers\\3.6.1\\nunit.analyzers.3.6.1.nupkg.sha512",
     "C:\\Users\\MALEK\\.nuget\\packages\\nunit3testadapter\\4.2.1\\nunit3testadapter.4.2.1.nupkg.sha512",
     "C:\\Users\\MALEK\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
-    "C:\\Users\\MALEK\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512",
-    "C:\\Users\\MALEK\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
-    "C:\\Users\\MALEK\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",
-    "C:\\Users\\MALEK\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.26\\microsoft.aspnetcore.app.ref.6.0.26.nupkg.sha512"
+    "C:\\Users\\MALEK\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
   ],
   "logs": []
 }
