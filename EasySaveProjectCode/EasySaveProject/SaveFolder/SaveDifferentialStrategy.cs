@@ -2,6 +2,7 @@
 using EasySaveProject.ObserverFolder;
 using EasySaveProject.SaveFolder;
 using System;
+using System.Diagnostics;
 using System.IO;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -13,8 +14,9 @@ namespace EasySaveProject
 
         public override void ExecuteSave(SaveWorkModel data)
         {
-            string sourcePath = data.sourceRepo;
-            string targetPath = data.targetRepo;
+            string? sourcePath = data.sourceRepo;
+            string? targetPath = data.targetRepo;
+            string? extenstionFileToCrypt = data.extenstionFileToCrypt;
 
             // Obtenir la taille du fichier/dossier source
             long sourceSize = GetFileSize(sourcePath);
@@ -37,7 +39,18 @@ namespace EasySaveProject
                     DateTime targetLastModified = File.GetLastWriteTime(targetFilePath);
                     if (sourceLastModified > targetLastModified)
                     {
-                        File.Copy(sourcePath, targetFilePath, true);
+                        string[] arguments = new string[] { sourcePath, Path.Combine(targetPath, Path.GetFileName(sourcePath)) };
+                        if (ShouldEncryptFile(sourcePath, extenstionFileToCrypt))
+                        {
+                            using (File.Create(targetPath)) { }
+                            DateTime startEncryptTime = DateTime.Now;
+                            ExecuteCryptoSoft("C:\\Users\\Valentin GIROD\\Desktop\\EasySaveContent\\cryptosoft\\bin\\Release\\net8.0\\win-x64\\cryptosoft.exe", arguments);
+                            data.encryptFileTime = DateTime.Now - startEncryptTime;
+                        }
+                        else
+                        {
+                            File.Copy(sourcePath, Path.Combine(targetPath, Path.GetFileName(sourcePath)));
+                        }
                         data.FileTransferTime = DateTime.Now - startTime; // Calculer le temps de transfert
                         data.Time = DateTime.Now; // Enregistrer l'heure à laquelle la sauvegarde s'est terminée
                         data.nbFilesLeftToDo = 0; // Aucun fichier restant à copier
@@ -105,9 +118,19 @@ namespace EasySaveProject
                     if (sourceLastModified > destLastModified)
                     {
                         DateTime startTime = DateTime.Now; // Marquer le début du processus de copie du fichier
-                        file.CopyTo(destFilePath, true);
-                        TimeSpan transferTime = DateTime.Now - startTime; // Calculer le temps de transfert du fichier
+                        string[] arguments = new string[] { file.FullName, destFilePath };
+                        if (saveStrategy.ShouldEncryptFile(file.FullName, data.extenstionFileToCrypt))
+                        {
+                            DateTime startEncryptTime = DateTime.Now;
+                            saveStrategy.ExecuteCryptoSoft("C:\\Users\\Valentin GIROD\\Desktop\\EasySaveContent\\cryptosoft\\bin\\Release\\net8.0\\win-x64\\cryptosoft.exe", arguments);
+                            data.encryptFileTime = DateTime.Now - startEncryptTime;
+                        }
+                        else
+                        {
+                            file.CopyTo(destFilePath, false);
+                        }
 
+                        TimeSpan transferTime = DateTime.Now - startTime; // Calculer le temps de transfert du fichier
                         // Mettre à jour les informations de progression
                         data.nbFilesLeftToDo--; // Décrémenter le nombre de fichiers restants à copier
                         data.Progress = (int)(((double)(data.totalFilesToCopy - data.nbFilesLeftToDo) / data.totalFilesToCopy) * 100);
@@ -201,6 +224,33 @@ namespace EasySaveProject
             {
                 throw new ArgumentException("Le chemin spécifié n'existe pas ou n'est pas valide.");
             }
+        }
+        private bool ShouldEncryptFile(string filePath, string? fileExtensionCrypt)
+        {
+            if (!string.IsNullOrEmpty(fileExtensionCrypt))
+            {
+                return Path.GetExtension(filePath) == fileExtensionCrypt;
+            }
+            return false;
+        }
+
+        private void ExecuteCryptoSoft(string cryptosoftPath, string[] args)
+        {
+            string sourceFilePath = args[0];
+            string destinationFilePath = args[1];
+
+            // Vérifier si le fichier de destination existe, sinon le créer
+            if (!File.Exists(destinationFilePath))
+            {
+                // Créer un fichier vide
+                using (File.Create(destinationFilePath)) { }
+            }
+
+            // Exécuter cryptosoft.exe
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = cryptosoftPath;
+            startInfo.Arguments = $"\"{sourceFilePath}\" \"{destinationFilePath}\"";
+            Process.Start(startInfo)?.WaitForExit();
         }
     }
 }
