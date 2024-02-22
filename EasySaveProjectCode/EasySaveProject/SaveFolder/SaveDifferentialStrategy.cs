@@ -2,7 +2,9 @@
 using EasySaveProject.ObserverFolder;
 using EasySaveProject.SaveFolder;
 using System;
+using System.Diagnostics;
 using System.IO;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EasySaveProject
 {
@@ -12,8 +14,19 @@ namespace EasySaveProject
 
         public override void ExecuteSave(SaveWorkModel data)
         {
-            string sourcePath = data.sourceRepo;
-            string targetPath = data.targetRepo;
+            string? sourcePath = data.sourceRepo;
+            string? targetPath = data.targetRepo;
+            string? extenstionFileToCrypt = data.extenstionFileToCrypt;
+
+            // Obtenir la taille du fichier/dossier source
+            long sourceSize = GetFileSize(sourcePath);
+
+            // Définir les informations de progression initiales
+            data.totalFilesToCopy = GetTotalFileCount(sourcePath); // Obtenir le nombre total de fichiers à copier
+            data.totalFilesSize = GetFileSize(sourcePath); // Obtenir la taille du fichier/dossier source
+            data.nbFilesLeftToDo = data.totalFilesToCopy; // Définir le nombre initial de fichiers restants à copier
+            data.Progress = 0; // Définir le pourcentage d'avancement à 0%
+            data.state = "ACTIVE"; // Définir le statut sur "Actif"
 
             if (File.Exists(sourcePath))
             {
@@ -21,11 +34,28 @@ namespace EasySaveProject
                 string targetFilePath = Path.Combine(targetPath, Path.GetFileName(sourcePath));
                 if (File.Exists(targetFilePath))
                 {
+                    DateTime startTime = DateTime.Now;
                     DateTime sourceLastModified = File.GetLastWriteTime(sourcePath);
                     DateTime targetLastModified = File.GetLastWriteTime(targetFilePath);
                     if (sourceLastModified > targetLastModified)
                     {
-                        File.Copy(sourcePath, targetFilePath, true);
+                        string[] arguments = new string[] { sourcePath, Path.Combine(targetPath, Path.GetFileName(sourcePath)) };
+                        if (ShouldEncryptFile(sourcePath, extenstionFileToCrypt))
+                        {
+                            using (File.Create(targetPath)) { }
+                            DateTime startEncryptTime = DateTime.Now;
+                            ExecuteCryptoSoft("..\\..\\..\\..\\Cryptosoft\\bin\\Release\\net8.0\\win-x64\\Cryptosoft.exe", arguments);
+                            data.encryptFileTime = DateTime.Now - startEncryptTime;
+                        }
+                        else
+                        {
+                            File.Copy(sourcePath, Path.Combine(targetPath, Path.GetFileName(sourcePath)));
+                        }
+                        data.FileTransferTime = DateTime.Now - startTime; // Calculer le temps de transfert
+                        data.Time = DateTime.Now; // Enregistrer l'heure à laquelle la sauvegarde s'est terminée
+                        data.nbFilesLeftToDo = 0; // Aucun fichier restant à copier
+                        data.Progress = 100; // Avancement à 100% car un seul fichier est copié
+                        data.state = "END"; // Marquer la sauvegarde comme terminée
                         events.NotifyObserver(data);
                         Console.WriteLine("Opération sur le fichier terminée.");
                     }
@@ -36,7 +66,13 @@ namespace EasySaveProject
                 }
                 else
                 {
+                    DateTime startTime = DateTime.Now;
                     File.Copy(sourcePath, targetFilePath);
+                    data.FileTransferTime = DateTime.Now - startTime; // Calculer le temps de transfert
+                    data.Time = DateTime.Now; // Enregistrer l'heure à laquelle la sauvegarde s'est terminée
+                    data.nbFilesLeftToDo = 0; // Aucun fichier restant à copier
+                    data.Progress = 100; // Avancement à 100% car un seul fichier est copié
+                    data.state = "END"; // Marquer la sauvegarde comme terminée
                     events.NotifyObserver(data);
                     Console.WriteLine("Opération sur le fichier terminée.");
                 }
@@ -44,7 +80,8 @@ namespace EasySaveProject
             else if (Directory.Exists(sourcePath))
             {
                 // Le chemin source pointe vers un répertoire
-                DirectoryCopy(sourcePath, targetPath, true);
+                DirectoryCopy(sourcePath, targetPath, true, data, this);
+                data.state = "END"; // Marquer la sauvegarde comme terminée
                 events.NotifyObserver(data);
                 Console.WriteLine("Opération sur le dossier terminée.");
             }
@@ -55,7 +92,7 @@ namespace EasySaveProject
         }
 
         // Méthode pour copier un répertoire récursivement
-        private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
+        private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs, SaveWorkModel data, SaveDifferentialStrategy saveStrategy)
         {
             DirectoryInfo dir = new DirectoryInfo(sourceDirName);
             DirectoryInfo[] dirs = dir.GetDirectories();
@@ -80,7 +117,46 @@ namespace EasySaveProject
                     DateTime destLastModified = File.GetLastWriteTime(destFilePath);
                     if (sourceLastModified > destLastModified)
                     {
-                        file.CopyTo(destFilePath, true);
+                        DateTime startTime = DateTime.Now; // Marquer le début du processus de copie du fichier
+                        string[] arguments = new string[] { file.FullName, destFilePath };
+                        if (saveStrategy.ShouldEncryptFile(file.FullName, data.extenstionFileToCrypt))
+                        {
+                            DateTime startEncryptTime = DateTime.Now;
+                            saveStrategy.ExecuteCryptoSoft("..\\..\\..\\..\\Cryptosoft\\bin\\Release\\net8.0\\win-x64\\Cryptosoft.exe", arguments);
+                            data.encryptFileTime = DateTime.Now - startEncryptTime;
+                        }
+                        else
+                        {
+                            file.CopyTo(destFilePath, false);
+                        }
+
+                        TimeSpan transferTime = DateTime.Now - startTime; // Calculer le temps de transfert du fichier
+                        // Mettre à jour les informations de progression
+                        data.nbFilesLeftToDo--; // Décrémenter le nombre de fichiers restants à copier
+                        data.Progress = (int)(((double)(data.totalFilesToCopy - data.nbFilesLeftToDo) / data.totalFilesToCopy) * 100);
+
+                        // Informer l'observateur du fichier copié avec ses détails
+                        data.saveName = data.saveName;
+                        data.sourceRepo = file.FullName;
+                        data.targetRepo = Path.Combine(destDirName, file.Name);
+                        data.FileSize = file.Length;
+                        data.FileTransferTime = transferTime;
+                        data.Time = DateTime.Now;
+                        saveStrategy.events.NotifyObserver(data);
+                    }
+                    else
+                    {
+                        data.nbFilesLeftToDo--; // Décrémenter le nombre de fichiers restants à copier
+                        data.Progress = (int)(((double)(data.totalFilesToCopy - data.nbFilesLeftToDo) / data.totalFilesToCopy) * 100);
+
+                        // Informer l'observateur du fichier copié avec ses détails
+                        data.saveName = data.saveName;
+                        data.sourceRepo = file.FullName;
+                        data.targetRepo = Path.Combine(destDirName, file.Name);
+                        data.FileSize = file.Length;
+                        data.FileTransferTime = TimeSpan.Zero;
+                        data.Time = DateTime.Now;
+                        saveStrategy.events.NotifyObserver(data);
                     }
                 }
                 else
@@ -94,9 +170,87 @@ namespace EasySaveProject
                 foreach (DirectoryInfo subdir in dirs)
                 {
                     string tempPath = Path.Combine(destDirName, subdir.Name);
-                    DirectoryCopy(subdir.FullName, tempPath, copySubDirs);
+                    DirectoryCopy(subdir.FullName, tempPath, copySubDirs, data, saveStrategy);
                 }
             }
+        }
+        private long GetFileSize(string sourcePath)
+        {
+            if (File.Exists(sourcePath))
+            {
+                return new FileInfo(sourcePath).Length;
+            }
+            else if (Directory.Exists(sourcePath))
+            {
+                DirectoryInfo dirInfo = new DirectoryInfo(sourcePath);
+                return CalculateDirectorySize(dirInfo);
+            }
+            else
+            {
+                throw new ArgumentException("Le chemin spécifié n'existe pas ou n'est pas valide.");
+            }
+        }
+
+        // Méthode récursive pour calculer la taille d'un répertoire
+        private long CalculateDirectorySize(DirectoryInfo directory)
+        {
+            long size = 0;
+
+            // Ajouter la taille de chaque fichier dans le répertoire
+            foreach (FileInfo file in directory.GetFiles())
+            {
+                size += file.Length;
+            }
+
+            // Appeler récursivement la méthode pour chaque sous-répertoire
+            foreach (DirectoryInfo subDirectory in directory.GetDirectories())
+            {
+                size += CalculateDirectorySize(subDirectory);
+            }
+
+            return size;
+        }
+        private int GetTotalFileCount(string sourceDir)
+        {
+            if (File.Exists(sourceDir))
+            {
+                return 1;
+            }
+            else if (Directory.Exists(sourceDir))
+            {
+                return Directory.GetFiles(sourceDir, "*", SearchOption.AllDirectories).Length;
+            }
+            else
+            {
+                throw new ArgumentException("Le chemin spécifié n'existe pas ou n'est pas valide.");
+            }
+        }
+        private bool ShouldEncryptFile(string filePath, string? fileExtensionCrypt)
+        {
+            if (!string.IsNullOrEmpty(fileExtensionCrypt))
+            {
+                return Path.GetExtension(filePath) == fileExtensionCrypt;
+            }
+            return false;
+        }
+
+        private void ExecuteCryptoSoft(string cryptosoftPath, string[] args)
+        {
+            string sourceFilePath = args[0];
+            string destinationFilePath = args[1];
+
+            // Vérifier si le fichier de destination existe, sinon le créer
+            if (!File.Exists(destinationFilePath))
+            {
+                // Créer un fichier vide
+                using (File.Create(destinationFilePath)) { }
+            }
+
+            // Exécuter cryptosoft.exe
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = cryptosoftPath;
+            startInfo.Arguments = $"\"{sourceFilePath}\" \"{destinationFilePath}\"";
+            Process.Start(startInfo)?.WaitForExit();
         }
     }
 }

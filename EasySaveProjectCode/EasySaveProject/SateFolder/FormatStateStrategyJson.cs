@@ -15,7 +15,11 @@ namespace EasySaveProject.SateFolder
         //constructor
         public FormatStateStrategyJson(WorkListService workList)
         {
+<<<<<<< HEAD
+            this.stateFilePath = $"EasySaveContent\\State.json";
+=======
             _workListService = workList;
+>>>>>>> 7f8ee939f33ec6cf7ce0e8ffe0da01f5e39c4b9e
         }
 
         //method to calculate size of file within the repos

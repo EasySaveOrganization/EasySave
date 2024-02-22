@@ -4,12 +4,12 @@ using EasySaveProject.ExecuteFolder;
 
 namespace EasySaveProject.LogFolder
 {
-    public class logs : IObserver
+    public class Logs : IObserver
     {
         FormatFactory _formatFactory = new FormatFactory();
         WorkListService _workListService = new WorkListService();
 
-        public logs()
+        public Logs()
         {
         }
 

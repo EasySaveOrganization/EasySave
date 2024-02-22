@@ -7,16 +7,35 @@ using EasySaveProject.MenuFolder;
 using EasySaveProject.SateFolder;
 using EasySaveProject.LogFolder;
 using EasySaveProject.ObserverFolder;
+using EasySaveProject.ProgramBlockerFolder;
 
-observer events = observer.Instance;
-logs logs = new logs(); 
-State state = new State();
-events.Subscribe(logs);
-events.Subscribe(state);
+ProgramBlockerService monitor = new ProgramBlockerService("Calculator");
+monitor.StartMonitoring();
 
-SettingViewModel settingViewModel = new SettingViewModel();
-settingViewModel.DisplayLanguageOptions();
+while (true)
+{
+    if (monitor.IsBlocked())
+    {
+        // Block user interaction here
+        Console.WriteLine("User interaction is blocked.");
+    }
+    else
+    {
+        // Your application logic here
+        Console.WriteLine("Your application is running normally.");
+        observer events = observer.Instance;
+        logs logs = new logs();
+        State state = new State();
+        events.Subscribe(logs);
+        events.Subscribe(state);
 
-MenuWorkView menuworkview = new MenuWorkView();
-menuworkview.show();
+        SettingViewModel settingViewModel = new SettingViewModel();
+        settingViewModel.DisplayLanguageOptions();
+
+        MenuWorkView menuworkview = new MenuWorkView();
+        menuworkview.show();
+    }
+    Thread.Sleep(1000);
+}
+
 

@@ -31,7 +31,7 @@ namespace EasySaveProject.LanguageFolder
             { "Hello", "Bonjour" },
             { "Goodbye", "Au revoir" },
             {"Welcome to the Progress View","Bienvenu sur la vue progress"},
-            {"Hello world this is the menu type  : 0 to Add work, 1 to Execute work, 2 for the progress View, 3 for the settings ","Bonjour ceci est notre menu tapez : 0 pour ajouter un travail, 2 pour la vue progrès, 3 pour les paramètres" },
+            {"This is the menu  : 0 to Add work, 1 to Execute work","Bonjour ceci est notre menu tapez : 0 pour ajouter un travail, 1-Executer une sauvegarde" },
             {"Welcome to the Save Work view!", "Bienvenu sur la vue de sauvegarde de travail" },
             {"Enter the details for the new work:","Entrez les détails du nouveau travail"}
             // Add more translations here.
@@ -42,7 +42,7 @@ namespace EasySaveProject.LanguageFolder
             { "Bonjour", "Hello" },
             { "Au revoir", "Goodbye" },
             {"Bienvenu sur la vue progrés","Welcome to the Progress progress"},
-            {"Bonjour ceci est notre menu tapez : 0 pour ajouter un travail, 2 pour la vue progrès, 3 pour les paramètres","Hello world this is the menu type  : 0 to Add work, 1 to Execute work, 2 for the progress View, 3 for the settings " },
+            {"Bonjour ceci est notre menu tapez : 0 pour ajouter un travail, 1-Executer une sauvegarde","This is the menu  : 0 to Add work, 1 to Execute work"},
             { "Bienvenu sur la vue de sauvegarde de travail","Welcome to the Save Work view!" },
             {"Entrez les détails du nouveau travail","Enter the details for the new work:"}
             
