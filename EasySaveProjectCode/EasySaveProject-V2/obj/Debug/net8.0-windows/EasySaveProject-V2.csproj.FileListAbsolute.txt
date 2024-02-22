@@ -29,3 +29,34 @@ C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\EasySave\EasySave\EasySave
 C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\EasySave\EasySave\EasySaveProjectCode\EasySaveProject-V2\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\EasySave\EasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2.csproj.AssemblyReference.cache
 C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\EasySave\EasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2.csproj.CopyComplete
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\bin\Debug\net8.0-windows\EasySaveProject-V2.exe
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\bin\Debug\net8.0-windows\EasySaveProject-V2.deps.json
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\bin\Debug\net8.0-windows\EasySaveProject-V2.runtimeconfig.json
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\bin\Debug\net8.0-windows\EasySaveProject-V2.dll
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\bin\Debug\net8.0-windows\EasySaveProject-V2.pdb
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2.csproj.AssemblyReference.cache
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\AddWork\AddWorkView.g.cs
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\ExecuteFolder\ExecuteWork.g.cs
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\LanguageFolder\Settings.g.cs
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2_MarkupCompile.cache
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2_MarkupCompile.lref
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\AddWork\AddWorkView.baml
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\ExecuteFolder\ExecuteWork.baml
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\LanguageFolder\Settings.baml
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2.g.resources
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2.AssemblyInfoInputs.cache
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2.AssemblyInfo.cs
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2.csproj.CoreCompileInputs.cache
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2.sourcelink.json
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2.csproj.CopyComplete
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2.dll
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\refint\EasySaveProject-V2.dll
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2.pdb
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2.genruntimeconfig.cache
+C:\Users\rapha\Documents\CESI\Bloc2\projetgoo\ProjetEasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\ref\EasySaveProject-V2.dll

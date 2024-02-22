@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\EasySave\\EasySave\\EasySaveProjectCode\\Cryptosoft\\Cryptosoft.csproj": {}
+    "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\Cryptosoft\\Cryptosoft.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\EasySave\\EasySave\\EasySaveProjectCode\\Cryptosoft\\Cryptosoft.csproj": {
+    "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\Cryptosoft\\Cryptosoft.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\EasySave\\EasySave\\EasySaveProjectCode\\Cryptosoft\\Cryptosoft.csproj",
+        "projectUniqueName": "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\Cryptosoft\\Cryptosoft.csproj",
         "projectName": "Cryptosoft",
-        "projectPath": "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\EasySave\\EasySave\\EasySaveProjectCode\\Cryptosoft\\Cryptosoft.csproj",
-        "packagesPath": "C:\\Users\\MALEK\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\EasySave\\EasySave\\EasySaveProjectCode\\Cryptosoft\\obj\\",
+        "projectPath": "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\Cryptosoft\\Cryptosoft.csproj",
+        "packagesPath": "C:\\Users\\rapha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\Cryptosoft\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\MALEK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rapha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
