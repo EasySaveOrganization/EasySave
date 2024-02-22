@@ -1,7 +1,6 @@
 ﻿using EasySaveProject.Observer;
 using EasySaveProject.ObserverFolder;
 using System;
-using System.Diagnostics;
 using System.IO;
 
 namespace EasySaveProject.SaveFolder
@@ -11,6 +10,7 @@ namespace EasySaveProject.SaveFolder
         observer events = observer.Instance;
         public override void ExecuteSave(SaveWorkModel data)
         {
+<<<<<<< HEAD
             string? sourcePath = data.sourceRepo;
             string? targetPath = data.targetRepo;
             string? extenstionFileToCrypt = data.extenstionFileToCrypt;
@@ -74,43 +74,33 @@ namespace EasySaveProject.SaveFolder
         // Méthode pour obtenir la taille du fichier/dossier source
         private long GetFileSize(string sourcePath)
         {
+=======
+            string sourcePath = data.sourceRepo;
+            string targetPath = data.targetRepo;
+
+>>>>>>> 7f8ee939f33ec6cf7ce0e8ffe0da01f5e39c4b9e
             if (File.Exists(sourcePath))
             {
-                return new FileInfo(sourcePath).Length;
+                // Le chemin source pointe vers un fichier
+                File.Copy(sourcePath, Path.Combine(targetPath, Path.GetFileName(sourcePath)));
+                events.NotifyObserver(data);
+                Console.WriteLine("Fichier copié avec succès.");
             }
             else if (Directory.Exists(sourcePath))
             {
-                DirectoryInfo dirInfo = new DirectoryInfo(sourcePath);
-                return CalculateDirectorySize(dirInfo);
+                // Le chemin source pointe vers un répertoire
+                DirectoryCopy(sourcePath, Path.Combine(targetPath, Path.GetFileName(sourcePath)), true);
+                events.NotifyObserver(data);
+                Console.WriteLine("Répertoire copié avec succès.");
             }
             else
             {
-                throw new ArgumentException("Le chemin spécifié n'existe pas ou n'est pas valide.");
+                Console.WriteLine("Le chemin spécifié n'existe pas.");
             }
-        }
-
-        // Méthode récursive pour calculer la taille d'un répertoire
-        private long CalculateDirectorySize(DirectoryInfo directory)
-        {
-            long size = 0;
-
-            // Ajouter la taille de chaque fichier dans le répertoire
-            foreach (FileInfo file in directory.GetFiles())
-            {
-                size += file.Length;
-            }
-
-            // Appeler récursivement la méthode pour chaque sous-répertoire
-            foreach (DirectoryInfo subDirectory in directory.GetDirectories())
-            {
-                size += CalculateDirectorySize(subDirectory);
-            }
-
-            return size;
         }
 
         // Méthode pour copier un répertoire récursivement
-        public static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs, SaveWorkModel data, SaveCompleteStrategy saveStrategy)
+        public static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
         {
             DirectoryInfo dir = new DirectoryInfo(sourceDirName);
             DirectoryInfo[] dirs = dir.GetDirectories();
@@ -126,11 +116,10 @@ namespace EasySaveProject.SaveFolder
             }
 
             FileInfo[] files = dir.GetFiles();
-
-
             foreach (FileInfo file in files)
             {
                 string tempPath = Path.Combine(destDirName, file.Name);
+<<<<<<< HEAD
                 DateTime startTime = DateTime.Now; // Marquer le début du processus de copie du fichier
                 string[] arguments = new string[] { file.FullName, tempPath };
                 if (saveStrategy.ShouldEncryptFile(file.FullName, data.extenstionFileToCrypt))
@@ -159,6 +148,9 @@ namespace EasySaveProject.SaveFolder
                 data.Time = DateTime.Now;
 
                 saveStrategy.events.NotifyObserver(data);
+=======
+                file.CopyTo(tempPath, false);
+>>>>>>> 7f8ee939f33ec6cf7ce0e8ffe0da01f5e39c4b9e
             }
 
             if (copySubDirs)
@@ -166,10 +158,11 @@ namespace EasySaveProject.SaveFolder
                 foreach (DirectoryInfo subdir in dirs)
                 {
                     string tempPath = Path.Combine(destDirName, subdir.Name);
-                    DirectoryCopy(subdir.FullName, tempPath, copySubDirs, data, saveStrategy);
+                    DirectoryCopy(subdir.FullName, tempPath, copySubDirs);
                 }
             }
         }
+<<<<<<< HEAD
 
 
         // Méthode pour obtenir le nombre total de fichiers à copier
@@ -215,5 +208,7 @@ namespace EasySaveProject.SaveFolder
             startInfo.Arguments = $"\"{sourceFilePath}\" \"{destinationFilePath}\"";
             Process.Start(startInfo)?.WaitForExit();
         }
+=======
+>>>>>>> 7f8ee939f33ec6cf7ce0e8ffe0da01f5e39c4b9e
     }
 }

@@ -1,6 +1,7 @@
-﻿using EasySaveProject.Observer;
-using EasySaveProject.SaveWork;
-using EasySaveProject.ObserverFolder;
+﻿using EasySaveProject.ObserverFolder;
+using EasySaveProject.SaveWorkFolder;
+using EasySaveProject.Observer;
+using EasySaveProject.ExecuteFolder;
 
 
 namespace EasySaveProject.SateFolder
@@ -19,6 +20,7 @@ namespace EasySaveProject.SateFolder
             //create an instance of FormatStrategyJson
             var formatStateStrategy = _formatStateFactory.Factory(_workListService);
             await formatStateStrategy.Write(executedWork);
+            Console.WriteLine("State file has been updated");
         }
     }
 }

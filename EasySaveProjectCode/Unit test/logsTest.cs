@@ -2,7 +2,7 @@ using NUnit.Framework.Internal;
 using System.Text.Json;
 using EasySaveProject.SaveWorkFolder;
 using EasySaveProject.ExecuteFolder;
-using EasySaveProject.SaveWork;
+using EasySaveProject.SaveWorkFolder;
 using EasySaveProject.LogFolder;
 using EasySaveProject.ObserverFolder;
 
@@ -27,8 +27,8 @@ namespace logsTest
         {
             // Arrange
             var workListService = new WorkListService();
-            var formatFactory = new FormatLogsFactory();
-            var formatStrategyJson = new FormatLogsStrategyJson(workListService);
+            var formatFactory = new FormatFactory();
+            var formatStrategyJson = new FormatStrategyJson(workListService);
             var logs = new logs(); // Assuming Logs has a parameterless constructor
             string userName = Environment.UserName;
             string filePath = $"C:\\Users\\{userName}\\Desktop\\logs.json";
