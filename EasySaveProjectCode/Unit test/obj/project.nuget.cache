@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
+  "dgSpecHash": "Ll8YcAcOB4s8jLP+prAsxRewGS5l/gkQwiCdz6GdA01eOZEYlvUof/LQ7UEPh/wDlcLfFoO4G6DFUZS+0OuSNg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Valentin GIROD\\EasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
+=======
   "dgSpecHash": "VyyflHZHqmYYy9mwp+F4Pxs5G3eejeiokT6ij+dowae/NBxFexfmWUDJAos4JOC4uvYmdjSJivXtjVHzWMsmMw==",
   "success": true,
   "projectFilePath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
+>>>>>>> 839ebf0174e3eb4d32f382da07d40f4077f258ed
   "expectedPackageFiles": [
     "C:\\Users\\comet\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\comet\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",

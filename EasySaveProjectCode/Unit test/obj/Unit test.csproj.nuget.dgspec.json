@@ -1,6 +1,19 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "C:\\Users\\Valentin GIROD\\EasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Valentin GIROD\\EasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Valentin GIROD\\EasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
+        "projectName": "EasySaveProject",
+        "projectPath": "C:\\Users\\Valentin GIROD\\EasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
+        "packagesPath": "C:\\Users\\Valentin GIROD\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Valentin GIROD\\EasySave\\EasySaveProjectCode\\EasySaveProject\\obj\\",
+=======
     "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj": {}
   },
   "projects": {
@@ -12,6 +25,7 @@
         "projectPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj",
         "packagesPath": "C:\\Users\\comet\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\EasySaveProject\\obj\\",
+>>>>>>> 839ebf0174e3eb4d32f382da07d40f4077f258ed
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\comet\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -65,6 +79,16 @@
         }
       }
     },
+<<<<<<< HEAD
+    "C:\\Users\\Valentin GIROD\\EasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Valentin GIROD\\EasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
+        "projectName": "Unit test",
+        "projectPath": "C:\\Users\\Valentin GIROD\\EasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
+        "packagesPath": "C:\\Users\\Valentin GIROD\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Valentin GIROD\\EasySave\\EasySaveProjectCode\\Unit test\\obj\\",
+=======
     "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -73,6 +97,7 @@
         "projectPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\Unit test\\Unit test.csproj",
         "packagesPath": "C:\\Users\\comet\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\Unit test\\obj\\",
+>>>>>>> 839ebf0174e3eb4d32f382da07d40f4077f258ed
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\comet\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -89,8 +114,13 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+<<<<<<< HEAD
+              "C:\\Users\\Valentin GIROD\\EasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj": {
+                "projectPath": "C:\\Users\\Valentin GIROD\\EasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj"
+=======
               "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj": {
                 "projectPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\EasySaveProject\\EasySaveProject.csproj"
+>>>>>>> 839ebf0174e3eb4d32f382da07d40f4077f258ed
               }
             }
           }

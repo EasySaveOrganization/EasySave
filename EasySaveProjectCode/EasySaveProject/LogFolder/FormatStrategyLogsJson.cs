@@ -13,8 +13,7 @@ namespace EasySaveProject.LogFolder
         public FormatLogsStrategyJson(SaveWorkModel data)
         {
             string fileName = DateTime.Now.ToString("yyyy-MM-dd") + ".json";
-            string userName = Environment.UserName;
-            logsFilePath = $"C:\\Users\\{userName}\\Desktop\\EasySaveContent\\{fileName}"; // Correction ici
+            logsFilePath = $"EasySaveContent\\{fileName}";
         }
 
         public override async Task write(SaveWorkModel data)

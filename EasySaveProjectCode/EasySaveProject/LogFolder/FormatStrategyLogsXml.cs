@@ -13,8 +13,7 @@ namespace EasySaveProject.LogFolder
         public FormatLogsStrategyXml(SaveWorkModel data)
         {
             string fileName = DateTime.Now.ToString("yyyy-MM-dd") + ".xml";
-            string userName = Environment.UserName;
-            logsFilePath = $"C:\\Users\\{userName}\\Desktop\\EasySaveContent\\{fileName}";
+            logsFilePath = $"EasySaveContent\\{fileName}";
         }
 
         public override async Task write(SaveWorkModel data)

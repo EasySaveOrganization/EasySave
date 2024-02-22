@@ -27,8 +27,10 @@ namespace EasySaveProject.SaveFolder
             string? targetRepo = Console.ReadLine();
             Console.Write("Source Repository: ");
             string? sourceRepo = Console.ReadLine();
-            Console.Write("Save Type: ");
+            Console.Write("Save Type ('Complete' or 'Differential') : ");
             string? saveType = Console.ReadLine();
+            Console.Write("Which file extension do you wish to crypt, you can write as many as you wnat but have to split them with a space (json txt pdf)");
+            string? extenstionFileToCrypt = Console.ReadLine();
             Console.Write("Logs format (1 - Xml or 2 - Json): ");
             string input = Console.ReadLine();
             int logsFormat;
@@ -38,7 +40,7 @@ namespace EasySaveProject.SaveFolder
                 if (logsFormat == 1 || logsFormat == 2)
                 {
                     // Ajoutez le travail en utilisant le ViewModel
-                    saveWorkViewModel.AddWork(saveName, targetRepo, sourceRepo, saveType, logsFormat);
+                    saveWorkViewModel.AddWork(saveName, targetRepo, sourceRepo, saveType, extenstionFileToCrypt, logsFormat);
                 }
                 else
                 {
@@ -49,10 +51,6 @@ namespace EasySaveProject.SaveFolder
             {
                 Console.WriteLine("Invalid input. Please enter a valid number.");
             }
-
-            // Ajouter le travail en utilisant le ViewModel
-            saveWorkViewModel.AddWork(saveName, targetRepo, sourceRepo, saveType, logsFormat);
-
         }
     }
 }
