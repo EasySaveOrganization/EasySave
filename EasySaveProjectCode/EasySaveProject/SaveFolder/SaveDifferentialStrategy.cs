@@ -44,7 +44,7 @@ namespace EasySaveProject
                         {
                             using (File.Create(targetPath)) { }
                             DateTime startEncryptTime = DateTime.Now;
-                            ExecuteCryptoSoft("C:\\Users\\Valentin GIROD\\Desktop\\EasySaveContent\\cryptosoft\\bin\\Release\\net8.0\\win-x64\\cryptosoft.exe", arguments);
+                            ExecuteCryptoSoft("..\\..\\..\\..\\Cryptosoft\\bin\\Release\\net8.0\\win-x64\\Cryptosoft.exe", arguments);
                             data.encryptFileTime = DateTime.Now - startEncryptTime;
                         }
                         else
@@ -122,7 +122,7 @@ namespace EasySaveProject
                         if (saveStrategy.ShouldEncryptFile(file.FullName, data.extenstionFileToCrypt))
                         {
                             DateTime startEncryptTime = DateTime.Now;
-                            saveStrategy.ExecuteCryptoSoft("C:\\Users\\Valentin GIROD\\Desktop\\EasySaveContent\\cryptosoft\\bin\\Release\\net8.0\\win-x64\\cryptosoft.exe", arguments);
+                            saveStrategy.ExecuteCryptoSoft("..\\..\\..\\..\\Cryptosoft\\bin\\Release\\net8.0\\win-x64\\Cryptosoft.exe", arguments);
                             data.encryptFileTime = DateTime.Now - startEncryptTime;
                         }
                         else

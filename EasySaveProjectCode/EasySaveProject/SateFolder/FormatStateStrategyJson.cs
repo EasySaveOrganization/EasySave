@@ -14,8 +14,7 @@ namespace EasySaveProject.SateFolder
         //constructor
         public FormatStateStrategyJson(WorkListService workList)
         {
-            string userName = Environment.UserName;
-            this.stateFilePath = $"C:\\Users\\{userName}\\Desktop\\EasySaveContent\\State.json";
+            this.stateFilePath = $"EasySaveContent\\State.json";
         }
 
 

@@ -17,22 +17,44 @@ namespace EasySaveProject.ExecuteFolder
         public void chooseSaveWork()
         {
             var workList = workListService.LoadWorkListFromFile();
+
+            Console.WriteLine("Choisissez les travaux que vous souhaitez exécuter en utilisant les numéros séparés par des espaces :");
             int i = 1;
             foreach (var work in workList)
             {
                 Console.WriteLine(i + " - Name of the save work : " + work.saveName + "\n");
                 i += 1;
             }
-            int selectedIndex;
-            while (!int.TryParse(Console.ReadLine(), out selectedIndex) || selectedIndex < 1 || selectedIndex > workList.Count)
-            {
-                Console.WriteLine("Veuillez entrer un numéro valide.");
-                Console.Write("Veuillez entrer le numéro du travail que vous souhaitez exécuter : ");
-            }
-            // Récupération du travail sélectionné
-            SaveWorkModel selectedWork = workList[selectedIndex - 1];
-            executeWorkService.executeWork(selectedWork);
 
+            string selectedIndexInput = Console.ReadLine();
+            string[] selectedIndexStrings = selectedIndexInput.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+            List<int> selectedIndices = new List<int>();
+
+            foreach (var indexStr in selectedIndexStrings)
+            {
+                if (int.TryParse(indexStr, out int index))
+                {
+                    if (index >= 1 && index <= workList.Count)
+                    {
+                        selectedIndices.Add(index);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"L'indice {index} est invalide. Il sera ignoré.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"L'entrée {indexStr} n'est pas un nombre valide. Elle sera ignorée.");
+                }
+            }
+
+            foreach (var selectedIndex in selectedIndices)
+            {
+                SaveWorkModel selectedWork = workList[selectedIndex - 1];
+                executeWorkService.executeWork(selectedWork);
+            }
         }
     }
 }

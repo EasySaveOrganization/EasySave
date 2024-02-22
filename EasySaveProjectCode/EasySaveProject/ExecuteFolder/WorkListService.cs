@@ -14,8 +14,7 @@ namespace EasySaveProject.SaveWork
         {
             // Initialize workList, possibly load data from the file
             workList = LoadWorkListFromFile() ?? new List<SaveWorkModel>();
-            string userName = Environment.UserName;
-            this.filePath = $"C:\\Users\\{userName}\\Desktop\\EasySaveContent\\worklist.json";
+            this.filePath = "EasySaveContent\\worklist.json";
         }
 
         // Méthode pour ajouter un travail
