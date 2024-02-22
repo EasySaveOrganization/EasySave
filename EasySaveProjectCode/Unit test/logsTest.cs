@@ -11,14 +11,14 @@ namespace logsTest
 {
     public class logsTest
     {
-        private logs logsObserver;
+        private Logs logsObserver;
         private ExecuteWorkService executeWorkService;
 
         [SetUp]
         public void Setup()
         {
             // Initialize your Logs class, which is assumed to be the observer.
-            logsObserver = new logs();
+            logsObserver = new Logs();
             observer events = observer.Instance;
         }
 
@@ -29,7 +29,7 @@ namespace logsTest
             var workListService = new WorkListService();
             var formatFactory = new FormatFactory();
             var formatStrategyJson = new FormatStrategyJson(workListService);
-            var logs = new logs(); // Assuming Logs has a parameterless constructor
+            var logs = new Logs(); 
             string userName = Environment.UserName;
             string filePath = $"C:\\Users\\{userName}\\Desktop\\logs.json";
 
