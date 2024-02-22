@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Logs>
+  <Log>
+    <Name>save4</Name>
+    <FileSource>C:\Users\MALEK\Desktop\Prépa intégrée\3A\SI\Livrable 1\Capture d’écran 2023-11-30 091202.png</FileSource>
+    <FileTarget>C:\Users\MALEK\Desktop\Livrable 1\Capture d’écran 2023-11-30 091202.png</FileTarget>
+    <FileSize>6185</FileSize>
+    <FileTransferTime>PT0.0028153S</FileTransferTime>
+    <Time>2024-02-22T17:36:35.003942+01:00</Time>
+  </Log>
+  <Log>
+    <Name>save4</Name>
+    <FileSource>C:\Users\MALEK\Desktop\Prépa intégrée\3A\SI\Livrable 1\Etat de lieux.docx</FileSource>
+    <FileTarget>C:\Users\MALEK\Desktop\Livrable 1\Etat de lieux.docx</FileTarget>
+    <FileSize>601009</FileSize>
+    <FileTransferTime>PT0.0023053S</FileTransferTime>
+    <Time>2024-02-22T17:36:35.0343669+01:00</Time>
+  </Log>
+  <Log>
+    <Name>save4</Name>
+    <FileSource>C:\Users\MALEK\Desktop\Prépa intégrée\3A\SI\Livrable 1\etat de lieux.txt</FileSource>
+    <FileTarget>C:\Users\MALEK\Desktop\Livrable 1\etat de lieux.txt</FileTarget>
+    <FileSize>790</FileSize>
+    <FileTransferTime>PT0.0013271S</FileTransferTime>
+    <Time>2024-02-22T17:36:35.0405946+01:00</Time>
+  </Log>
+</Logs>
