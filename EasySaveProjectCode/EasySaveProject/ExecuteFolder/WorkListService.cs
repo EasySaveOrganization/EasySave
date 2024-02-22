@@ -14,6 +14,10 @@ namespace EasySaveProject.SaveWork
         {
             // Initialize workList, possibly load data from the file
             workList = LoadWorkListFromFile() ?? new List<SaveWorkModel>();
+            if (!Directory.Exists("Easysavecontent"))
+            {
+                Directory.CreateDirectory("Easysavecontent");
+            }
             this.filePath = "EasySaveContent\\worklist.json";
         }
 
