@@ -35,8 +35,16 @@ namespace EasySaveProject_V2.AddWork
             string target = txtTarget.Text;
             string source = txtSource.Text;
             string type = txtType.Text;
-            string extenstionFileToCrypt = txtType.Text;
+            string extenstionFileToCrypt = txtCrypt.Text;
             int logsFormat = 1;
+            if (radioLogFormat1.IsChecked == true)
+            {
+                logsFormat = 1;
+            }
+            else if (radioLogFormat2.IsChecked == true)
+            {
+                logsFormat = 2;
+            }
 
             // Appeler la méthode AddWork du ViewModel
             saveWorkViewModel.AddWork(name, target, source, type, extenstionFileToCrypt, logsFormat);

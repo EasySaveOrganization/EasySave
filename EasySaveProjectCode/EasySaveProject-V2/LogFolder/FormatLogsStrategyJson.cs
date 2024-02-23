@@ -71,6 +71,7 @@ namespace EasySaveProject_V2.LogFolder
                         new JProperty("FileTarget", data.targetRepo),
                         new JProperty("FileSize", data.FileSize),
                         new JProperty("FileTransferTime", data.FileTransferTime),
+                        new JProperty("FileCryptageTime", data.encryptFileTime),
                         new JProperty("time", data.Time)
                     );
 

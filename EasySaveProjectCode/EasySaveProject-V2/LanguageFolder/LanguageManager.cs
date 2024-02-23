@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace EasySaveProject_V2.LanguageFolder
 {
@@ -39,6 +40,8 @@ namespace EasySaveProject_V2.LanguageFolder
             { "Target Directory", "Répertoire cible" },
             { "Source Directory", "Répertoire source" },
             { "Backup Type", "Type de sauvegarde" },
+            { "Backup Format", "Type de Format" },
+            {"Backup Extension Crypt (.txt,.jpg,.pdf)", "Type de Cryptage (.txt,.jpg,.pdf)"},
             {"Validate", "Valider" },
             {"Work List", "Liste de travail" },
             {"Execute", "Executer" },
@@ -59,6 +62,8 @@ namespace EasySaveProject_V2.LanguageFolder
             { "Répertoire cible", "Target Directory" },
             { "Répertoire source" , "Source Directory" },
             { "Type de sauvegarde" , "Backup Type" },
+            { "Type de format" , "Backup Format" },
+            {"Type de  Cryptage (.txt,.jpg,.pdf)"," Backup Extension Crypt (.txt,.jpg,.pdf)"},
             {"Valider" , "Validate" },
             {"Liste de travail" , "Work List" },
             {"Executer" , "Execute" },

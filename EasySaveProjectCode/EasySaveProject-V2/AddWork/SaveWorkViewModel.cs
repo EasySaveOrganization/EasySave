@@ -26,6 +26,8 @@ namespace EasySaveProject_V2.AddWork
         public string TargetDirectory => LanguageManager.GetInstance().Translate("Target Directory");
         public string SourceDirectory => LanguageManager.GetInstance().Translate("Source Directory");
         public string BackupType => LanguageManager.GetInstance().Translate("Backup Type");
+        public string BackupFormat => LanguageManager.GetInstance().Translate("Backup Format");
+        public string BackupCrypt => LanguageManager.GetInstance().Translate("Backup Extension Crypt (.txt,.jpg,.pdf)");
         public string Validate => LanguageManager.GetInstance().Translate("Validate");
 
         // Method to notify when a property changes
@@ -49,6 +51,8 @@ namespace EasySaveProject_V2.AddWork
             OnPropertyChanged(nameof(TargetDirectory));
             OnPropertyChanged(nameof(SourceDirectory));
             OnPropertyChanged(nameof(BackupType));
+            OnPropertyChanged(nameof(BackupFormat));
+            OnPropertyChanged(nameof(BackupCrypt));
             OnPropertyChanged(nameof(Validate));
         }
 

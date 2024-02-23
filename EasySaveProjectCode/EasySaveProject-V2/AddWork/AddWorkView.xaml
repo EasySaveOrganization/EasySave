@@ -10,6 +10,7 @@
        Background="#EAE7DC">
 
     <Grid Margin="20">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -33,8 +34,18 @@
         <TextBlock Grid.Row="6" Text="{Binding BackupType}"/>
         <TextBox Grid.Row="7" x:Name="txtType"/>
 
-        <Button Grid.Row="9"  Click="btnValider_Click" Content="{Binding Validate}" Margin="0,40,0,-40" RenderTransformOrigin="0.619,-1.096"/>
-        <Button Grid.Row="7"  Command="{Binding ExecuteWorkCommand}" Content="ExecuteWork" Margin="0,87,0,-87" RenderTransformOrigin="0.619,-1.096"/>
-        <Button Grid.Row="7"  Command="{Binding SettingsCommand}" Content="Settings" Margin="0,150,0,-150" RenderTransformOrigin="0.619,-1.096"/>
+        <TextBlock Grid.Row="7" Text="{Binding BackupFormat}" Margin="0,34,0,-30"/>
+        <StackPanel Grid.Row="7" Orientation="Horizontal" Margin="0,54,0,-54">
+            <RadioButton x:Name="radioLogFormat1" Content="Json" />
+            <RadioButton x:Name="radioLogFormat2" Content="XAML"/>
+        </StackPanel>
+
+        <TextBlock Grid.Row="7" Text="{Binding BackupCrypt}" Margin="0,80,0,-75"/>
+        <TextBox Grid.Row="7" x:Name="txtCrypt" Margin="0,106,0,-106"/>
+
+        <Button Grid.Row="7"  Click="btnValider_Click" Content="{Binding Validate}" Margin="0,132,0,-131" RenderTransformOrigin="0.619,-1.096"/>
+        <Button Grid.Row="7"  Command="{Binding ExecuteWorkCommand}" Content="ExecuteWork" Margin="0,179,0,-178" RenderTransformOrigin="0.619,-1.096"/>
+        <Button Grid.Row="7"  Command="{Binding SettingsCommand}" Content="Settings" Margin="0,219,0,-219" RenderTransformOrigin="0.619,-1.096"/>
+        
     </Grid>
 </Page>
