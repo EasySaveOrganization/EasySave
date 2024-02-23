@@ -2,6 +2,7 @@
 using System.IO;
 using System.Xml.Linq;
 using EasySaveProject.SaveWorkFolder;
+using Newtonsoft.Json.Linq;
 
 namespace EasySaveProject.LogFolder
 {
@@ -43,6 +44,7 @@ namespace EasySaveProject.LogFolder
                         new XElement("FileTarget", data.targetRepo),
                         new XElement("FileSize", data.FileSize),
                         new XElement("FileTransferTime", data.FileTransferTime),
+                        new XElement("FileCryptageTime", data.encryptFileTime),
                         new XElement("Time", data.Time)
                     );
 
