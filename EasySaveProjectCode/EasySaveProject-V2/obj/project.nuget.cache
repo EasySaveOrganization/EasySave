@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "sPSIeYE2zP5/Dg5PUF6MQ8oykcpHoCxgDHnUtZ+LSYg4i/UV2pQ4gGHXhZ0GXm0gPTHvSjCQ0xoIObKfnA/b3g==",
+  "dgSpecHash": "LJpviUHPT/BxKSMhTUZrAfYNtKlOUaI8MG7EV4J4GzGVoG3hOo8jHD88vTyjr8wwwT9bCxhKq4WVVTXxuiw75A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rapha\\Documents\\CESI\\Bloc2\\projetgoo\\ProjetEasySave\\EasySaveProjectCode\\EasySaveProject-V2\\EasySaveProject-V2.csproj",
+  "projectFilePath": "C:\\Users\\Valentin GIROD\\EasySave\\EasySaveProjectCode\\EasySaveProject-V2\\EasySaveProject-V2.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\rapha\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\Valentin GIROD\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }
