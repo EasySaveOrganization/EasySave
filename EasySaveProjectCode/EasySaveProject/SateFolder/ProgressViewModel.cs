@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using EasySaveProject.ExecuteFolder;
-using EasySaveProject.SaveWorkFolder;
+using EasySaveProject.SaveWork;
 
 namespace EasySaveProject.SateFolder
 {
@@ -26,7 +26,7 @@ namespace EasySaveProject.SateFolder
 
             foreach (var work in workList)
             {
-                if (work.saveType == "Active")
+                if (work.saveType == "ACTIVE")
                 {
                     int progress = work.Progress;
                     Console.WriteLine(progress);

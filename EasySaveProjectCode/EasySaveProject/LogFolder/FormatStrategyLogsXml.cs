@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Xml.Linq;
-using EasySaveProject.SaveWork;
+using EasySaveProject.SaveWorkFolder;
 
 namespace EasySaveProject.LogFolder
 {

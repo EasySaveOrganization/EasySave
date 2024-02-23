@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using EasySaveProject.ExecuteFolder;
 using EasySaveProject.ObserverFolder;
+using EasySaveProject.SaveWork;
 
 namespace EasySaveProject.SateFolder
 {
-    public class ProgressView
+    internal class ProgressView
     {
         private ProgressViewModel _progressViewModel;
 

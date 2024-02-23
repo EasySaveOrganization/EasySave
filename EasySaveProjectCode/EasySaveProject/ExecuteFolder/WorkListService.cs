@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
-namespace EasySaveProject.ExecuteFolder
+namespace EasySaveProject.SaveWork
 {
     public class WorkListService
     {
@@ -14,30 +14,18 @@ namespace EasySaveProject.ExecuteFolder
         {
             // Initialize workList, possibly load data from the file
             workList = LoadWorkListFromFile() ?? new List<SaveWorkModel>();
-<<<<<<< HEAD
             if (!Directory.Exists("Easysavecontent"))
             {
                 Directory.CreateDirectory("Easysavecontent");
             }
             this.filePath = "EasySaveContent\\worklist.json";
-=======
-            string userName = Environment.UserName;
-            this.filePath = $"C:\\Users\\{userName}\\Desktop\\worklist.json";
->>>>>>> 7f8ee939f33ec6cf7ce0e8ffe0da01f5e39c4b9e
         }
 
         // Méthode pour ajouter un travail
         public void AddWork(SaveWorkModel work)
         {
-            if (workList?.Count < 5)
-            {
-                workList?.Add(work);
-                SaveWorkListToFile();
-            }
-            else
-            {
-                throw new InvalidOperationException("The work list already contains 5 items.");
-            }
+            workList?.Add(work);
+            SaveWorkListToFile();
         }
 
 

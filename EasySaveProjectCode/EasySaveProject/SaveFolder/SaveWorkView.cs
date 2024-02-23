@@ -6,7 +6,7 @@ using System.IO;
 
 namespace EasySaveProject.SaveFolder
 {
-    public class SaveWorkView : View
+    internal class SaveWorkView : View
     {
         public SaveWorkViewModel saveWorkViewModel = new SaveWorkViewModel();
 
@@ -29,7 +29,6 @@ namespace EasySaveProject.SaveFolder
             string? sourceRepo = Console.ReadLine();
             Console.Write("Save Type ('Complete' or 'Differential') : ");
             string? saveType = Console.ReadLine();
-<<<<<<< HEAD
             Console.Write("Which file extension do you wish to crypt, you can write as many as you wnat but have to split them with a space (json txt pdf)");
             string? extenstionFileToCrypt = Console.ReadLine();
             Console.Write("Logs format (1 - Xml or 2 - Json): ");
@@ -52,12 +51,6 @@ namespace EasySaveProject.SaveFolder
             {
                 Console.WriteLine("Invalid input. Please enter a valid number.");
             }
-=======
-
-            // Ajouter le travail en utilisant le ViewModel
-            saveWorkViewModel.AddWork(saveName, targetRepo, sourceRepo, saveType);
-
->>>>>>> 7f8ee939f33ec6cf7ce0e8ffe0da01f5e39c4b9e
         }
     }
 }

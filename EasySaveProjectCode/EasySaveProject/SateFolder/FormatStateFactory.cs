@@ -1,12 +1,11 @@
 ﻿using EasySaveProject.SateFolder;
-using EasySaveProject.SaveWorkFolder;
-using EasySaveProject.ExecuteFolder;
+using EasySaveProject.SaveWork;
 
 namespace EasySaveProject.Observer
 {
     public class FormatStateFactory
     {
-        public FormatStateStrategyJson Factory (WorkListService workListService)
+        public FormatStateStrategyJson Factory(WorkListService workListService)
         {
             /*switch ()
             {

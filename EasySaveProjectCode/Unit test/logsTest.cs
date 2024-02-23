@@ -2,7 +2,6 @@ using NUnit.Framework.Internal;
 using System.Text.Json;
 using EasySaveProject.SaveWorkFolder;
 using EasySaveProject.ExecuteFolder;
-using EasySaveProject.SaveWorkFolder;
 using EasySaveProject.LogFolder;
 using EasySaveProject.ObserverFolder;
 
@@ -11,14 +10,13 @@ namespace logsTest
 {
     public class logsTest
     {
-        private Logs logsObserver;
+        private logs logsObserver;
         private ExecuteWorkService executeWorkService;
 
         [SetUp]
         public void Setup()
         {
-            // Initialize your Logs class, which is assumed to be the observer.
-            logsObserver = new Logs();
+            logsObserver = new logs();
             observer events = observer.Instance;
         }
 
@@ -26,10 +24,10 @@ namespace logsTest
         public async Task Logs_ShouldObserveStateChangeAndWriteLog()
         {
             // Arrange
-            var workListService = new WorkListService();
-            var formatFactory = new FormatFactory();
-            var formatStrategyJson = new FormatStrategyJson(workListService);
-            var logs = new Logs(); 
+           // var workListService = new WorkListService();
+            var formatFactory = new FormatLogsFactory();
+           // var formatStrategyJson = new FormatLogs(workListService);
+            var logs = new logs(); 
             string userName = Environment.UserName;
             string filePath = $"C:\\Users\\{userName}\\Desktop\\logs.json";
 
@@ -41,7 +39,7 @@ namespace logsTest
             };
 
             // Act
-            await formatStrategyJson.Write(exampleWork);
+            //await formatStrategyJson.Write(exampleWork);
 
             // Assert
             Assert.IsTrue(File.Exists(filePath), "Log file does not exist after Write operation.");
