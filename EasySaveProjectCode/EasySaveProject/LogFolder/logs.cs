@@ -3,12 +3,12 @@ using EasySaveProject.SaveWork;
 
 namespace EasySaveProject.LogFolder
 {
-    public class Logs : IObserver
+    public class logs : IObserver
     {
         FormatLogsFactory _formatFactory = new FormatLogsFactory();
         WorkListService _workListService = new WorkListService();
 
-        public Logs()
+        public logs()
         {
         }
 

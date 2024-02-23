@@ -5,7 +5,7 @@ namespace EasySaveProject.Observer
 {
     public class FormatStateFactory
     {
-        public FormatStateStrategyJson Factory (WorkListService workListService)
+        public FormatStateStrategyJson Factory(WorkListService workListService)
         {
             /*switch ()
             {

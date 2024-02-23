@@ -16,7 +16,6 @@ namespace EasySaveProject_V2.ExecuteFolder
 
         //Navigation Commands
         public ICommand AddWorkCommand { get; private set; }
-        public ICommand ExecuteWorkCommand { get; private set; }
         public ICommand SettingsCommand { get; private set; }
 
         //a field that will hold the selected work
@@ -40,7 +39,6 @@ namespace EasySaveProject_V2.ExecuteFolder
         {
             Works = new ObservableCollection<SaveWorkModel>(workListService.LoadWorkListFromFile());
             AddWorkCommand = new RelayCommand(param => NavigateToAddWork(), param => CanNavigate());
-            ExecuteWorkCommand = new RelayCommand(param => NavigateToExecuteWork(), param => CanNavigate());
             SettingsCommand = new RelayCommand(param => NavigateToSettings(), param => CanNavigate());
             LanguageManager.LanguageChanged += OnLanguageChanged;
         }
@@ -82,10 +80,6 @@ namespace EasySaveProject_V2.ExecuteFolder
             Application.Current.MainWindow.Content = new AddWorkView();
         }
 
-        private void NavigateToExecuteWork()
-        {
-            Application.Current.MainWindow.Content = new ExecuteWork();
-        }
         private void NavigateToSettings()
         {
             Application.Current.MainWindow.Content = new Settings();

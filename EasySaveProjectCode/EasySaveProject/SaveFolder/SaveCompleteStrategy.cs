@@ -143,7 +143,7 @@ namespace EasySaveProject.SaveFolder
                 {
                     file.CopyTo(tempPath, false);
                 }
-                
+
                 TimeSpan transferTime = DateTime.Now - startTime; // Calculer le temps de transfert du fichier
 
                 // Mettre à jour les informations de progression
