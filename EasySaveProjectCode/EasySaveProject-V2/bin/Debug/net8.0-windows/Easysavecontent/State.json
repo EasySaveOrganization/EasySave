@@ -7,5 +7,14 @@
     "TotalFilesSize": 0,
     "NbFilesLeftToDo": 0,
     "Progression": 0
+  },
+  "test2": {
+    "SourceFilePath": "",
+    "TargetFilePath": "",
+    "State": "END",
+    "TotalFilesToCopy": 0,
+    "TotalFilesSize": 0,
+    "NbFilesLeftToDo": 0,
+    "Progression": 0
   }
 }
