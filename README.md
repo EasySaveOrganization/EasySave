@@ -5,10 +5,10 @@ Cesi ecole d'ingenieur.
 EasySave is an innovative software designed to provide a reliable and intuitive backup solution. The application allows you to create, delete, and modify backup jobs effectively and securely.
 
 # Team Member :
-- C�me Trisse 
+- Côme Trisse 
 - Valentin Girod
 - Malek Nasri
-- Rapha�l Attal
+- Raphael Attal
 
 # Technologies :
 The application is written in C# and utilizes .NET Core to ensure optimal performance and broad compatibility. The design follows the Model-View-ViewModel (MVVM) architecture, making the code more maintainable and the application more scalable.
