@@ -12,6 +12,7 @@ namespace EasySaveProject_V2.MenuFolder
         public ICommand AddWorkCommand { get; private set; }
         public ICommand ExecuteWorkCommand { get; private set; }
         public ICommand SettingsCommand { get; private set; }
+        public ICommand MenuCommand { get; private set; }
 
         public string AddWorkButton => LanguageManager.GetInstance().Translate("Add work");
         public string ExecuteWorkButton => LanguageManager.GetInstance().Translate("Execute work");
@@ -31,6 +32,7 @@ namespace EasySaveProject_V2.MenuFolder
             AddWorkCommand = new RelayCommand(param => NavigateToAddWork(), param => CanNavigate());
             ExecuteWorkCommand = new RelayCommand(param => NavigateToExecuteWork(), param => CanNavigate());
             SettingsCommand = new RelayCommand(param => NavigateToSettings(), param => CanNavigate());
+            MenuCommand = new RelayCommand(param => NavigateToMenu(), param => CanNavigate());
             LanguageManager.LanguageChanged += OnLanguageChanged;
 
         }
@@ -63,6 +65,10 @@ namespace EasySaveProject_V2.MenuFolder
         private void NavigateToSettings()
         {
             Application.Current.MainWindow.Content = new Settings();
+        }
+        private void NavigateToMenu()
+        {
+            Application.Current.MainWindow.Content = new MainWindow();
         }
 
     }

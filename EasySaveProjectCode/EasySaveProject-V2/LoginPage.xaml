@@ -1,4 +1,4 @@
-﻿<Page x:Class="EasySaveProject_V2.LoginPage"
+﻿<Window x:Class="EasySaveProject_V2.LoginPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,12 +9,12 @@
       Title="LoginPage" Height="550" Width="1115"
       Background="#EAE7DC">
 
-    <Grid>
-        <StackPanel>
-            <RadioButton x:Name="rbLocal" Content="Run Locally" IsChecked="True" />
-            <RadioButton x:Name="rbRemote" Content="Enter IP Address:" />
-            <TextBox x:Name="txtIpAddress" />
-            <Button x:Name="btnConnect" Content="Connect" Click="btnConnect_Click" />
-        </StackPanel>
+    <Grid Margin="0,326,0,76">
+         <Frame x:Name="Main"/>
+        <RadioButton x:Name="rbLocal" Content="Run Locally" IsChecked="True" Margin="26,-310,-26,310" />
+            <RadioButton x:Name="rbRemote" Content="Enter IP Address:" Margin="26,-257,-26,257" />
+            <TextBox x:Name="txtIpAddress" Margin="111,-204,464,252" />
+        <Button x:Name="btnConnect" Content="Connect" Click="btnConnect_Click" Margin="344,-78,344,110" Background="#D8C3A5"/>
+       
     </Grid>
-</Page>
+</Window>
