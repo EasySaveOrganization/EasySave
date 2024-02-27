@@ -6,6 +6,8 @@ using System.Text.Json;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using EasySaveProject_V2.ExecuteFolder;
+using EasySaveProject_V2.AddWork;
 
 namespace EasySaveProject_V2
 {
@@ -39,48 +41,95 @@ namespace EasySaveProject_V2
             return handler;
         }
 
-        //Listen to the traffic
-        public void Listen(Socket clientSocket)
+        public async void HandleRequest(Socket clientSocket)
         {
             try
             {
-                byte[] buffer = new byte[1024];
-                int bytesReceived = clientSocket.Receive(buffer);
+                byte[] buffer = new byte[2048];
+                int bytesReceived = await clientSocket.ReceiveAsync(new ArraySegment<byte>(buffer), SocketFlags.None);
+                string receivedText = Encoding.UTF8.GetString(buffer, 0, bytesReceived);
 
-                string jsonRequest = Encoding.UTF8.GetString(buffer, 0, bytesReceived);
-                var requestDictionary = JsonSerializer.Deserialize<Dictionary<string, string>>(jsonRequest);
+                // Deserialize into Message object
+                Message requestMessage = JsonSerializer.Deserialize<Message>(receivedText);
 
-                if (requestDictionary != null)
+                // Check if the message is valid
+                if (requestMessage != null && requestMessage.Content != null)
                 {
-                    foreach (var entry in requestDictionary)
-                    {
-                        Console.WriteLine($"Received: Key={entry.Key}, Value={entry.Value}");
-                    }
-                    // Handle the request and prepare a response
-                    string response = HandleRequest(requestDictionary);
+                    // Assuming 'requestType' is the key in the Content dictionary that holds the type of request
+                    string requestType = requestMessage.Content.TryGetValue("requestType", out var typeValue) ? typeValue : null;
 
-                    // Send back the response
-                    byte[] byteData = Encoding.UTF8.GetBytes(response);
-                    clientSocket.Send(byteData);
+                    string responseType = "response";
+                    string responseMessage = "";
+                    int responseStatus = 200; // OK status code, change as per your application's protocol
+
+                    if (!string.IsNullOrEmpty(requestType))
+                    {
+                        switch (requestType)
+                        {
+                            case "createBackup":
+                                // Handle createBackup
+                                // ...
+                                break;
+                            case "executeBackup":
+                                // Handle executeBackup
+                                // ...
+                                break;
+                            case "obtainBackupList":
+                                // Handle obtainBackupList
+                                WorkListService workListService = new WorkListService();
+                                List<SaveWorkModel> worksList = workListService.LoadWorkListFromFile();
+                                if (worksList != null)
+                                {
+                                    // Serialize the list to JSON
+                                    responseMessage = JsonSerializer.Serialize(worksList);
+                                    responseStatus = 200; // OK status code
+                                }
+                                else
+                                {
+                                    responseType = "error";
+                                    responseMessage = "Failed to load backup list.";
+                                    responseStatus = 500; // Internal Server Error status code
+                                }
+                                break;
+                            default:
+                                responseType = "error";
+                                responseMessage = "Invalid request type.";
+                                responseStatus = 400; // Bad Request status code
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        responseType = "error";
+                        responseMessage = "Request type not specified.";
+                        responseStatus = 400; // Bad Request status code
+                    }
+
+                    // Create a response message
+                    var responseContent = new Dictionary<string, string>
+            {
+                { "type", responseType },
+                { "message", responseMessage }
+            };
+                    Message responseMessageObject = new Message(requestMessage.Id, responseContent, responseStatus);
+
+                    string jsonResponse = JsonSerializer.Serialize(responseMessageObject);
+                    byte[] byteData = Encoding.UTF8.GetBytes(jsonResponse);
+
+                    // Send response back to client
+                    await clientSocket.SendAsync(new ArraySegment<byte>(byteData), SocketFlags.None);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-            }
-            finally
-            {
-                Deconnect(clientSocket);
+                // Log the exception
+                Console.WriteLine($"Error: {ex.Message}");
             }
         }
 
-        public string HandleRequest(Dictionary<string, string> requestDictionary)
-        {
-            return "Request processed.";
-        }
 
-        //Method to deconnect 
-        public void Deconnect(Socket socket)
+        //Method to disconnect 
+        public void Disconnect(Socket socket)
         {
             socket.Shutdown(SocketShutdown.Both);
             socket.Close();

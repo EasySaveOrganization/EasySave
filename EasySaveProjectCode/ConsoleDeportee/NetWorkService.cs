@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
-using System.Threading.Tasks;
+using System.Text;
 using System.Windows;
 using Newtonsoft.Json;
 
@@ -34,7 +33,6 @@ namespace ConsoleDeportee
         public Socket ConnectSocket()
         {
             _socket.Connect(_EndPoint);
-            MessageBox.Show("Connected", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             return _socket;
         }
         public void Close()
@@ -54,26 +52,40 @@ namespace ConsoleDeportee
             //generate a unique id 
             long requestId = new Random().Next(); 
             var message = new Message(requestId, request);
+            //serialize the message to JSON string 
+            string serializedMessage = JsonConvert.SerializeObject(message);
+            // Convert JSON string to byte array
+            byte[] messageBuffer = Encoding.UTF8.GetBytes(serializedMessage);
+            // Send serialized message to server
+            await _socket.SendAsync(new ArraySegment<byte>(messageBuffer), SocketFlags.None);
+
             RequestQueue.Enqueue(message);
 
             //create a task completion to represent the asynchronous operation
             var tcs = new TaskCompletionSource<Dictionary<string, string>>();
 
-            _ = Task.Run(() =>
+            _ = Task.Run(async() =>
             {
                 while (true)
                 {
-                    if (ResponseQueue.TryDequeue(out var response))
+                    // Buffer for incoming data
+                    byte[] buffer = new byte[4096];
+                    int received = await _socket.ReceiveAsync(new ArraySegment<byte>(buffer), SocketFlags.None);
+
+                    // Deserialize received message
+                    string receivedJson = Encoding.UTF8.GetString(buffer, 0, received);
+                    Message responseMessage = JsonConvert.DeserializeObject<Message>(receivedJson);
+
+                    // Check if the received response matches the request ID
+                    if (responseMessage.Id == requestId)
                     {
-                        if (response.Id == requestId)
-                        {
-                            tcs.SetResult(response.Content); 
-                            return; 
-                        }
-                        else
-                        {
-                            ResponseQueue.Enqueue(response); 
-                        }
+                        tcs.SetResult(responseMessage.Content);
+                        break;
+                    }
+                    else
+                    {
+                        // If it's not the expected response, enqueue it for future processing
+                        ResponseQueue.Enqueue(responseMessage);
                     }
                 }
             });

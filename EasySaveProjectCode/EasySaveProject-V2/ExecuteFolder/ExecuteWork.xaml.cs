@@ -29,8 +29,11 @@ namespace EasySaveProject_V2.ExecuteFolder
             var works = ExecuteWorkList.SelectedItems;
             if (viewModel != null)
             {
-                foreach (SaveWorkModel work in works) { viewModel.ExecuteSelectedWork(work); }
-                //Executer le work 
+                //Execute the work 
+                foreach (SaveWorkModel work in works) 
+                { 
+                    viewModel.ExecuteSelectedWork(work); 
+                }
                 
                 MessageBox.Show("The work has been successfully executed.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }

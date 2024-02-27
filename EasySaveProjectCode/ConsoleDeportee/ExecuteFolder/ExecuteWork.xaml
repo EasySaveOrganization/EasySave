@@ -11,7 +11,7 @@
 
     <Grid>
         <TextBlock Text="WorkList" FontSize="16" FontWeight="Bold" />
-        <ListView Name="ExecuteWorkList" BorderBrush="#cdcdcd" Margin="25,70,25,173" Padding="0" SelectionMode="Multiple">
+        <ListView Name="ExecuteWorkList" ItemsSource="{Binding Works}" BorderBrush="#cdcdcd" Margin="25,70,25,173" Padding="0" SelectionMode="Multiple">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="BackupName"/>
