@@ -1,4 +1,5 @@
-﻿using EasySaveProject_V2.AddWork;using System.Collections.ObjectModel;
+﻿using EasySaveProject_V2.AddWork;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -25,11 +26,12 @@ namespace EasySaveProject_V2.ExecuteFolder
         private void BtnExecute_Click(object sender, RoutedEventArgs e)
         {
             var viewModel = DataContext as ExecuteWorkViewModel;
-            if (viewModel?.SelectedWork != null)
+            var works = ExecuteWorkList.SelectedItems;
+            if (viewModel != null)
             {
+                foreach (SaveWorkModel work in works) { viewModel.ExecuteSelectedWork(work); }
                 //Executer le work 
-                viewModel.ExecuteSelectedWork(viewModel.SelectedWork);
-                //Afficher un message d'erreur 
+                
                 MessageBox.Show("The work has been successfully executed.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }

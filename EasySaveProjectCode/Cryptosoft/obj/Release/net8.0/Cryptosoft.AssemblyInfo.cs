@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cryptosoft")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+445b4f23ec2d5f64df6fce09379522d756b3edda")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+229f59c457326729dfeaa709832dcbf6eb61244d")]
->>>>>>> 856aadaf99a7e8dd27ca80ac9a00e9f4f98f3f5f
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+581730d7d4145480a6f3b32884a39881aa29bdd7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cryptosoft")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cryptosoft")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

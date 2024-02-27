@@ -18,8 +18,6 @@ namespace EasySaveProject_V2.ExecuteFolder
         public ICommand AddWorkCommand { get; private set; }
         public ICommand SettingsCommand { get; private set; }
 
-        //a field that will hold the selected work
-        private SaveWorkModel _selectedWork;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -56,15 +54,6 @@ namespace EasySaveProject_V2.ExecuteFolder
             executeWorkService.executeWork(workToExecute);
         }
 
-        public SaveWorkModel SelectedWork
-        {
-            get => _selectedWork;
-            set
-            {
-                _selectedWork = value;
-                OnPropertyChanged(nameof(SelectedWork));
-            }
-        }
 
         //Navigation parts
         //this will determine if the command can be executed

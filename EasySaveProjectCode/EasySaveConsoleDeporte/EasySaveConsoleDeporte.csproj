@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="AddWork\AddWorkView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ExecuteFolder\ExecuteWork.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="LanguageFolder\Settings.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>

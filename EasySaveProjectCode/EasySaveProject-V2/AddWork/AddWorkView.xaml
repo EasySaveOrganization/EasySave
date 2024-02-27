@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddWorkView"
-       Background="#EAE7DC">
+      Background="#EAE7DC">
 
     <Grid Margin="20">
 

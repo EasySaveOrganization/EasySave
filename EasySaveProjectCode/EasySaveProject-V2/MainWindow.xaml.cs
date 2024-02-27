@@ -28,6 +28,7 @@ namespace EasySaveProject_V2
             State state = new State();
             events.Subscribe(logs);
             events.Subscribe(state);
+
             SetupNavigation();
         }
 

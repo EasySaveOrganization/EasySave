@@ -5,17 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasySaveProject_V2.MenuFolder"
         mc:Ignorable="d"
-         Title="EasySave" Height="550" Width="1115"
+        Title="EasySave" Height="550" Width="1115"
         Background="#EAE7DC">
-    
-    <!-- Seting the DataContext for the Window -->
+
     <Window.DataContext>
         <local:MenuViewModel />
     </Window.DataContext>
 
     <Grid>
+        
         <Frame x:Name="Main"/>
-
         <TextBlock Text="Menu" FontSize="40" FontWeight="Bold" Margin="492,56,491,408" />
         <Button Content="{Binding AddWorkButton}" Margin="418,161,417,321" Command="{Binding AddWorkCommand}" Background="#D8C3A5" />
         <Button Content="{Binding ExecuteWorkButton}" Margin="418,243,417,237"  Command="{Binding ExecuteWorkCommand}" Background="#D8C3A5"/>
