@@ -11,13 +11,15 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Unit test")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("EasySaveProject-V2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1e12f7e0f8cb44f8bbd6a54de6fbbb42414061e")]
-[assembly: System.Reflection.AssemblyProductAttribute("Unit test")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Unit test")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64d1b05ecb438f222dfa4ea699ed11da630059d5")]
+[assembly: System.Reflection.AssemblyProductAttribute("EasySaveProject-V2")]
+[assembly: System.Reflection.AssemblyTitleAttribute("EasySaveProject-V2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
+[assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 
 // Généré par la classe MSBuild WriteCodeFragment.
 

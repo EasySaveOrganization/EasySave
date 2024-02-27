@@ -48,6 +48,7 @@ namespace EasySaveProject_V2.LanguageFolder
             {"Add work", "Ajouter un travail" },
             {"Execute work", "Executer un travail" },
             {"Settings", "Reglages" },
+            {"An application is already running." , "Une instance de l'application est déjà en cours d'exécution." },
         };
 
             frenchToEnglish = new Dictionary<string, string>
@@ -70,6 +71,7 @@ namespace EasySaveProject_V2.LanguageFolder
             { "Ajouter un travail","Add work" },
             {"Executer un travail","Execute work"},
             {"Reglages" , "Settings" },
+            {"Une instance de l'application est déjà en cours d'exécution." , "An application is already running." },
         };
         }
 
