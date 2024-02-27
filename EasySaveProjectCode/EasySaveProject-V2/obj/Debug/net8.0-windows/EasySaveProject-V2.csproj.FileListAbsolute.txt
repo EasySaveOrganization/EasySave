@@ -91,5 +91,3 @@ C:\Users\Valentin GIROD\EasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debu
 C:\Users\Valentin GIROD\EasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2.pdb
 C:\Users\Valentin GIROD\EasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\EasySaveProject-V2.genruntimeconfig.cache
 C:\Users\Valentin GIROD\EasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\ref\EasySaveProject-V2.dll
-C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\EasySave\EasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\LoginPage.g.cs
-C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\EasySave\EasySave\EasySaveProjectCode\EasySaveProject-V2\obj\Debug\net8.0-windows\LoginPage.baml

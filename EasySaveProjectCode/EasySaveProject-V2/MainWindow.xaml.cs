@@ -12,14 +12,15 @@ namespace EasySaveProject_V2
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Page
+    public partial class MainWindow : Window
     {
         private NavigationService _navigationService;
         public MainWindow()
         {
             InitializeComponent();
+            _navigationService = new NavigationService(Main);
             var mainViewModel = new MenuViewModel(); // Pass it to the ViewModel
-            
+            this.DataContext = mainViewModel;
 
             //subscribe the log and state
             Observer events = Observer.Instance;
@@ -27,11 +28,13 @@ namespace EasySaveProject_V2
             State state = new State();
             events.Subscribe(logs);
             events.Subscribe(state);
+
+            SetupNavigation();
         }
 
         public void NavigateHome(Page page)
         {
-           
+            Main.Navigate(page);
         }
 
         private void SetupNavigation()

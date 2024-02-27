@@ -1,0 +1,20 @@
+﻿<Window x:Class="EasySaveConsoleDeporte.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasySaveConsoleDeporte.MenuFolder"
+        mc:Ignorable="d"
+         Title="EasySave" Height="550" Width="1115"
+        Background="#EAE7DC">
+
+
+    <Grid>
+
+        <TextBlock Text="Menu" FontSize="40" FontWeight="Bold" Margin="492,56,491,408" />
+        <Button Content="AddWork" Margin="418,161,417,321" Command="{Binding AddWorkCommand}" Background="#D8C3A5" />
+        <Button Content="ExecuteWork" Margin="418,243,417,237"  Command="{Binding ExecuteWorkCommand}" Background="#D8C3A5"/>
+        <Button Content="Settings" Margin="418,321,417,162" Command="{Binding SettingsCommand}" Background="#D8C3A5"/>
+
+    </Grid>
+</Window>

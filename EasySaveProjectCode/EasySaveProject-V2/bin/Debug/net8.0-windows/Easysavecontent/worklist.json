@@ -83,5 +83,22 @@
     "Progress": 0,
     "state": null,
     "FileSize": 0
+  },
+  {
+    "saveName": "kdcj",
+    "targetRepo": " xwwx ",
+    "sourceRepo": " wx w",
+    "saveType": "Complete",
+    "extenstionFileToCrypt": "",
+    "encryptFileTime": null,
+    "logsFormat": 1,
+    "FileTransferTime": "00:00:00",
+    "Time": "0001-01-01T00:00:00",
+    "totalFilesToCopy": 0,
+    "totalFilesSize": 0,
+    "nbFilesLeftToDo": 0,
+    "Progress": 0,
+    "state": null,
+    "FileSize": 0
   }
 ]

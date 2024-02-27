@@ -9,7 +9,7 @@ using EasySaveProject.LogFolder;
 using EasySaveProject.ObserverFolder;
 using EasySaveProject.ProgramBlockerFolder;
 
-ProgramBlockerService monitor = new ProgramBlockerService("Calculator");
+ProgramBlockerService monitor = new ProgramBlockerService("CalculatorApp");
 monitor.StartMonitoring();
 
 while (true)
