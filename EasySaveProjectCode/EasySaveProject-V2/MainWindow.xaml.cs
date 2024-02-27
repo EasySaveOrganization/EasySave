@@ -15,6 +15,7 @@ namespace EasySaveProject_V2
     public partial class MainWindow : Window
     {
         private NavigationService _navigationService;
+        private NetWorkService _networkService;
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace EasySaveProject_V2
             events.Subscribe(state);
 
             SetupNavigation();
+            Loaded += MainWindow_Loaded;
         }
 
         public void NavigateHome(Page page)
@@ -41,6 +43,12 @@ namespace EasySaveProject_V2
         {
             _navigationService.RegisterPage("AddWork", () => new AddWorkView());
             _navigationService.RegisterPage("ExecuteWork", () => new ExecuteWork());
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            _networkService = new NetWorkService();
+            Task.Run(() => _networkService.StartListening());
         }
     }
 }

@@ -4,6 +4,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
 using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace EasySaveProject_V2
 {
@@ -23,7 +25,7 @@ namespace EasySaveProject_V2
             _ServerEndPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8090);
         }
 
-        private Socket ConnectServer()
+        public Socket ConnectServer()
         {
             _ServerSocket.Bind(_ServerEndPoint);
             _ServerSocket.Listen(100);
@@ -31,14 +33,14 @@ namespace EasySaveProject_V2
         }
 
         //method to accept the connexion
-        private Socket AcceptConnexion(Socket socket)
+        public Socket AcceptConnexion(Socket socket)
         {
             var handler = socket.Accept();
             return handler;
         }
 
         //Listen to the traffic
-        private void Listen(Socket clientSocket)
+        public void Listen(Socket clientSocket)
         {
             try
             {
@@ -72,16 +74,39 @@ namespace EasySaveProject_V2
             }
         }
 
-        private string HandleRequest(Dictionary<string, string> requestDictionary)
+        public string HandleRequest(Dictionary<string, string> requestDictionary)
         {
             return "Request processed.";
         }
 
         //Method to deconnect 
-        private void Deconnect(Socket socket)
+        public void Deconnect(Socket socket)
         {
             socket.Shutdown(SocketShutdown.Both);
             socket.Close();
         }
+
+        public void StartListening()
+        {
+            Task.Run(() => // Run server logic on a background thread
+            {
+                _ServerSocket.Bind(_ServerEndPoint);
+                _ServerSocket.Listen(100); // Listen for at least one connection
+
+                try
+                {
+                    var handler = _ServerSocket.Accept(); // Accept a connection
+
+                        MessageBox.Show("Connection has been made.", "Connection Established", MessageBoxButton.OK, MessageBoxImage.Information);
+                    
+                }
+                catch (Exception ex)
+                {
+                        MessageBox.Show($"Error accepting connection: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                   
+                }
+            });
+        }
+
     }
 }
