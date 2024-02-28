@@ -26,13 +26,13 @@ namespace ConsoleDeportee.AddWork
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public SaveWorkViewModel()
+        public SaveWorkViewModel(NetWorkService netWorkService)
         {
             //Initialize command
             AddWorkCommand = new RelayCommand(param => NavigateToAddWork(), param => CanNavigate());
             ExecuteWorkCommand = new RelayCommand(param => NavigateToExecuteWork(), param => CanNavigate());
             SettingsCommand = new RelayCommand(param => NavigateToSettings(), param => CanNavigate());
-            _netWorkService = new NetWorkService();
+            _netWorkService = netWorkService;
         }
 
         //method to send a request

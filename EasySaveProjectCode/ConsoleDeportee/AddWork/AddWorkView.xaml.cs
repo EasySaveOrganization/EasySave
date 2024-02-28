@@ -21,11 +21,11 @@ namespace ConsoleDeportee.AddWork
     public partial class AddWorkView : Page
     {
         private SaveWorkViewModel saveWorkViewModel;
-
+        private NetWorkService _netWorkService;
         public AddWorkView()
         {
             InitializeComponent();
-            saveWorkViewModel = new SaveWorkViewModel();
+            saveWorkViewModel = new SaveWorkViewModel(_netWorkService);
             DataContext = saveWorkViewModel;
         }
 

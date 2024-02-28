@@ -26,11 +26,11 @@ namespace ConsoleDeportee.ExecuteFolder
         }
 
         //constructor
-        public ExecuteWorkViewModel()
+        public ExecuteWorkViewModel(NetWorkService netWorkService)
         {
             AddWorkCommand = new RelayCommand(param => NavigateToAddWork(), param => CanNavigate());
             SettingsCommand = new RelayCommand(param => NavigateToSettings(), param => CanNavigate());
-            _netWorkService = new NetWorkService();
+            _netWorkService = netWorkService;
             Works = new ObservableCollection<WorkItem>();
             LoadWorkList();
         }
@@ -38,8 +38,6 @@ namespace ConsoleDeportee.ExecuteFolder
         //send a request to get the list of works 
         private async void LoadWorkList()
         {
-            _netWorkService = new NetWorkService();
-            _netWorkService.ConnectSocket();
             //creating a request
             var request = new Dictionary<string, string>
             {
