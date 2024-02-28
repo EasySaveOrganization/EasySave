@@ -67,7 +67,7 @@ namespace EasySaveProject_V2
                     string name = requestMessage.Content["name"];
                     string target = requestMessage.Content["target"];
                     string source = requestMessage.Content["source"];
-                    string type = requestMessage.Content["type"];
+                    string type = requestMessage.Content["BackupType"];
                     string extensionFileToCrypt = requestMessage.Content["extensionFileToCrypt"];
                     //convert the log fromat into a string
                     int logsFormat = int.Parse(requestMessage.Content["logsFormat"]); 

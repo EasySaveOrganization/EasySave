@@ -44,7 +44,7 @@ namespace ConsoleDeportee.AddWork
                 { "name", name },
                 { "target", target },
                 { "source", source },
-                { "type", type },
+                { "BackupType", type },
                 { "extensionFileToCrypt", extensionFileToCrypt },
                 { "logsFormat", logsFormat.ToString() } 
             };

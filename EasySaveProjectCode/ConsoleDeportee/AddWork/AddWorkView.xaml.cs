@@ -48,7 +48,7 @@ namespace ConsoleDeportee.AddWork
             {
                 logsFormat = 2;
             }
-            saveWorkViewModel.AddWork(name,target,source,type, extenstionFileToCrypt,logsFormat);
+            var _ = saveWorkViewModel.AddWork(name, target, source, type, extenstionFileToCrypt, logsFormat);
         }
     }
 }
