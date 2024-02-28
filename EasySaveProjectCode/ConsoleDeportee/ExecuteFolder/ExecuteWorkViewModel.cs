@@ -10,8 +10,8 @@ namespace ConsoleDeportee.ExecuteFolder
 {
     public class ExecuteWorkViewModel : INotifyPropertyChanged
     {
-        private readonly NetWorkService _netWorkService;
-        public ObservableCollection<dynamic> Works { get; private set; }
+        private NetWorkService _netWorkService;
+        public ObservableCollection<WorkItem> Works { get; private set; }
 
         //Navigation Commands
         public ICommand AddWorkCommand { get; private set; }
@@ -31,45 +31,75 @@ namespace ConsoleDeportee.ExecuteFolder
             AddWorkCommand = new RelayCommand(param => NavigateToAddWork(), param => CanNavigate());
             SettingsCommand = new RelayCommand(param => NavigateToSettings(), param => CanNavigate());
             _netWorkService = new NetWorkService();
-            Works = new ObservableCollection<dynamic>();
+            Works = new ObservableCollection<WorkItem>();
             LoadWorkList();
         }
 
+        //send a request to get the list of works 
         private async void LoadWorkList()
         {
+            _netWorkService = new NetWorkService();
+            _netWorkService.ConnectSocket();
+            //creating a request
             var request = new Dictionary<string, string>
-        {
-            { "requestType", "obtainBackupList" }
-        };
+            {
+                { "type", "obtainBackupList" }
+            };
 
             try
             {
                 var response = await _netWorkService.SendRequest(request);
 
-                if (response.TryGetValue("type", out var responseType) && responseType == "response")
-                {
-                    // Parse the JSON response into a dynamic object
-                    var worksList = JsonConvert.DeserializeObject<List<dynamic>>(response["message"]);
+                // Access the response directly from the dictionary
+                var responseData = response["response"];
 
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        Works.Clear();
-                        foreach (var work in worksList)
-                        {
-                            Works.Add(work);
-                        }
-                    });
-                }
-                else if (responseType == "error")
+                // Deserialize the response data to get the list of works
+                var worksList = JsonConvert.DeserializeObject<List<WorkItem>>(responseData);
+                Application.Current.Dispatcher.Invoke(() =>
                 {
-                    MessageBox.Show(response["message"], "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                    Works.Clear();
+                    foreach (var work in worksList)
+                    {
+                        //foreach work we find we aded to our works 
+                        Works.Add(work);
+                    }
+                    OnPropertyChanged(nameof(Works));
+                });
             }
             catch (Exception ex)
             {
+                //in case of error show a message
                 MessageBox.Show($"An error occurred while obtaining the backup list: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        //send a request to execute the work
+        public async Task ExecuteSelectedWork(WorkItem work)
+        {
+            //serialize the work 
+            string workJson = JsonConvert.SerializeObject(work);
+            //create the request
+            var request = new Dictionary<string, string>
+            {
+                { "type", "executeBackup" },
+                { "Data", workJson }
+            };
+
+            try
+            {
+                //send the request and wait for the response
+                var response = await _netWorkService.SendRequest(request);
+                var responseMessage = response["response"];
+                //show a success message
+                MessageBox.Show(responseMessage, "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                //in case of an error show an error message 
+                MessageBox.Show($"An error occurred while executing the backup: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
 
         //Navigation parts
         //this will determine if the command can be executed

@@ -1,161 +1,132 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Text.Json;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using EasySaveProject_V2.ExecuteFolder;
 using EasySaveProject_V2.AddWork;
+using EasySaveProject_V2.ExecuteFolder;
+using Newtonsoft.Json; 
 
 namespace EasySaveProject_V2
 {
     public class NetWorkService
     {
-        //Socket
-        private readonly Socket _ServerSocket;
-        //EndPoint
-        private readonly IPEndPoint _ServerEndPoint;
-       
-        //constructor
-        public NetWorkService() 
-        { 
-            //initialize sockt 
-            _ServerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            //initialize endpoint
-            _ServerEndPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8090);
-        }
+        private readonly Socket _serverSocket;
+        private readonly IPEndPoint _serverEndPoint;
 
-        public Socket ConnectServer()
+        public NetWorkService()
         {
-            _ServerSocket.Bind(_ServerEndPoint);
-            _ServerSocket.Listen(100);
-            return _ServerSocket;
+            //initialize the socket
+            _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            //initialize the endpoint
+            _serverEndPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8090);
+            _serverSocket.Bind(_serverEndPoint);
+            _serverSocket.Listen(100);
         }
 
-        //method to accept the connexion
-        public Socket AcceptConnexion(Socket socket)
-        {
-            var handler = socket.Accept();
-            return handler;
-        }
-
-        public async void HandleRequest(Socket clientSocket)
-        {
-            try
-            {
-                byte[] buffer = new byte[2048];
-                int bytesReceived = await clientSocket.ReceiveAsync(new ArraySegment<byte>(buffer), SocketFlags.None);
-                string receivedText = Encoding.UTF8.GetString(buffer, 0, bytesReceived);
-
-                // Deserialize into Message object
-                Message requestMessage = JsonSerializer.Deserialize<Message>(receivedText);
-
-                // Check if the message is valid
-                if (requestMessage != null && requestMessage.Content != null)
-                {
-                    // Assuming 'requestType' is the key in the Content dictionary that holds the type of request
-                    string requestType = requestMessage.Content.TryGetValue("requestType", out var typeValue) ? typeValue : null;
-
-                    string responseType = "response";
-                    string responseMessage = "";
-                    int responseStatus = 200; // OK status code, change as per your application's protocol
-
-                    if (!string.IsNullOrEmpty(requestType))
-                    {
-                        switch (requestType)
-                        {
-                            case "createBackup":
-                                // Handle createBackup
-                                // ...
-                                break;
-                            case "executeBackup":
-                                // Handle executeBackup
-                                // ...
-                                break;
-                            case "obtainBackupList":
-                                // Handle obtainBackupList
-                                WorkListService workListService = new WorkListService();
-                                List<SaveWorkModel> worksList = workListService.LoadWorkListFromFile();
-                                if (worksList != null)
-                                {
-                                    // Serialize the list to JSON
-                                    responseMessage = JsonSerializer.Serialize(worksList);
-                                    responseStatus = 200; // OK status code
-                                }
-                                else
-                                {
-                                    responseType = "error";
-                                    responseMessage = "Failed to load backup list.";
-                                    responseStatus = 500; // Internal Server Error status code
-                                }
-                                break;
-                            default:
-                                responseType = "error";
-                                responseMessage = "Invalid request type.";
-                                responseStatus = 400; // Bad Request status code
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        responseType = "error";
-                        responseMessage = "Request type not specified.";
-                        responseStatus = 400; // Bad Request status code
-                    }
-
-                    // Create a response message
-                    var responseContent = new Dictionary<string, string>
-            {
-                { "type", responseType },
-                { "message", responseMessage }
-            };
-                    Message responseMessageObject = new Message(requestMessage.Id, responseContent, responseStatus);
-
-                    string jsonResponse = JsonSerializer.Serialize(responseMessageObject);
-                    byte[] byteData = Encoding.UTF8.GetBytes(jsonResponse);
-
-                    // Send response back to client
-                    await clientSocket.SendAsync(new ArraySegment<byte>(byteData), SocketFlags.None);
-                }
-            }
-            catch (Exception ex)
-            {
-                // Log the exception
-                Console.WriteLine($"Error: {ex.Message}");
-            }
-        }
-
-
-        //Method to disconnect 
-        public void Disconnect(Socket socket)
-        {
-            socket.Shutdown(SocketShutdown.Both);
-            socket.Close();
-        }
-
+        //method to listen to the client
         public void StartListening()
         {
-            Task.Run(() => // Run server logic on a background thread
+            Task.Run(() =>
             {
-                _ServerSocket.Bind(_ServerEndPoint);
-                _ServerSocket.Listen(100); // Listen for at least one connection
-
-                try
+                while (true)
                 {
-                    var handler = _ServerSocket.Accept(); // Accept a connection
-
-                        MessageBox.Show("Connection has been made.", "Connection Established", MessageBoxButton.OK, MessageBoxImage.Information);
-                    
-                }
-                catch (Exception ex)
-                {
-                        MessageBox.Show($"Error accepting connection: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                   
+                    //accept connection
+                    Socket clientSocket = _serverSocket.Accept();
+                    MessageBox.Show("Connected", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    //if a request is made handle it
+                    Task.Run(() => HandleRequest(clientSocket));
                 }
             });
         }
 
+        //method to handle requests received from the client
+        private async void HandleRequest(Socket clientSocket)
+        {
+            byte[] buffer = new byte[2048];
+            //Receive message
+            int bytesReceived = await clientSocket.ReceiveAsync(new ArraySegment<byte>(buffer), SocketFlags.None);
+            string receivedText = Encoding.UTF8.GetString(buffer, 0, bytesReceived);
+            //deserialize the message
+            Message requestMessage = JsonConvert.DeserializeObject<Message>(receivedText);
+            
+            //try to get the value type so we know which action to do
+            requestMessage.Content.TryGetValue("type", out string requestType);
+
+            string responseMessage;
+            int responseStatus;
+            Dictionary<string, string> responseContent = new Dictionary<string, string>();
+
+            //treat the request according to the action needed
+            switch (requestType)
+            {
+                case "createBackup":
+                    // Extract the fields from the request message
+                    string name = requestMessage.Content["name"];
+                    string target = requestMessage.Content["target"];
+                    string source = requestMessage.Content["source"];
+                    string type = requestMessage.Content["type"];
+                    string extensionFileToCrypt = requestMessage.Content["extensionFileToCrypt"];
+                    //convert the log fromat into a string
+                    int logsFormat = int.Parse(requestMessage.Content["logsFormat"]); 
+
+                    // add the work
+                    SaveWorkViewModel saveWorkViewModel = new SaveWorkViewModel();
+                    saveWorkViewModel.AddWork(name, target, source, type, extensionFileToCrypt, logsFormat);
+
+                    responseMessage = "Backup creation completed successfully.";
+                    responseStatus = 200; // OK status code
+                    break;
+                case "executeBackup":
+                    //deserialize the data 
+                    string workDataJson = requestMessage.Content["Data"];
+                    var workToExecute = JsonConvert.DeserializeObject<SaveWorkModel>(workDataJson);
+                    ExecuteWorkService executeWorkService = new ExecuteWorkService();
+                    executeWorkService.executeWork(workToExecute);
+                    responseMessage = "Backup execution completed successfully.";
+                    responseStatus = 200; // OK status code
+                    break;
+                case "obtainBackupList":
+                    try
+                    {
+                        WorkListService workListService = new WorkListService();
+                        List<SaveWorkModel> worksList = workListService.LoadWorkListFromFile();
+                        if (worksList != null)
+                        {
+                            responseMessage = JsonConvert.SerializeObject(worksList);
+                            responseStatus = 200; // OK status code
+                        }
+                        else
+                        {
+                            responseMessage = "No backup list found.";
+                            responseStatus = 404; // Not Found status code
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        responseMessage = $"Error loading backup list: {ex.Message}";
+                        responseStatus = 500; // Internal Server Error
+                    }
+                    break;
+                default:
+                    responseMessage = "Invalid request type.";
+                    responseStatus = 400; // Bad Request status code
+                    break;
+            }
+
+            //add the response content to the response
+            responseContent.Add("response", responseMessage);
+            var response = new Message(requestMessage.Id, responseContent, responseStatus);
+            string serializedResponse = JsonConvert.SerializeObject(response);
+
+            byte[] responseBuffer = Encoding.UTF8.GetBytes(serializedResponse);
+            //send the message
+            await clientSocket.SendAsync(new ArraySegment<byte>(responseBuffer), SocketFlags.None);
+            //close the connection 
+            clientSocket.Shutdown(SocketShutdown.Both);
+            clientSocket.Close();
+        }
     }
 }

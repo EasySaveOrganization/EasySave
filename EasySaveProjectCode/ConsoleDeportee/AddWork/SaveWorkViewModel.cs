@@ -5,12 +5,14 @@ using System.Windows;
 using System.Windows.Input;
 using ConsoleDeportee.ExecuteFolder;
 using ConsoleDeportee.LanguageFolder;
+using Newtonsoft.Json;
 
 namespace ConsoleDeportee.AddWork
 {
     public class SaveWorkViewModel : INotifyPropertyChanged
     {
-      
+
+        private NetWorkService _netWorkService;
         public ICommand AddWorkCommand { get; private set; }
         public ICommand ExecuteWorkCommand { get; private set; }
         public ICommand SettingsCommand { get; private set; }
@@ -30,7 +32,33 @@ namespace ConsoleDeportee.AddWork
             AddWorkCommand = new RelayCommand(param => NavigateToAddWork(), param => CanNavigate());
             ExecuteWorkCommand = new RelayCommand(param => NavigateToExecuteWork(), param => CanNavigate());
             SettingsCommand = new RelayCommand(param => NavigateToSettings(), param => CanNavigate());
-           
+            _netWorkService = new NetWorkService();
+        }
+
+        //method to send a request
+        public async Task AddWork(string name, string target, string source, string type, string extensionFileToCrypt, int logsFormat)
+        {
+            var request = new Dictionary<string, string>
+            {
+                { "type", "createBackup" },
+                { "name", name },
+                { "target", target },
+                { "source", source },
+                { "type", type },
+                { "extensionFileToCrypt", extensionFileToCrypt },
+                { "logsFormat", logsFormat.ToString() } 
+            };
+
+            try
+            {
+                var response = await _netWorkService.SendRequest(request);
+                var responseMessage = response["response"];
+                MessageBox.Show(responseMessage, "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while adding the backup: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
 

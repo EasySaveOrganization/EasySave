@@ -14,7 +14,7 @@ namespace ConsoleDeportee
         {
             InitializeComponent();
             var mainViewModel = new MenuViewModel();
-            Loaded += MainWindow_Loaded;
+            //Loaded += MainWindow_Loaded;
         }
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)

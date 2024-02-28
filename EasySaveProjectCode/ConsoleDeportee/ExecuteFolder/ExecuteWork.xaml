@@ -14,9 +14,9 @@
         <ListView Name="ExecuteWorkList" ItemsSource="{Binding Works}" BorderBrush="#cdcdcd" Margin="25,70,25,173" Padding="0" SelectionMode="Multiple">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="BackupName"/>
-                    <GridViewColumn Header="SourceDirectory"/>
-                    <GridViewColumn Header="TargetDirectory"/>
+                    <GridViewColumn Header="BackupName" DisplayMemberBinding="{Binding saveName }"/>
+                    <GridViewColumn Header="SourceDirectory" DisplayMemberBinding="{Binding sourceRepo}"/>
+                    <GridViewColumn Header="TargetDirectory" DisplayMemberBinding="{Binding targetRepo}"/>
                 </GridView>
             </ListView.View>
         </ListView>

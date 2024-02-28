@@ -25,13 +25,14 @@ namespace ConsoleDeportee.ExecuteFolder
         private void BtnExecute_Click(object sender, RoutedEventArgs e)
         {
             var viewModel = DataContext as ExecuteWorkViewModel;
-            var works = ExecuteWorkList.SelectedItems;
+            var works = ExecuteWorkList.SelectedItems.OfType<WorkItem>().ToList(); 
+
             if (viewModel != null)
             {
-               
-                //Executer le work 
-
-                MessageBox.Show("The work has been successfully executed.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                foreach (var work in works)
+                {
+                    Task.Run(() => viewModel.ExecuteSelectedWork(work)); 
+                }
             }
         }
     }
