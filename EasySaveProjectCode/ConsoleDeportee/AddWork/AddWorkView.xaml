@@ -22,30 +22,30 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="BackupName"/>
+        <TextBlock Grid.Row="0" Text="{Binding BackupName}"/>
         <TextBox Grid.Row="1" x:Name="txtName"/>
 
-        <TextBlock Grid.Row="2" Text="TargetDirectory"/>
+        <TextBlock Grid.Row="2" Text="{Binding TargetDirectory}"/>
         <TextBox Grid.Row="3" x:Name="txtTarget"/>
 
-        <TextBlock Grid.Row="4" Text="SourceDirectory"/>
+        <TextBlock Grid.Row="4" Text="{Binding SourceDirectory}"/>
         <TextBox Grid.Row="5" x:Name="txtSource"/>
 
-        <TextBlock Grid.Row="6" Text="BackupType"/>
+        <TextBlock Grid.Row="6" Text="{Binding BackupType}"/>
         <TextBox Grid.Row="7" x:Name="txtType"/>
 
-        <TextBlock Grid.Row="7" Text="BackupFormat" Margin="0,34,0,-30"/>
+        <TextBlock Grid.Row="7" Text="{Binding BackupFormat}" Margin="0,34,0,-30"/>
         <StackPanel Grid.Row="7" Orientation="Horizontal" Margin="0,54,0,-54">
             <RadioButton x:Name="radioLogFormat1" Content="Json" />
             <RadioButton x:Name="radioLogFormat2" Content="XAML"/>
         </StackPanel>
 
-        <TextBlock Grid.Row="7" Text="BackupCrypt" Margin="0,80,0,-75"/>
+        <TextBlock Grid.Row="7" Text="{Binding BackupCrypt}" Margin="0,80,0,-75"/>
         <TextBox Grid.Row="7" x:Name="txtCrypt" Margin="0,106,0,-106"/>
 
-        <Button Grid.Row="7"  Click="btnValider_Click" Content="Validate" Margin="0,132,0,-131" RenderTransformOrigin="0.619,-1.096"/>
-        <Button Grid.Row="7"  Command="{Binding ExecuteWorkCommand}" Content="ExecuteWork" Margin="0,179,0,-178" RenderTransformOrigin="0.619,-1.096"/>
-        <Button Grid.Row="7"  Command="{Binding SettingsCommand}" Content="Settings" Margin="0,219,0,-219" RenderTransformOrigin="0.619,-1.096"/>
+        <Button Grid.Row="7"  Click="btnValider_Click" Content="{Binding Validate}" Margin="0,132,0,-131" RenderTransformOrigin="0.619,-1.096"/>
+        <Button Grid.Row="7"  Command="{Binding ExecuteWorkCommand}" Content="{Binding ExecuteWork}" Margin="0,179,0,-178" RenderTransformOrigin="0.619,-1.096"/>
+        <Button Grid.Row="7"  Command="{Binding SettingsCommand}" Content="{Binding Settings}" Margin="0,219,0,-219" RenderTransformOrigin="0.619,-1.096"/>
 
     </Grid>
 </Page>

@@ -26,3 +26,6 @@ C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\EasySave\EasySave\EasySave
 C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\EasySave\EasySave\EasySaveProjectCode\ConsoleDeportee\obj\Debug\net8.0-windows\ExecuteFolder\ExecuteWork.baml
 C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\EasySave\EasySave\EasySaveProjectCode\ConsoleDeportee\obj\Debug\net8.0-windows\LanguageFolder\Settings.baml
 C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\EasySave\EasySave\EasySaveProjectCode\ConsoleDeportee\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\EasySave\EasySave\EasySaveProjectCode\ConsoleDeportee\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\EasySave\EasySave\EasySaveProjectCode\ConsoleDeportee\obj\Debug\net8.0-windows\ConsoleDeportee.csproj.AssemblyReference.cache
+C:\Users\MALEK\Desktop\Prépa intégrée\3A\PS\Projet\EasySave\EasySave\EasySaveProjectCode\ConsoleDeportee\obj\Debug\net8.0-windows\ConsoleDeportee.csproj.CopyComplete

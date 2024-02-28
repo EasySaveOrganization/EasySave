@@ -5,13 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ConsoleDeportee.AddWork
 {
@@ -21,11 +14,14 @@ namespace ConsoleDeportee.AddWork
     public partial class AddWorkView : Page
     {
         private SaveWorkViewModel saveWorkViewModel;
-
         public AddWorkView()
         {
             InitializeComponent();
-            saveWorkViewModel = new SaveWorkViewModel();
+            //get the networkService instance
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            var networkService = mainWindow?._networkService;
+            //pass the networkService instance to the SaveWorkViewModel
+            saveWorkViewModel = new SaveWorkViewModel(networkService);
             DataContext = saveWorkViewModel;
         }
 
@@ -45,11 +41,7 @@ namespace ConsoleDeportee.AddWork
             {
                 logsFormat = 2;
             }
-
-            // Appeler la méthode AddWork du ViewModel
-           
-
-            MessageBox.Show("Les données de sauvegarde ont été validées et ajoutées avec succès.");
+            var _ = saveWorkViewModel.AddWork(name, target, source, type, extenstionFileToCrypt, logsFormat);
         }
     }
 }
