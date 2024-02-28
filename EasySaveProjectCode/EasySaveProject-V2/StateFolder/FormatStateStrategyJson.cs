@@ -64,7 +64,7 @@ namespace EasySaveProject_V2.StateFolder
                     existingToken["TargetFilePath"] = data.targetRepo;
                     existingToken["State"] = data.state;
                     existingToken["TotalFilesToCopy"] = data.totalFilesToCopy;
-                    existingToken["TotalFilesSize"] = data.FileSize;
+                    existingToken["TotalFilesSize"] = data.totalFilesSize;
                     existingToken["NbFilesLeftToDo"] = data.nbFilesLeftToDo;
                     existingToken["Progression"] = data.Progress;
 
@@ -87,7 +87,7 @@ namespace EasySaveProject_V2.StateFolder
                         new JProperty("TargetFilePath", data.targetRepo),
                         new JProperty("State", data.state),
                         new JProperty("TotalFilesToCopy", data.totalFilesToCopy),
-                        new JProperty("TotalFilesSize", data.FileSize),
+                        new JProperty("TotalFilesSize", data.totalFilesSize),
                         new JProperty("NbFilesLeftToDo", data.nbFilesLeftToDo),
                         new JProperty("Progression", data.Progress)
                     );
