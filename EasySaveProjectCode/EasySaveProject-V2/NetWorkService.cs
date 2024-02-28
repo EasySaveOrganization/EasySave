@@ -78,6 +78,7 @@ namespace EasySaveProject_V2
 
                     responseMessage = "Backup creation completed successfully.";
                     responseStatus = 200; // OK status code
+                    MessageBox.Show("Created the backup", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                     break;
                 case "executeBackup":
                     //deserialize the data 

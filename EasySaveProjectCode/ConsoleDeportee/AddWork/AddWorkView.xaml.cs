@@ -21,11 +21,14 @@ namespace ConsoleDeportee.AddWork
     public partial class AddWorkView : Page
     {
         private SaveWorkViewModel saveWorkViewModel;
-        private NetWorkService _netWorkService;
         public AddWorkView()
         {
             InitializeComponent();
-            saveWorkViewModel = new SaveWorkViewModel(_netWorkService);
+            //get the networkService instance
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            var networkService = mainWindow?._networkService;
+            //pass the networkService instance to the SaveWorkViewModel
+            saveWorkViewModel = new SaveWorkViewModel(networkService);
             DataContext = saveWorkViewModel;
         }
 
@@ -45,11 +48,7 @@ namespace ConsoleDeportee.AddWork
             {
                 logsFormat = 2;
             }
-
-            // Appeler la méthode AddWork du ViewModel
-           
-
-            MessageBox.Show("Les données de sauvegarde ont été validées et ajoutées avec succès.");
+            saveWorkViewModel.AddWork(name,target,source,type, extenstionFileToCrypt,logsFormat);
         }
     }
 }

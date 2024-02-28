@@ -14,6 +14,7 @@ namespace ConsoleDeportee.ExecuteFolder
         public ExecuteWork()
         {
             InitializeComponent();
+            //get the netWorkService instance
             var mainWindow = Application.Current.MainWindow as MainWindow;
             var networkService = mainWindow?._networkService;
 
