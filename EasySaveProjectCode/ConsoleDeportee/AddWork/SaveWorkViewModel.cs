@@ -19,6 +19,14 @@ namespace ConsoleDeportee.AddWork
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        //The binding names
+        public string BackupName => LanguageManager.GetInstance().Translate("Backup Name");
+        public string TargetDirectory => LanguageManager.GetInstance().Translate("Target Directory");
+        public string SourceDirectory => LanguageManager.GetInstance().Translate("Source Directory");
+        public string BackupType => LanguageManager.GetInstance().Translate("Backup Type");
+        public string BackupFormat => LanguageManager.GetInstance().Translate("Backup Format");
+        public string BackupCrypt => LanguageManager.GetInstance().Translate("Backup Extension Crypt (.txt,.jpg,.pdf)");
+        public string Validate => LanguageManager.GetInstance().Translate("Validate");
 
         // Method to notify when a property changes
         protected void OnPropertyChanged(string propertyName)
@@ -33,6 +41,18 @@ namespace ConsoleDeportee.AddWork
             ExecuteWorkCommand = new RelayCommand(param => NavigateToExecuteWork(), param => CanNavigate());
             SettingsCommand = new RelayCommand(param => NavigateToSettings(), param => CanNavigate());
             _netWorkService = netWorkService;
+            LanguageManager.LanguageChanged += OnLanguageChanged;
+        }
+
+        private void OnLanguageChanged(object sender, EventArgs e)
+        {
+            OnPropertyChanged(nameof(BackupName));
+            OnPropertyChanged(nameof(TargetDirectory));
+            OnPropertyChanged(nameof(SourceDirectory));
+            OnPropertyChanged(nameof(BackupType));
+            OnPropertyChanged(nameof(BackupFormat));
+            OnPropertyChanged(nameof(BackupCrypt));
+            OnPropertyChanged(nameof(Validate));
         }
 
         //method to send a request

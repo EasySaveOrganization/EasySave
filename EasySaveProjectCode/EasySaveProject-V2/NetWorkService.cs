@@ -84,6 +84,8 @@ namespace EasySaveProject_V2
                     //deserialize the data 
                     string workDataJson = requestMessage.Content["Data"];
                     var workToExecute = JsonConvert.DeserializeObject<SaveWorkModel>(workDataJson);
+                    MessageBox.Show("Received the execute request", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
                     ExecuteWorkService executeWorkService = new ExecuteWorkService();
                     executeWorkService.executeWork(workToExecute);
                     responseMessage = "Backup execution completed successfully.";

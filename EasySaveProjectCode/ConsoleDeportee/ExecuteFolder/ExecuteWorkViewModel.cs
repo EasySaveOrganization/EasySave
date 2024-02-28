@@ -19,6 +19,12 @@ namespace ConsoleDeportee.ExecuteFolder
 
 
         public event PropertyChangedEventHandler? PropertyChanged;
+       
+        public string WorkList => LanguageManager.GetInstance().Translate("Work List");
+        public string ExecuteButton => LanguageManager.GetInstance().Translate("Execute");
+        public string BackupName => LanguageManager.GetInstance().Translate("Backup Name");
+        public string TargetDirectory => LanguageManager.GetInstance().Translate("Target Directory");
+        public string SourceDirectory => LanguageManager.GetInstance().Translate("Source Directory");
 
         protected void OnPropertyChanged(string propertyName)
         {
@@ -33,6 +39,15 @@ namespace ConsoleDeportee.ExecuteFolder
             _netWorkService = netWorkService;
             Works = new ObservableCollection<WorkItem>();
             LoadWorkList();
+            LanguageManager.LanguageChanged += OnLanguageChanged;
+        }
+        private void OnLanguageChanged(object sender, EventArgs e)
+        {
+            OnPropertyChanged(nameof(WorkList));
+            OnPropertyChanged(nameof(ExecuteButton));
+            OnPropertyChanged(nameof(BackupName));
+            OnPropertyChanged(nameof(TargetDirectory));
+            OnPropertyChanged(nameof(SourceDirectory));
         }
 
         //send a request to get the list of works 
