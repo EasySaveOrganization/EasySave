@@ -25,6 +25,8 @@ namespace ConsoleDeportee.ExecuteFolder
         public string BackupName => LanguageManager.GetInstance().Translate("Backup Name");
         public string TargetDirectory => LanguageManager.GetInstance().Translate("Target Directory");
         public string SourceDirectory => LanguageManager.GetInstance().Translate("Source Directory");
+        public string AddWork => LanguageManager.GetInstance().Translate("Add work");
+        public string Settings => LanguageManager.GetInstance().Translate("Settings");
 
         protected void OnPropertyChanged(string propertyName)
         {
@@ -48,6 +50,8 @@ namespace ConsoleDeportee.ExecuteFolder
             OnPropertyChanged(nameof(BackupName));
             OnPropertyChanged(nameof(TargetDirectory));
             OnPropertyChanged(nameof(SourceDirectory));
+            OnPropertyChanged(nameof(AddWork));
+            OnPropertyChanged(nameof(Settings));
         }
 
         //send a request to get the list of works 
@@ -97,11 +101,13 @@ namespace ConsoleDeportee.ExecuteFolder
                 { "type", "executeBackup" },
                 { "Data", workJson }
             };
-
+            MessageBox.Show($"prepared the request", "success", MessageBoxButton.OK, MessageBoxImage.Information);
             try
             {
                 //send the request and wait for the response
                 var response = await _netWorkService.SendRequest(request);
+                MessageBox.Show($"sended request", "success", MessageBoxButton.OK, MessageBoxImage.Information);
+
                 var responseMessage = response["response"];
                 //show a success message
                 MessageBox.Show(responseMessage, "Success", MessageBoxButton.OK, MessageBoxImage.Information);

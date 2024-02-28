@@ -34,6 +34,19 @@ namespace ConsoleDeportee.ExecuteFolder
             logsFormat = logs;
         }
         public WorkItem() { }
+        public bool Validate()
+        {
+            // Implémentation de la logique de validation en utilisant les propriétés de l'objet instancié
+            if (this.saveName != null && this.targetRepo != null && this.sourceRepo != null && this.saveType != null && this.extenstionFileToCrypt != null && this.logsFormat != null)
+            {
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("One or more input values are null. Unable to add work.");
+                return false;
+            }
+        }
     }
 
 }

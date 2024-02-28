@@ -15,6 +15,13 @@ namespace ConsoleDeportee.LanguageFolder
 
         public ICommand AddWorkCommand { get; private set; }
         public ICommand ExecuteWorkCommand { get; private set; }
+
+        public string Settings => LanguageManager.GetInstance().Translate("Settings");
+        public string AddWork => LanguageManager.GetInstance().Translate("Add work");
+        public string ExecuteWork => LanguageManager.GetInstance().Translate("Execute work");
+        public string French => LanguageManager.GetInstance().Translate("French");
+        public string English => LanguageManager.GetInstance().Translate("English");
+
         public SettingViewModel()
         {
             // Get the instance of the LanguageManager when the view is created.
@@ -25,11 +32,21 @@ namespace ConsoleDeportee.LanguageFolder
             //Initialize command
             AddWorkCommand = new RelayCommand(param => NavigateToAddWork(), param => CanNavigate());
             ExecuteWorkCommand = new RelayCommand(param => NavigateToExecuteWork(), param => CanNavigate());
+
+            LanguageManager.LanguageChanged += OnLanguageChanged;
         }
 
         private bool CanTranslate()
         {
             return true;
+        }
+        private void OnLanguageChanged(object sender, EventArgs e)
+        {
+            OnPropertyChanged(nameof(Settings));
+            OnPropertyChanged(nameof(AddWork));
+            OnPropertyChanged(nameof(ExecuteWork));
+            OnPropertyChanged(nameof(French));
+            OnPropertyChanged(nameof(English));
         }
         public string TranslatedText
         {
@@ -48,12 +65,7 @@ namespace ConsoleDeportee.LanguageFolder
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         public string LocalizedWelcomeMessage => languageManager.Translate("WelcomeMessageKey");
-        private void RefreshView()
-        {
-
-            OnPropertyChanged(nameof(LocalizedWelcomeMessage));
-
-        }
+        
 
         //this will determine if the command can be executed
         private bool CanNavigate()

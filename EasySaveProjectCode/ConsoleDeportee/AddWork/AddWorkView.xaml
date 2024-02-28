@@ -43,9 +43,9 @@
         <TextBlock Grid.Row="7" Text="{Binding BackupCrypt}" Margin="0,80,0,-75"/>
         <TextBox Grid.Row="7" x:Name="txtCrypt" Margin="0,106,0,-106"/>
 
-        <Button Grid.Row="7"  Click="btnValider_Click" Content="Validate" Margin="0,132,0,-131" RenderTransformOrigin="0.619,-1.096"/>
-        <Button Grid.Row="7"  Command="{Binding ExecuteWorkCommand}" Content="ExecuteWork" Margin="0,179,0,-178" RenderTransformOrigin="0.619,-1.096"/>
-        <Button Grid.Row="7"  Command="{Binding SettingsCommand}" Content="Settings" Margin="0,219,0,-219" RenderTransformOrigin="0.619,-1.096"/>
+        <Button Grid.Row="7"  Click="btnValider_Click" Content="{Binding Validate}" Margin="0,132,0,-131" RenderTransformOrigin="0.619,-1.096"/>
+        <Button Grid.Row="7"  Command="{Binding ExecuteWorkCommand}" Content="{Binding ExecuteWork}" Margin="0,179,0,-178" RenderTransformOrigin="0.619,-1.096"/>
+        <Button Grid.Row="7"  Command="{Binding SettingsCommand}" Content="{Binding Settings}" Margin="0,219,0,-219" RenderTransformOrigin="0.619,-1.096"/>
 
     </Grid>
 </Page>
