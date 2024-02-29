@@ -11,11 +11,7 @@
 
     <Grid>
         <TextBlock Text="{Binding WorkList}" FontSize="16" FontWeight="Bold" />
-<<<<<<< HEAD
         <ListView Name="ExecuteWorkList" ItemsSource="{Binding Works}" BorderBrush="#cdcdcd" Margin="25,70,25,173" Padding="0" SelectionMode="Multiple">
-=======
-        <ListView Name="WorkList" SelectionMode="Extended" ItemsSource="{Binding Works}" BorderBrush="#cdcdcd" Margin="25,70,25,173" Padding="0" SelectionChanged="WorkList_SelectionChanged">
->>>>>>> Release2.0
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding saveName}" Header="{Binding BackupName}"/>
