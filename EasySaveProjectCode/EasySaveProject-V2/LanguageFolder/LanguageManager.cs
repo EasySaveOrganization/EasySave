@@ -48,6 +48,8 @@ namespace EasySaveProject_V2.LanguageFolder
             {"Add work", "Ajouter un travail" },
             {"Execute work", "Executer un travail" },
             {"Settings", "Reglages" },
+            {"French", "Français" },
+            {"English", "Anglais" }
         };
 
             frenchToEnglish = new Dictionary<string, string>
@@ -70,6 +72,8 @@ namespace EasySaveProject_V2.LanguageFolder
             { "Ajouter un travail","Add work" },
             {"Executer un travail","Execute work"},
             {"Reglages" , "Settings" },
+            {"Français" ,"French"},
+            { "Anglais" , "English"}
         };
         }
 

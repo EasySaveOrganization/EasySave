@@ -14,19 +14,11 @@
     </Page.DataContext>
 
     <Grid>
-        <TextBlock Text="{Binding TranslatedText}" FontSize="16" FontWeight="Bold" />
-        <Button Content="French" Margin="400,108,356,330"  Background="#D8C3A5" Command="{Binding SwitchToFrenchCommand}" />
-        <Button Content="English" Margin="400,190,357,248"  Background="#D8C3A5" Command="{Binding SwitchToEnglishCommand}"/>
-        <Button Content="Add work" Margin="97,388,656,52" Command="{Binding AddWorkCommand}" Background="#D8C3A5" />
-        <Button Content="Execute work" Margin="608,381,135,54"  Command="{Binding ExecuteWorkCommand}" Background="#D8C3A5" RenderTransformOrigin="0.5,0.5">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.364"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
+        <TextBlock Text="{Binding Settings}" FontSize="16" FontWeight="Bold" />
+        <Button Content="{Binding French}" Margin="400,108,356,330"  Background="#D8C3A5" Command="{Binding SwitchToFrenchCommand}"/>
+        <Button Content="{Binding English}" Margin="400,190,357,248"  Background="#D8C3A5" Command="{Binding SwitchToEnglishCommand}"/>
+        <Button Content="{Binding AddWork}" Margin="97,388,656,52" Command="{Binding AddWorkCommand}" Background="#D8C3A5" />
+        <Button Content="{Binding ExecuteWork}" Margin="608,381,135,54"  Command="{Binding ExecuteWorkCommand}" Background="#D8C3A5" RenderTransformOrigin="0.5,0.5">
         </Button>
     </Grid>
 </Page>

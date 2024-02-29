@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using EasySaveProject_V2.AddWork;
 using EasySaveProject_V2.ExecuteFolder;
-using Newtonsoft.Json; 
+using Newtonsoft.Json;
 
 namespace EasySaveProject_V2
 {
@@ -45,91 +45,94 @@ namespace EasySaveProject_V2
         //method to handle requests received from the client
         private async void HandleRequest(Socket clientSocket)
         {
-            byte[] buffer = new byte[2048];
-            //Receive message
-            int bytesReceived = await clientSocket.ReceiveAsync(new ArraySegment<byte>(buffer), SocketFlags.None);
-            string receivedText = Encoding.UTF8.GetString(buffer, 0, bytesReceived);
-            //deserialize the message
-            Message requestMessage = JsonConvert.DeserializeObject<Message>(receivedText);
-            
-            //try to get the value type so we know which action to do
-            requestMessage.Content.TryGetValue("type", out string requestType);
-
-            string responseMessage;
-            int responseStatus;
-            Dictionary<string, string> responseContent = new Dictionary<string, string>();
-
-            //treat the request according to the action needed
-            switch (requestType)
+            while (true)
             {
-                case "createBackup":
-                    // Extract the fields from the request message
-                    string name = requestMessage.Content["name"];
-                    string target = requestMessage.Content["target"];
-                    string source = requestMessage.Content["source"];
-                    string type = requestMessage.Content["BackupType"];
-                    string extensionFileToCrypt = requestMessage.Content["extensionFileToCrypt"];
-                    //convert the log fromat into a string
-                    int logsFormat = int.Parse(requestMessage.Content["logsFormat"]); 
+                byte[] buffer = new byte[2048];
+                //Receive message
+                int bytesReceived = await clientSocket.ReceiveAsync(new ArraySegment<byte>(buffer), SocketFlags.None);
+                if (bytesReceived == 0) // Check if connection is closed by client
+                {
+                    break; // Exit loop if client closes the connection
+                }
+                string receivedText = Encoding.UTF8.GetString(buffer, 0, bytesReceived);
+                //deserialize the message
+                Message requestMessage = JsonConvert.DeserializeObject<Message>(receivedText);
 
-                    // add the work
-                    SaveWorkViewModel saveWorkViewModel = new SaveWorkViewModel();
-                    saveWorkViewModel.AddWork(name, target, source, type, extensionFileToCrypt, logsFormat);
+                //try to get the value type so we know which action to do
+                requestMessage.Content.TryGetValue("type", out string requestType);
 
-                    responseMessage = "Backup creation completed successfully.";
-                    responseStatus = 200; // OK status code
-                    MessageBox.Show("Created the backup", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                    break;
-                case "executeBackup":
-                    //deserialize the data 
-                    string workDataJson = requestMessage.Content["Data"];
-                    var workToExecute = JsonConvert.DeserializeObject<SaveWorkModel>(workDataJson);
-                    MessageBox.Show("Received the execute request", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                string responseMessage;
+                int responseStatus;
+                Dictionary<string, string> responseContent = new Dictionary<string, string>();
 
-                    ExecuteWorkService executeWorkService = new ExecuteWorkService();
-                    executeWorkService.executeWork(workToExecute);
-                    responseMessage = "Backup execution completed successfully.";
-                    responseStatus = 200; // OK status code
-                    break;
-                case "obtainBackupList":
-                    try
-                    {
-                        WorkListService workListService = new WorkListService();
-                        List<SaveWorkModel> worksList = workListService.LoadWorkListFromFile();
-                        if (worksList != null)
+                //treat the request according to the action needed
+                switch (requestType)
+                {
+                    case "createBackup":
+                        // Extract the fields from the request message
+                        string name = requestMessage.Content["name"];
+                        string target = requestMessage.Content["target"];
+                        string source = requestMessage.Content["source"];
+                        string type = requestMessage.Content["BackupType"];
+                        string extensionFileToCrypt = requestMessage.Content["extensionFileToCrypt"];
+                        //convert the log fromat into a string
+                        int logsFormat = int.Parse(requestMessage.Content["logsFormat"]);
+
+                        // add the work
+                        SaveWorkViewModel saveWorkViewModel = new SaveWorkViewModel();
+                        saveWorkViewModel.AddWork(name, target, source, type, extensionFileToCrypt, logsFormat);
+
+                        responseMessage = "Backup creation completed successfully.";
+                        responseStatus = 200; // OK status code
+                        break;
+                    case "executeBackup":
+                        //deserialize the data 
+                        string workDataJson = requestMessage.Content["Data"];
+                        var workToExecute = JsonConvert.DeserializeObject<SaveWorkModel>(workDataJson);
+
+                        ExecuteWorkService executeWorkService = new ExecuteWorkService();
+                        executeWorkService.executeWork(workToExecute);
+                        responseMessage = "Backup execution completed successfully.";
+                        responseStatus = 200; // OK status code
+                        break;
+                    case "obtainBackupList":
+                        try
                         {
-                            responseMessage = JsonConvert.SerializeObject(worksList);
-                            responseStatus = 200; // OK status code
+                            WorkListService workListService = new WorkListService();
+                            List<SaveWorkModel> worksList = workListService.LoadWorkListFromFile();
+                            if (worksList != null)
+                            {
+                                responseMessage = JsonConvert.SerializeObject(worksList);
+                                responseStatus = 200; // OK status code
+                            }
+                            else
+                            {
+                                responseMessage = "No backup list found.";
+                                responseStatus = 404; // Not Found status code
+                            }
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            responseMessage = "No backup list found.";
-                            responseStatus = 404; // Not Found status code
+                            responseMessage = $"Error loading backup list: {ex.Message}";
+                            responseStatus = 500; // Internal Server Error
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        responseMessage = $"Error loading backup list: {ex.Message}";
-                        responseStatus = 500; // Internal Server Error
-                    }
-                    break;
-                default:
-                    responseMessage = "Invalid request type.";
-                    responseStatus = 400; // Bad Request status code
-                    break;
+                        break;
+                    default:
+                        responseMessage = "Invalid request type.";
+                        responseStatus = 400; // Bad Request status code
+                        break;
+                }
+
+
+                //add the response content to the response
+                responseContent.Add("response", responseMessage);
+                var response = new Message(requestMessage.Id, responseContent, responseStatus);
+                string serializedResponse = JsonConvert.SerializeObject(response);
+
+                byte[] responseBuffer = Encoding.UTF8.GetBytes(serializedResponse);
+                //send the message
+                await clientSocket.SendAsync(new ArraySegment<byte>(responseBuffer), SocketFlags.None);
             }
-
-            //add the response content to the response
-            responseContent.Add("response", responseMessage);
-            var response = new Message(requestMessage.Id, responseContent, responseStatus);
-            string serializedResponse = JsonConvert.SerializeObject(response);
-
-            byte[] responseBuffer = Encoding.UTF8.GetBytes(serializedResponse);
-            //send the message
-            await clientSocket.SendAsync(new ArraySegment<byte>(responseBuffer), SocketFlags.None);
-            //close the connection 
-            clientSocket.Shutdown(SocketShutdown.Both);
-            clientSocket.Close();
         }
     }
 }

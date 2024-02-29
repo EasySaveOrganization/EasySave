@@ -21,7 +21,7 @@
             </ListView.View>
         </ListView>
         <Button Content="{Binding ExecuteButton}" Click="BtnExecute_Click" Margin="649,367,42,0" Height="19" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
-        <Button Content="Add Work" Command="{Binding AddWorkCommand}" Margin="381,367,319,0" Height="19" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
-        <Button Content="Settings" Command="{Binding SettingsCommand}"  Margin="134,367,599,0" Height="19" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Button Content="{Binding AddWork}" Command="{Binding AddWorkCommand}" Margin="381,367,319,0" Height="19" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Button Content="{Binding Settings}" Command="{Binding SettingsCommand}"  Margin="134,367,599,0" Height="19" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
     </Grid>
 </Page>

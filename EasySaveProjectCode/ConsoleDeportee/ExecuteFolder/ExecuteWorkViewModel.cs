@@ -104,6 +104,7 @@ namespace ConsoleDeportee.ExecuteFolder
             MessageBox.Show($"prepared the request", "success", MessageBoxButton.OK, MessageBoxImage.Information);
             try
             {
+                MessageBox.Show($"Hello", "success", MessageBoxButton.OK, MessageBoxImage.Information);
                 //send the request and wait for the response
                 var response = await _netWorkService.SendRequest(request);
                 MessageBox.Show($"sended request", "success", MessageBoxButton.OK, MessageBoxImage.Information);

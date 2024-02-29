@@ -26,6 +26,8 @@ namespace EasySaveProject_V2.AddWork
         public string BackupFormat => LanguageManager.GetInstance().Translate("Backup Format");
         public string BackupCrypt => LanguageManager.GetInstance().Translate("Backup Extension Crypt (.txt,.jpg,.pdf)");
         public string Validate => LanguageManager.GetInstance().Translate("Validate");
+        public string ExecuteWork => LanguageManager.GetInstance().Translate("Execute work");
+        public string Settings => LanguageManager.GetInstance().Translate("Settings");
 
         // Method to notify when a property changes
         protected void OnPropertyChanged(string propertyName)
@@ -51,6 +53,9 @@ namespace EasySaveProject_V2.AddWork
             OnPropertyChanged(nameof(BackupFormat));
             OnPropertyChanged(nameof(BackupCrypt));
             OnPropertyChanged(nameof(Validate));
+            OnPropertyChanged(nameof(ExecuteWork));
+            OnPropertyChanged(nameof(Settings));
+
         }
 
         public void AddWork(string name, string target, string source, string type, string extenstionFileToCrypt, int logsFormat)
