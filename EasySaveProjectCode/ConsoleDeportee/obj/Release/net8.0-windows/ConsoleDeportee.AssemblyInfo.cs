@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ConsoleDeportee")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a45202702dac38503e1250e49aa50aec0037454d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dcc5473ca06caa9ae1ba1656a17135fed0aaa2bd")]
 [assembly: System.Reflection.AssemblyProductAttribute("ConsoleDeportee")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ConsoleDeportee")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -53,7 +53,7 @@ namespace EasySaveProject_V2.LanguageFolder {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EasySaveProject-V2;component/languagefolder/settings.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EasySaveProject-V2;V1.0.0.0;component/languagefolder/settings.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\LanguageFolder\Settings.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
