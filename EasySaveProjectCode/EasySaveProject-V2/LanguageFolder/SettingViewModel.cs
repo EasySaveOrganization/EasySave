@@ -67,12 +67,6 @@ namespace EasySaveProject_V2.LanguageFolder
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         public string LocalizedWelcomeMessage => languageManager.Translate("WelcomeMessageKey");
-        private void RefreshView()
-        {
-
-            OnPropertyChanged(nameof(LocalizedWelcomeMessage));
-
-        }
 
         //this will determine if the command can be executed
         private bool CanNavigate()

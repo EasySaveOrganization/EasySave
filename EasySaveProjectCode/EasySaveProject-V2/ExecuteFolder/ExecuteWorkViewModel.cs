@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using EasySaveProject_V2.LanguageFolder;
+using EasySaveProject_V2.StatusFolder;
 
 namespace EasySaveProject_V2.ExecuteFolder
 {
@@ -17,6 +18,8 @@ namespace EasySaveProject_V2.ExecuteFolder
         //Navigation Commands
         public ICommand AddWorkCommand { get; private set; }
         public ICommand SettingsCommand { get; private set; }
+        public ICommand StatusCommand { get; private set; }
+        public ICommand ExecuteWorkCommand { get; private set; }
 
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -28,6 +31,7 @@ namespace EasySaveProject_V2.ExecuteFolder
         public string SourceDirectory => LanguageManager.GetInstance().Translate("Source Directory");
         public string AddWork => LanguageManager.GetInstance().Translate("Add work");
         public string Settings => LanguageManager.GetInstance().Translate("Settings");
+        public string ExecuteWork => LanguageManager.GetInstance().Translate("Execute work");
 
         protected void OnPropertyChanged(string propertyName)
         {
@@ -40,6 +44,8 @@ namespace EasySaveProject_V2.ExecuteFolder
             Works = new ObservableCollection<SaveWorkModel>(workListService.LoadWorkListFromFile());
             AddWorkCommand = new RelayCommand(param => NavigateToAddWork(), param => CanNavigate());
             SettingsCommand = new RelayCommand(param => NavigateToSettings(), param => CanNavigate());
+            StatusCommand = new RelayCommand(param => NavigateToStatus(), param => CanNavigate());
+            ExecuteWorkCommand = new RelayCommand(param => NavigateToExecuteWork(), param => CanNavigate());
             LanguageManager.LanguageChanged += OnLanguageChanged;
         }
         private void OnLanguageChanged(object sender, EventArgs e)
@@ -76,6 +82,16 @@ namespace EasySaveProject_V2.ExecuteFolder
         private void NavigateToSettings()
         {
             Application.Current.MainWindow.Content = new Settings();
+        }
+
+        private void NavigateToStatus()
+        {
+            Application.Current.MainWindow.Content = new StatusWindow();
+        }
+
+        private void NavigateToExecuteWork()
+        {
+            Application.Current.MainWindow.Content = new ExecuteWork();
         }
     }
 }

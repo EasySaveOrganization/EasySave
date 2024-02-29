@@ -16,9 +16,10 @@
         
         <Frame x:Name="Main"/>
         <TextBlock Text="Menu" FontSize="40" FontWeight="Bold" Margin="492,56,491,408" />
-        <Button Content="{Binding AddWorkButton}" Margin="418,161,417,321" Command="{Binding AddWorkCommand}" Background="#D8C3A5" />
-        <Button Content="{Binding ExecuteWorkButton}" Margin="418,243,417,237"  Command="{Binding ExecuteWorkCommand}" Background="#D8C3A5"/>
-        <Button Content="{Binding SettingsButton}" Margin="418,321,417,162" Command="{Binding SettingsCommand}" Background="#D8C3A5"/>
+        <Button Content="Add Work" Margin="418,161,417,321" Command="{Binding AddWorkCommand}" Background="#D8C3A5" />
+        <Button Content="Execute Work" Margin="418,243,417,237"  Command="{Binding ExecuteWorkCommand}" Background="#D8C3A5"/>
+        <Button Content="Status" Margin="418,321,417,162" Background="#D8C3A5" Command="{Binding StatusCommand}"/>
+        <Button Content="Settings" Margin="418,396,417,87" Background="#D8C3A5" Command="{Binding SettingsCommand}"/>
 
     </Grid>
 </Window>

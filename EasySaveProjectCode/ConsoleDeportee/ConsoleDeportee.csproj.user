@@ -16,6 +16,9 @@
     <Compile Update="LanguageFolder\Settings.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="StatusFolder\StatusWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AddWork\AddWorkView.xaml">
@@ -28,6 +31,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="StatusFolder\StatusWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

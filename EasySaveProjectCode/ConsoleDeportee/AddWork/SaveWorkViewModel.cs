@@ -6,6 +6,7 @@ using System.Windows.Input;
 using ConsoleDeportee.ExecuteFolder;
 using ConsoleDeportee.LanguageFolder;
 using Newtonsoft.Json;
+using ConsoleDeportee.StatusFolder;
 
 namespace ConsoleDeportee.AddWork
 {
@@ -16,6 +17,7 @@ namespace ConsoleDeportee.AddWork
         public ICommand AddWorkCommand { get; private set; }
         public ICommand ExecuteWorkCommand { get; private set; }
         public ICommand SettingsCommand { get; private set; }
+        public ICommand StatusCommand { get; private set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -42,6 +44,7 @@ namespace ConsoleDeportee.AddWork
             AddWorkCommand = new RelayCommand(param => NavigateToAddWork(), param => CanNavigate());
             ExecuteWorkCommand = new RelayCommand(param => NavigateToExecuteWork(), param => CanNavigate());
             SettingsCommand = new RelayCommand(param => NavigateToSettings(), param => CanNavigate());
+            StatusCommand = new RelayCommand(param => NavigateToStatus(), param => CanNavigate());
             _netWorkService = netWorkService;
             LanguageManager.LanguageChanged += OnLanguageChanged;
         }
@@ -108,6 +111,11 @@ namespace ConsoleDeportee.AddWork
         private void NavigateToSettings()
         {
             Application.Current.MainWindow.Content = new Settings();
+        }
+
+        private void NavigateToStatus()
+        {
+            Application.Current.MainWindow.Content = new StatusWindow();
         }
     }
 }

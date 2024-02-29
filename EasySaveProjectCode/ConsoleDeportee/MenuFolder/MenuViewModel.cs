@@ -4,6 +4,7 @@ using System.ComponentModel;
 using ConsoleDeportee.AddWork;
 using ConsoleDeportee.ExecuteFolder;
 using ConsoleDeportee.LanguageFolder;
+using ConsoleDeportee.StatusFolder;
 
 namespace ConsoleDeportee.MenuFolder
 {
@@ -13,8 +14,9 @@ namespace ConsoleDeportee.MenuFolder
         public ICommand ExecuteWorkCommand { get; private set; }
         public ICommand SettingsCommand { get; private set; }
         public ICommand MenuCommand { get; private set; }
+        public ICommand StatusCommand { get; private set; }
 
-      
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
 
@@ -31,7 +33,8 @@ namespace ConsoleDeportee.MenuFolder
             ExecuteWorkCommand = new RelayCommand(param => NavigateToExecuteWork(), param => CanNavigate());
             SettingsCommand = new RelayCommand(param => NavigateToSettings(), param => CanNavigate());
             MenuCommand = new RelayCommand(param => NavigateToMenu(), param => CanNavigate());
-           
+            StatusCommand = new RelayCommand(param => NavigateToStatus(), param => CanNavigate());
+
 
         }
 
@@ -62,5 +65,9 @@ namespace ConsoleDeportee.MenuFolder
             Application.Current.MainWindow.Content = new MainWindow();
         }
 
+        private void NavigateToStatus()
+        {
+            Application.Current.MainWindow.Content = new StatusWindow();
+        }
     }
 }

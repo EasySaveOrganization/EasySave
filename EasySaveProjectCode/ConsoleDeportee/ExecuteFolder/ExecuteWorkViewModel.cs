@@ -5,6 +5,7 @@ using System.Windows.Input;
 using ConsoleDeportee.AddWork;
 using ConsoleDeportee.LanguageFolder;
 using Newtonsoft.Json;
+using ConsoleDeportee.StatusFolder;
 
 namespace ConsoleDeportee.ExecuteFolder
 {
@@ -16,7 +17,8 @@ namespace ConsoleDeportee.ExecuteFolder
         //Navigation Commands
         public ICommand AddWorkCommand { get; private set; }
         public ICommand SettingsCommand { get; private set; }
-
+        public ICommand StatusCommand { get; private set; }
+        public ICommand ExecuteWorkCommand { get; private set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
        
@@ -27,6 +29,7 @@ namespace ConsoleDeportee.ExecuteFolder
         public string SourceDirectory => LanguageManager.GetInstance().Translate("Source Directory");
         public string AddWork => LanguageManager.GetInstance().Translate("Add work");
         public string Settings => LanguageManager.GetInstance().Translate("Settings");
+        public string ExecuteWork => LanguageManager.GetInstance().Translate("Execute work");
 
         protected void OnPropertyChanged(string propertyName)
         {
@@ -37,6 +40,8 @@ namespace ConsoleDeportee.ExecuteFolder
         public ExecuteWorkViewModel(NetWorkService netWorkService)
         {
             AddWorkCommand = new RelayCommand(param => NavigateToAddWork(), param => CanNavigate());
+            StatusCommand = new RelayCommand(param => NavigateToStatus(), param => CanNavigate());
+            ExecuteWorkCommand = new RelayCommand(param => NavigateToExecuteWork(), param => CanNavigate());
             SettingsCommand = new RelayCommand(param => NavigateToSettings(), param => CanNavigate());
             _netWorkService = netWorkService;
             Works = new ObservableCollection<WorkItem>();
@@ -138,6 +143,16 @@ namespace ConsoleDeportee.ExecuteFolder
         private void NavigateToSettings()
         {
             Application.Current.MainWindow.Content = new Settings();
+        }
+
+        private void NavigateToStatus()
+        {
+            Application.Current.MainWindow.Content = new StatusWindow();
+        }
+
+        private void NavigateToExecuteWork()
+        {
+            Application.Current.MainWindow.Content = new ExecuteWork();
         }
     }
 }

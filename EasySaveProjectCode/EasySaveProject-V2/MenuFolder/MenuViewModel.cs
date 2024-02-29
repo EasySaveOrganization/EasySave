@@ -4,6 +4,7 @@ using System.ComponentModel;
 using EasySaveProject_V2.LanguageFolder;
 using EasySaveProject_V2.ExecuteFolder;
 using EasySaveProject_V2.AddWork;
+using EasySaveProject_V2.StatusFolder;
 
 namespace EasySaveProject_V2.MenuFolder
 {
@@ -13,6 +14,7 @@ namespace EasySaveProject_V2.MenuFolder
         public ICommand ExecuteWorkCommand { get; private set; }
         public ICommand SettingsCommand { get; private set; }
         public ICommand MenuCommand { get; private set; }
+        public ICommand StatusCommand { get; private set; } 
 
         public string AddWorkButton => LanguageManager.GetInstance().Translate("Add work");
         public string ExecuteWorkButton => LanguageManager.GetInstance().Translate("Execute work");
@@ -33,8 +35,8 @@ namespace EasySaveProject_V2.MenuFolder
             ExecuteWorkCommand = new RelayCommand(param => NavigateToExecuteWork(), param => CanNavigate());
             SettingsCommand = new RelayCommand(param => NavigateToSettings(), param => CanNavigate());
             MenuCommand = new RelayCommand(param => NavigateToMenu(), param => CanNavigate());
+            StatusCommand = new RelayCommand(param =>  NavigateToStatus(), param => CanNavigate());
             LanguageManager.LanguageChanged += OnLanguageChanged;
-
         }
 
         private void OnLanguageChanged(object sender, EventArgs e)
@@ -69,6 +71,11 @@ namespace EasySaveProject_V2.MenuFolder
         private void NavigateToMenu()
         {
             Application.Current.MainWindow.Content = new MainWindow();
+        }
+
+        private void NavigateToStatus() 
+        {
+            Application.Current.MainWindow.Content = new StatusWindow();
         }
 
     }

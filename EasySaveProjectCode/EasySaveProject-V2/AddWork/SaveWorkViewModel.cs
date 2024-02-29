@@ -6,6 +6,7 @@ using System.Windows.Input;
 using EasySaveProject_V2.ExecuteFolder;
 using EasySaveProject_V2.LanguageFolder;
 using EasySaveProject_V2.AddWork;
+using EasySaveProject_V2.StatusFolder;
 
 namespace EasySaveProject_V2.AddWork
 {
@@ -15,6 +16,7 @@ namespace EasySaveProject_V2.AddWork
         public ICommand AddWorkCommand { get; private set; }
         public ICommand ExecuteWorkCommand { get; private set; }
         public ICommand SettingsCommand { get; private set; }
+        public ICommand StatusCommand { get; private set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -41,6 +43,7 @@ namespace EasySaveProject_V2.AddWork
             AddWorkCommand = new RelayCommand(param => NavigateToAddWork(), param => CanNavigate());
             ExecuteWorkCommand = new RelayCommand(param => NavigateToExecuteWork(), param => CanNavigate());
             SettingsCommand = new RelayCommand(param => NavigateToSettings(), param => CanNavigate());
+            StatusCommand = new RelayCommand(param => NavigateToStatus(), param => CanNavigate());
             LanguageManager.LanguageChanged += OnLanguageChanged;
         }
 
@@ -95,6 +98,11 @@ namespace EasySaveProject_V2.AddWork
         private void NavigateToSettings()
         {
             Application.Current.MainWindow.Content = new Settings();
+        }
+
+        private void NavigateToStatus() 
+        {
+            Application.Current.MainWindow.Content = new StatusWindow();
         }
     }
 }
