@@ -61,7 +61,7 @@ namespace ConsoleDeportee.ExecuteFolder {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ConsoleDeportee;component/executefolder/executework.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ConsoleDeportee;V1.0.0.0;component/executefolder/executework.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\ExecuteFolder\ExecuteWork.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Logs>
+  <Log>
+    <Name>dazfazf</Name>
+    <FileSource>C:\Users\Valentin GIROD\Documents\Projets\InstagramBot\testdossier\azbfakzf.txt</FileSource>
+    <FileTarget>C:\Users\Valentin GIROD\Desktop\InstagramBot\testdossier\azbfakzf.txt</FileTarget>
+    <FileSize>21</FileSize>
+    <FileTransferTime>PT1.2908102S</FileTransferTime>
+    <FileCryptageTime>PT1.2906146S</FileCryptageTime>
+    <Time>2024-02-29T16:49:18.5587811+01:00</Time>
+  </Log>
+  <Log>
+    <Name>dazfazf</Name>
+    <FileSource>C:\Users\Valentin GIROD\Documents\Projets\InstagramBot\testdossier\coucou.pub</FileSource>
+    <FileTarget>C:\Users\Valentin GIROD\Desktop\InstagramBot\testdossier\coucou.pub</FileTarget>
+    <FileSize>65024</FileSize>
+    <FileTransferTime>PT0.0014746S</FileTransferTime>
+    <FileCryptageTime>PT1.2906146S</FileCryptageTime>
+    <Time>2024-02-29T16:49:18.5844341+01:00</Time>
+  </Log>
+  <Log>
+    <Name>dazfazf</Name>
+    <FileSource>C:\Users\Valentin GIROD\Documents\Projets\InstagramBot\testdossier\testbmp.bmp</FileSource>
+    <FileTarget>C:\Users\Valentin GIROD\Desktop\InstagramBot\testdossier\testbmp.bmp</FileTarget>
+    <FileSize>0</FileSize>
+    <FileTransferTime>PT0.0006405S</FileTransferTime>
+    <FileCryptageTime>PT1.2906146S</FileCryptageTime>
+    <Time>2024-02-29T16:49:18.6174808+01:00</Time>
+  </Log>
+  <Log>
+    <Name>dazfazf</Name>
+    <FileSource>C:\Users\Valentin GIROD\Documents\Projets\InstagramBot\testdossier\azbfakzf.txt</FileSource>
+    <FileTarget>C:\Users\Valentin GIROD\Desktop\InstagramBot\testdossier\azbfakzf.txt</FileTarget>
+    <FileSize>21</FileSize>
+    <FileTransferTime>PT0.1027077S</FileTransferTime>
+    <FileCryptageTime>PT0.1025525S</FileCryptageTime>
+    <Time>2024-02-29T16:51:42.1610772+01:00</Time>
+  </Log>
+  <Log>
+    <Name>dazfazf</Name>
+    <FileSource>C:\Users\Valentin GIROD\Documents\Projets\InstagramBot\testdossier\coucou.pub</FileSource>
+    <FileTarget>C:\Users\Valentin GIROD\Desktop\InstagramBot\testdossier\coucou.pub</FileTarget>
+    <FileSize>65024</FileSize>
+    <FileTransferTime>PT0.0009846S</FileTransferTime>
+    <FileCryptageTime>PT0.1025525S</FileCryptageTime>
+    <Time>2024-02-29T16:51:42.1727442+01:00</Time>
+  </Log>
+  <Log>
+    <Name>dazfazf</Name>
+    <FileSource>C:\Users\Valentin GIROD\Documents\Projets\InstagramBot\testdossier\testbmp.bmp</FileSource>
+    <FileTarget>C:\Users\Valentin GIROD\Desktop\InstagramBot\testdossier\testbmp.bmp</FileTarget>
+    <FileSize>0</FileSize>
+    <FileTransferTime>PT0.0004028S</FileTransferTime>
+    <FileCryptageTime>PT0.1025525S</FileCryptageTime>
+    <Time>2024-02-29T16:51:42.1883995+01:00</Time>
+  </Log>
+</Logs>

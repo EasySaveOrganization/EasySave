@@ -1,0 +1,5 @@
+Fichier source : C:\Users\Valentin GIROD\Documents\Projets\InstagramBot\testdossier\azbfakzf.txt
+Fichier destination : C:\Users\Valentin GIROD\Desktop\InstagramBot\testdossier\azbfakzf.txt
+La clé de chiffrement n'est pas valide ou est trop courte.
+Fichier source : C:\Users\Valentin GIROD\Documents\Projets\InstagramBot\testdossier\azbfakzf.txt
+Fichier destination : C:\Users\Valentin GIROD\Desktop\InstagramBot\testdossier\azbfakzf.txt

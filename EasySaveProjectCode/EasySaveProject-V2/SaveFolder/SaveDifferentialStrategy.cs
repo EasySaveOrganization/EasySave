@@ -252,6 +252,8 @@ namespace EasySaveProject_V2.SaveFolder
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.FileName = cryptosoftPath;
             startInfo.Arguments = $"\"{sourceFilePath}\" \"{destinationFilePath}\"";
+            startInfo.UseShellExecute = false;
+            startInfo.CreateNoWindow = true;
             Process.Start(startInfo)?.WaitForExit();
         }
     }
