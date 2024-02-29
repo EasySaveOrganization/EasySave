@@ -2,4 +2,5 @@
 /EasySaveProjectCode/EasySaveProject/bin
 /EasySaveProjectCode/EasySaveProject/obj
 .vs
-/EasySaveProjectCode/.vs
+/EasySaveProjectCode/.vsobj/
+bin/
