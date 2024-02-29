@@ -1,52 +1,55 @@
-using NUnit.Framework.Internal;
-using System.Text.Json;
-using EasySaveProject.SaveWorkFolder;
-using EasySaveProject.ExecuteFolder;
-using EasySaveProject.LogFolder;
-using EasySaveProject.ObserverFolder;
-
+using NUnit.Framework;
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq; 
+using EasySaveProject.LogFolder; 
 
 namespace logsTest
 {
     public class logsTest
     {
-        private logs logsObserver;
-        private ExecuteWorkService executeWorkService;
+        private FormatLogsStrategyJson formatLogsStrategyJson;
 
         [SetUp]
         public void Setup()
         {
-            logsObserver = new logs();
-            observer events = observer.Instance;
+            SaveWorkModel dummyData = new SaveWorkModel(); // Provide necessary initial data
+            formatLogsStrategyJson = new FormatLogsStrategyJson(dummyData);
         }
 
         [Test]
         public async Task Logs_ShouldObserveStateChangeAndWriteLog()
         {
             // Arrange
-           // var workListService = new WorkListService();
-            var formatFactory = new FormatLogsFactory();
-           // var formatStrategyJson = new FormatLogs(workListService);
-            var logs = new logs(); 
-            string userName = Environment.UserName;
-            string filePath = $"C:\\Users\\{userName}\\Desktop\\logs.json";
+            string fileName = DateTime.Now.ToString("yyyy-MM-dd") + ".json";
+            string userName = Environment.UserName; 
+            string filePath = $"EasySaveContent\\{fileName}";
 
-            var exampleWork = new SaveWorkModel
+            SaveWorkModel exampleWork = new SaveWorkModel
             {
+                saveName = "TestSave",
+                sourceRepo = "C:\\source",
+                targetRepo = "C:\\target",
                 FileSize = 1024,
-                FileTransferTime = TimeSpan.FromMinutes(5),
-                Time = DateTime.Now,
+                FileTransferTime = TimeSpan.FromSeconds(1),
+                encryptFileTime = TimeSpan.FromSeconds(0.5),
+                Time = DateTime.Now
             };
 
             // Act
-            //await formatStrategyJson.Write(exampleWork);
+            await formatLogsStrategyJson.write(exampleWork);
 
             // Assert
             Assert.IsTrue(File.Exists(filePath), "Log file does not exist after Write operation.");
 
             string jsonContent = await File.ReadAllTextAsync(filePath);
-            var workList = JsonSerializer.Deserialize<List<SaveWorkModel>>(jsonContent);
-            Assert.IsNotNull(workList, "Deserialized work list is null.");
+            JArray logsArray = JArray.Parse(jsonContent);
+            Assert.IsNotNull(logsArray, "Deserialized log array is null.");
+            Assert.IsTrue(logsArray.Count > 0, "Log array should contain at least one entry.");
+
+            JObject lastLogEntry = (JObject)logsArray[logsArray.Count - 1];
+            Assert.AreEqual(exampleWork.saveName, lastLogEntry["Name"].ToString(), "Log entry saveName does not match.");
 
             // Teardown: Delete the log file after the test has run to clean up
             if (File.Exists(filePath))
@@ -54,7 +57,5 @@ namespace logsTest
                 File.Delete(filePath);
             }
         }
-
-
     }
 }
