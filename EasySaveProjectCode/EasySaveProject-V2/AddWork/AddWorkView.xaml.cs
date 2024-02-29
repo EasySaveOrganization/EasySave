@@ -20,7 +20,7 @@ namespace EasySaveProject_V2.AddWork
     /// </summary>
     public partial class AddWorkView : Page
     {
-        private SaveWorkViewModel saveWorkViewModel;
+        private SaveWorkViewModel saveWorkViewModel;    
 
         public AddWorkView()
         {
@@ -36,6 +36,7 @@ namespace EasySaveProject_V2.AddWork
             string source = txtSource.Text;
             string type = txtType.Text;
             string extenstionFileToCrypt = txtCrypt.Text;
+            string PriorityFile = txtPriority.Text;
             int logsFormat = 1;
             if (radioLogFormat1.IsChecked == true)
             {
@@ -47,7 +48,7 @@ namespace EasySaveProject_V2.AddWork
             }
 
             // Appeler la méthode AddWork du ViewModel
-            saveWorkViewModel.AddWork(name, target, source, type, extenstionFileToCrypt, logsFormat);
+            saveWorkViewModel.AddWork(name, target, source, type, extenstionFileToCrypt, logsFormat,PriorityFile);
 
             MessageBox.Show("Les données de sauvegarde ont été validées et ajoutées avec succès.");
         }

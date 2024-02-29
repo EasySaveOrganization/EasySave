@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\EasySaveProjectCode",
-    "\\EasySaveProjectCode\\EasySaveProject"
+    "\\EasySaveProjectCode\\EasySaveProject",
+    "\\EasySaveProjectCode\\EasySaveProject-V2",
+    "\\EasySaveProjectCode\\EasySaveProject-V2\\ExecuteFolder",
+    "\\EasySaveProjectCode\\Unit test"
   ],
-  "SelectedNode": "\\EasySaveProjectCode\\EasySaveProject.sln",
+  "SelectedNode": "\\EasySaveProjectCode\\EasySaveProject-V2\\ExecuteFolder\\ExecuteWorkService.cs",
   "PreviewInSolutionExplorer": false
 }

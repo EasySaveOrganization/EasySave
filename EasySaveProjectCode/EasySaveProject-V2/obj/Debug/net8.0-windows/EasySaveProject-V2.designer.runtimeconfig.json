@@ -12,9 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\MALEK\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\MALEK\\.nuget\\packages",
-      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      "C:\\Users\\comet\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\comet\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,

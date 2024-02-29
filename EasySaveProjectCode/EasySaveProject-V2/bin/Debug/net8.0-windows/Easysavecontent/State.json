@@ -16,5 +16,32 @@
     "TotalFilesSize": 0,
     "NbFilesLeftToDo": 0,
     "Progression": 0
+  },
+  "named": {
+    "SourceFilePath": "",
+    "TargetFilePath": "",
+    "State": "END",
+    "TotalFilesToCopy": 0,
+    "TotalFilesSize": 0,
+    "NbFilesLeftToDo": 0,
+    "Progression": 0
+  },
+  "SourceV2": {
+    "SourceFilePath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\SourceV2",
+    "TargetFilePath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\Target",
+    "State": "ACTIVE",
+    "TotalFilesToCopy": 5,
+    "TotalFilesSize": 0,
+    "NbFilesLeftToDo": 5,
+    "Progression": 0
+  },
+  "test": {
+    "SourceFilePath": "",
+    "TargetFilePath": "",
+    "State": "END",
+    "TotalFilesToCopy": 0,
+    "TotalFilesSize": 0,
+    "NbFilesLeftToDo": 0,
+    "Progression": 0
   }
 }

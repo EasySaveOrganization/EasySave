@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.IO;
 namespace EasySaveProject_V2.AddWork
 {
     public class SaveWorkModel
     {
         public string? saveName { get; set; }
+        public bool isPriority { get; set; }
         public string? targetRepo { get; set; }
         public string? sourceRepo { get; set; }
         public string? saveType { get; set; }
         public string? extenstionFileToCrypt { get; set; }
+        public string? savePriorityFile {  get; set; }
         public TimeSpan? encryptFileTime { get; set; }
         public int? logsFormat { get; set; }
         public TimeSpan FileTransferTime { get; set; }
@@ -25,7 +27,7 @@ namespace EasySaveProject_V2.AddWork
         public long FileSize { get; set; }
 
 
-        public SaveWorkModel(string name, string target, string source, string type, string fileToEncrypt, int logs)
+        public SaveWorkModel(string name, string target, string source, string type, string fileToEncrypt, int logs, string priorityFile)
         {
             saveName = name;
             targetRepo = target;
@@ -33,6 +35,7 @@ namespace EasySaveProject_V2.AddWork
             saveType = type;
             extenstionFileToCrypt = fileToEncrypt;
             logsFormat = logs;
+            savePriorityFile = priorityFile;
         }
         public SaveWorkModel()
         {
@@ -42,7 +45,7 @@ namespace EasySaveProject_V2.AddWork
         public bool Validate()
         {
             // Implémentation de la logique de validation en utilisant les propriétés de l'objet instancié
-            if (this.saveName != null && this.targetRepo != null && this.sourceRepo != null && this.saveType != null && this.extenstionFileToCrypt != null && this.logsFormat != null)
+            if (this.saveName != null && this.targetRepo != null && this.sourceRepo != null && this.saveType != null && this.extenstionFileToCrypt != null && this.logsFormat != null && this.savePriorityFile != null)
             {
                 return true;
             }

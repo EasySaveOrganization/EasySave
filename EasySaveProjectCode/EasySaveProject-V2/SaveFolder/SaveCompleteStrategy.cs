@@ -18,7 +18,7 @@ namespace EasySaveProject_V2.SaveFolder
             string? sourcePath = data.sourceRepo;
             string? targetPath = data.targetRepo;
             string? extenstionFileToCrypt = data.extenstionFileToCrypt;
-
+            string? priorityFile = data.savePriorityFile;
             // Définir les informations de progression initiales
             data.totalFilesToCopy = GetTotalFileCount(sourcePath); // Obtenir le nombre total de fichiers à copier
             data.totalFilesSize = GetFileSize(sourcePath); // Obtenir la taille du fichier/dossier source
@@ -217,7 +217,10 @@ namespace EasySaveProject_V2.SaveFolder
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.FileName = cryptosoftPath;
             startInfo.Arguments = $"\"{sourceFilePath}\" \"{destinationFilePath}\"";
+            startInfo.UseShellExecute = false;
+            startInfo.CreateNoWindow = true;
             Process.Start(startInfo)?.WaitForExit();
+    
         }
     }
 }

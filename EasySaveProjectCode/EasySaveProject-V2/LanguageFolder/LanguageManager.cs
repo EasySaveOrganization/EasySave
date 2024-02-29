@@ -21,6 +21,7 @@ namespace EasySaveProject_V2.LanguageFolder
         //public delegate void LanguageChangedEventHandler();
         public static event EventHandler? LanguageChanged;
 
+
         // Private constructor to prevent instantiation from outside the class.
         public LanguageManager()
         {
@@ -42,12 +43,14 @@ namespace EasySaveProject_V2.LanguageFolder
             { "Backup Type", "Type de sauvegarde" },
             { "Backup Format", "Type de Format" },
             {"Backup Extension Crypt (.txt,.jpg,.pdf)", "Type de Cryptage (.txt,.jpg,.pdf)"},
+            {"Choose you priority extension", "Choissisez votre extension prioritaire"},
             {"Validate", "Valider" },
             {"Work List", "Liste de travail" },
             {"Execute", "Executer" },
             {"Add work", "Ajouter un travail" },
             {"Execute work", "Executer un travail" },
             {"Settings", "Reglages" },
+            {"Priority File", "Fichiers Prioritaires" }
         };
 
             frenchToEnglish = new Dictionary<string, string>
@@ -63,13 +66,15 @@ namespace EasySaveProject_V2.LanguageFolder
             { "Répertoire source" , "Source Directory" },
             { "Type de sauvegarde" , "Backup Type" },
             { "Type de format" , "Backup Format" },
-            {"Type de  Cryptage (.txt,.jpg,.pdf)"," Backup Extension Crypt (.txt,.jpg,.pdf)"},
+            {"Type de  Cryptage (.txt,.jpg,.pdf)","Backup Extension Crypt (.txt,.jpg,.pdf)"},
+            {"Choissisez votre extension prioritaire","Choose you priority extensio"},
             {"Valider" , "Validate" },
             {"Liste de travail" , "Work List" },
             {"Executer" , "Execute" },
             { "Ajouter un travail","Add work" },
             {"Executer un travail","Execute work"},
             {"Reglages" , "Settings" },
+            {"Fichiers Prioritaires", "Priority files" }
         };
         }
 

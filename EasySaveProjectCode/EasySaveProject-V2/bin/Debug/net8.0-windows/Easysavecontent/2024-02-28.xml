@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Logs>
+  <Log>
+    <Name>test</Name>
+    <FileSource>C:\Users\comet\OneDrive\Bureau\projet\Source\masked_output_video.mp4</FileSource>
+    <FileTarget>C:\Users\comet\OneDrive\Bureau\projet\Target\Source\masked_output_video.mp4</FileTarget>
+    <FileSize>2678743080</FileSize>
+    <FileTransferTime>PT4.2456601S</FileTransferTime>
+    <FileCryptageTime />
+    <Time>2024-02-28T10:43:40.4366265+01:00</Time>
+  </Log>
+  <Log>
+    <Name>test</Name>
+    <FileSource>C:\Users\comet\OneDrive\Bureau\projet\Source\test.txt</FileSource>
+    <FileTarget>C:\Users\comet\OneDrive\Bureau\projet\Target\Source\test.txt</FileTarget>
+    <FileSize>40</FileSize>
+    <FileTransferTime>PT0.0021743S</FileTransferTime>
+    <FileCryptageTime />
+    <Time>2024-02-28T10:43:40.4752927+01:00</Time>
+  </Log>
+  <Log>
+    <Name>test</Name>
+    <FileSource>C:\Users\comet\OneDrive\Bureau\projet\Source\UnAUTRETEXT.txt</FileSource>
+    <FileTarget>C:\Users\comet\OneDrive\Bureau\projet\Target\Source\UnAUTRETEXT.txt</FileTarget>
+    <FileSize>0</FileSize>
+    <FileTransferTime>PT0.0015211S</FileTransferTime>
+    <FileCryptageTime />
+    <Time>2024-02-28T10:43:40.5089083+01:00</Time>
+  </Log>
+  <Log>
+    <Name>test</Name>
+    <FileSource>C:\Users\comet\OneDrive\Bureau\projet\Source\UNotretexte.txt</FileSource>
+    <FileTarget>C:\Users\comet\OneDrive\Bureau\projet\Target\Source\UNotretexte.txt</FileTarget>
+    <FileSize>6046752</FileSize>
+    <FileTransferTime>PT0.0208211S</FileTransferTime>
+    <FileCryptageTime />
+    <Time>2024-02-28T10:43:40.557925+01:00</Time>
+  </Log>
+  <Log>
+    <Name>test</Name>
+    <FileSource>C:\Users\comet\OneDrive\Bureau\projet\Source\masked_output_video.mp4</FileSource>
+    <FileTarget>C:\Users\comet\OneDrive\Bureau\projet\Target\Source\masked_output_video.mp4</FileTarget>
+    <FileSize>2678743080</FileSize>
+    <FileTransferTime>PT6.8622161S</FileTransferTime>
+    <FileCryptageTime />
+    <Time>2024-02-28T10:46:44.5248665+01:00</Time>
+  </Log>
+  <Log>
+    <Name>test</Name>
+    <FileSource>C:\Users\comet\OneDrive\Bureau\projet\Source\test.txt</FileSource>
+    <FileTarget>C:\Users\comet\OneDrive\Bureau\projet\Target\Source\test.txt</FileTarget>
+    <FileSize>40</FileSize>
+    <FileTransferTime>PT0.0025053S</FileTransferTime>
+    <FileCryptageTime />
+    <Time>2024-02-28T10:46:44.5515118+01:00</Time>
+  </Log>
+  <Log>
+    <Name>test</Name>
+    <FileSource>C:\Users\comet\OneDrive\Bureau\projet\Source\UnAUTRETEXT.txt</FileSource>
+    <FileTarget>C:\Users\comet\OneDrive\Bureau\projet\Target\Source\UnAUTRETEXT.txt</FileTarget>
+    <FileSize>0</FileSize>
+    <FileTransferTime>PT0.0027498S</FileTransferTime>
+    <FileCryptageTime />
+    <Time>2024-02-28T10:46:44.5939529+01:00</Time>
+  </Log>
+  <Log>
+    <Name>test</Name>
+    <FileSource>C:\Users\comet\OneDrive\Bureau\projet\Source\UNotretexte.txt</FileSource>
+    <FileTarget>C:\Users\comet\OneDrive\Bureau\projet\Target\Source\UNotretexte.txt</FileTarget>
+    <FileSize>6046752</FileSize>
+    <FileTransferTime>PT0.0121078S</FileTransferTime>
+    <FileCryptageTime />
+    <Time>2024-02-28T10:46:44.6362415+01:00</Time>
+  </Log>
+  <Log>
+    <Name>named</Name>
+    <FileSource>C:\Users\comet\OneDrive\Bureau\projet\Source\masked_output_video.mp4</FileSource>
+    <FileTarget>C:\Users\comet\OneDrive\Bureau\projet\Target\Source\masked_output_video.mp4</FileTarget>
+    <FileSize>2678743080</FileSize>
+    <FileTransferTime>PT5.0314199S</FileTransferTime>
+    <FileCryptageTime />
+    <Time>2024-02-28T11:01:14.1712621+01:00</Time>
+  </Log>
+  <Log>
+    <Name>named</Name>
+    <FileSource>C:\Users\comet\OneDrive\Bureau\projet\Source\test.txt</FileSource>
+    <FileTarget>C:\Users\comet\OneDrive\Bureau\projet\Target\Source\test.txt</FileTarget>
+    <FileSize>40</FileSize>
+    <FileTransferTime>PT0.0020837S</FileTransferTime>
+    <FileCryptageTime />
+    <Time>2024-02-28T11:01:14.1965094+01:00</Time>
+  </Log>
+  <Log>
+    <Name>named</Name>
+    <FileSource>C:\Users\comet\OneDrive\Bureau\projet\Source\UnAUTRETEXT.txt</FileSource>
+    <FileTarget>C:\Users\comet\OneDrive\Bureau\projet\Target\Source\UnAUTRETEXT.txt</FileTarget>
+    <FileSize>0</FileSize>
+    <FileTransferTime>PT0.0015978S</FileTransferTime>
+    <FileCryptageTime />
+    <Time>2024-02-28T11:01:14.2467367+01:00</Time>
+  </Log>
+  <Log>
+    <Name>named</Name>
+    <FileSource>C:\Users\comet\OneDrive\Bureau\projet\Source\UNotretexte.txt</FileSource>
+    <FileTarget>C:\Users\comet\OneDrive\Bureau\projet\Target\Source\UNotretexte.txt</FileTarget>
+    <FileSize>6046752</FileSize>
+    <FileTransferTime>PT0.0246702S</FileTransferTime>
+    <FileCryptageTime />
+    <Time>2024-02-28T11:01:14.3051408+01:00</Time>
+  </Log>
+  <Log>
+    <Name>test</Name>
+    <FileSource>C:\Users\comet\OneDrive\Bureau\projet\Source\masked_output_video.mp4</FileSource>
+    <FileTarget>C:\Users\comet\OneDrive\Bureau\projet\Target\Source\masked_output_video.mp4</FileTarget>
+    <FileSize>2678743080</FileSize>
+    <FileTransferTime>PT5.4870092S</FileTransferTime>
+    <FileCryptageTime />
+    <Time>2024-02-28T11:02:43.2637467+01:00</Time>
+  </Log>
+  <Log>
+    <Name>test</Name>
+    <FileSource>C:\Users\comet\OneDrive\Bureau\projet\Source\test.txt</FileSource>
+    <FileTarget>C:\Users\comet\OneDrive\Bureau\projet\Target\Source\test.txt</FileTarget>
+    <FileSize>40</FileSize>
+    <FileTransferTime>PT0.0029388S</FileTransferTime>
+    <FileCryptageTime />
+    <Time>2024-02-28T11:02:43.2956246+01:00</Time>
+  </Log>
+  <Log>
+    <Name>test</Name>
+    <FileSource>C:\Users\comet\OneDrive\Bureau\projet\Source\UnAUTRETEXT.txt</FileSource>
+    <FileTarget>C:\Users\comet\OneDrive\Bureau\projet\Target\Source\UnAUTRETEXT.txt</FileTarget>
+    <FileSize>0</FileSize>
+    <FileTransferTime>PT0.0013537S</FileTransferTime>
+    <FileCryptageTime />
+    <Time>2024-02-28T11:02:43.328759+01:00</Time>
+  </Log>
+  <Log>
+    <Name>test</Name>
+    <FileSource>C:\Users\comet\OneDrive\Bureau\projet\Source\UNotretexte.txt</FileSource>
+    <FileTarget>C:\Users\comet\OneDrive\Bureau\projet\Target\Source\UNotretexte.txt</FileTarget>
+    <FileSize>6046752</FileSize>
+    <FileTransferTime>PT0.0150465S</FileTransferTime>
+    <FileCryptageTime />
+    <Time>2024-02-28T11:02:43.3792778+01:00</Time>
+  </Log>
+</Logs>

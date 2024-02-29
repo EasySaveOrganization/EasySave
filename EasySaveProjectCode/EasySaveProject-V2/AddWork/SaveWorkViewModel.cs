@@ -6,6 +6,7 @@ using System.Windows.Input;
 using EasySaveProject_V2.ExecuteFolder;
 using EasySaveProject_V2.LanguageFolder;
 using EasySaveProject_V2.AddWork;
+using System.IO;
 
 namespace EasySaveProject_V2.AddWork
 {
@@ -25,7 +26,9 @@ namespace EasySaveProject_V2.AddWork
         public string BackupType => LanguageManager.GetInstance().Translate("Backup Type");
         public string BackupFormat => LanguageManager.GetInstance().Translate("Backup Format");
         public string BackupCrypt => LanguageManager.GetInstance().Translate("Backup Extension Crypt (.txt,.jpg,.pdf)");
+        public string BackupPrio => LanguageManager.GetInstance().Translate("Choose your priority extensions");
         public string Validate => LanguageManager.GetInstance().Translate("Validate");
+        public string PriorityFile => LanguageManager.GetInstance().Translate("Priority File");
 
         // Method to notify when a property changes
         protected void OnPropertyChanged(string propertyName)
@@ -50,12 +53,15 @@ namespace EasySaveProject_V2.AddWork
             OnPropertyChanged(nameof(BackupType));
             OnPropertyChanged(nameof(BackupFormat));
             OnPropertyChanged(nameof(BackupCrypt));
+            OnPropertyChanged(nameof(BackupPrio));
             OnPropertyChanged(nameof(Validate));
+            OnPropertyChanged(nameof(PriorityFile));
         }
 
-        public void AddWork(string name, string target, string source, string type, string extenstionFileToCrypt, int logsFormat)
+        public void AddWork(string name, string target, string source, string type, string extenstionFileToCrypt, int logsFormat,string PriorityFile)
         {
-            SaveWorkModel saveWorkModel = new SaveWorkModel(name, target, source, type, extenstionFileToCrypt, logsFormat);
+
+            SaveWorkModel saveWorkModel = new SaveWorkModel(name, target, source, type, extenstionFileToCrypt, logsFormat,PriorityFile);
             // Initialiser les propriétés de saveWorkModel avec les données nécessaires
             try
             {

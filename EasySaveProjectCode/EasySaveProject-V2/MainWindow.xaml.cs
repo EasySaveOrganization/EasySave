@@ -6,7 +6,9 @@ using EasySaveProject_V2.StateFolder;
 using EasySaveProject_V2.LogFolder;
 using EasySaveProject_V2.ExecuteFolder;
 using EasySaveProject_V2.MenuFolder;
-
+using EasySaveProject_V2.ProgramBlockerFolder;
+using System.Diagnostics;
+using System.Windows.Threading;
 namespace EasySaveProject_V2
 {
     /// <summary>
@@ -18,11 +20,15 @@ namespace EasySaveProject_V2
         public MainWindow()
         {
             InitializeComponent();
+
+            ProgramBlockerService monitor = new ProgramBlockerService("CalculatorApp");
+            monitor.StartMonitoring();
+
             _navigationService = new NavigationService(Main);
             var mainViewModel = new MenuViewModel(); // Pass it to the ViewModel
             this.DataContext = mainViewModel;
 
-            //subscribe the log and state
+            // Subscribe the log and state
             Observer events = Observer.Instance;
             Logs logs = new Logs();
             State state = new State();
@@ -30,9 +36,36 @@ namespace EasySaveProject_V2
             events.Subscribe(state);
 
             SetupNavigation();
+
+            SetupAppAccessibilityMonitoring();
         }
 
-        public void NavigateHome(Page page)
+        private void SetupAppAccessibilityMonitoring()
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1); // Check every second
+            timer.Tick += (sender, e) => CheckCalculatorApp();
+            timer.Start();
+        }
+
+        private void CheckCalculatorApp()
+        {
+            // Adjust the process name if necessary, "Calculator" is just an example
+            bool isCalculatorRunning = Process.GetProcessesByName("Calculator").Any();
+
+            if (isCalculatorRunning)
+            {
+                // Disable the main window
+                this.IsEnabled = false;
+            }
+            else
+            {
+                // Enable the main window
+                this.IsEnabled = true;
+            }
+        }
+
+    public void NavigateHome(Page page)
         {
             Main.Navigate(page);
         }

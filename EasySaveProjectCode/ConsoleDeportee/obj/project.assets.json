@@ -8,24 +8,19 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\MALEK\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\comet\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\EasySave\\EasySave\\EasySaveProjectCode\\ConsoleDeportee\\ConsoleDeportee.csproj",
+      "projectUniqueName": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\ConsoleDeportee\\ConsoleDeportee.csproj",
       "projectName": "ConsoleDeportee",
-      "projectPath": "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\EasySave\\EasySave\\EasySaveProjectCode\\ConsoleDeportee\\ConsoleDeportee.csproj",
-      "packagesPath": "C:\\Users\\MALEK\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MALEK\\Desktop\\Prépa intégrée\\3A\\PS\\Projet\\EasySave\\EasySave\\EasySaveProjectCode\\ConsoleDeportee\\obj\\",
+      "projectPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\ConsoleDeportee\\ConsoleDeportee.csproj",
+      "packagesPath": "C:\\Users\\comet\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\comet\\OneDrive\\Bureau\\projet\\EasySave\\EasySaveProjectCode\\ConsoleDeportee\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\MALEK\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\comet\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -33,7 +28,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
