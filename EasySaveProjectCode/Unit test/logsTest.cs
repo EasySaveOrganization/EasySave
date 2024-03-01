@@ -23,8 +23,9 @@ namespace logsTest
         {
             // Arrange
             string fileName = DateTime.Now.ToString("yyyy-MM-dd") + ".json";
-            string userName = Environment.UserName; 
-            string filePath = $"EasySaveContent\\{fileName}";
+            string userName = Environment.UserName;
+            string workspace = Environment.GetEnvironmentVariable("WORKSPACE") ?? Directory.GetCurrentDirectory();
+            string filePath = Path.Combine(workspace, "EasySaveContent", fileName);
 
             SaveWorkModel exampleWork = new SaveWorkModel
             {
