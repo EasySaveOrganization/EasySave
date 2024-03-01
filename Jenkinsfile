@@ -25,9 +25,8 @@ pipeline {
             }
         }
     }
-<<<<<<< HEAD
 }
-=======
+
 
     post {
         always {
@@ -43,5 +42,3 @@ pipeline {
             echo 'Build or publish failed.'
         }
     }
-}
->>>>>>> 7f8ee939f33ec6cf7ce0e8ffe0da01f5e39c4b9e

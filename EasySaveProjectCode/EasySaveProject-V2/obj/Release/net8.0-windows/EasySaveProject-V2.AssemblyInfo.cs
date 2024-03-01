@@ -14,19 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EasySaveProject-V2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a45202702dac38503e1250e49aa50aec0037454d")]
-=======
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+229f59c457326729dfeaa709832dcbf6eb61244d")]
-=======
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+445b4f23ec2d5f64df6fce09379522d756b3edda")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+229f59c457326729dfeaa709832dcbf6eb61244d")]
->>>>>>> 856aadaf99a7e8dd27ca80ac9a00e9f4f98f3f5f
->>>>>>> a500d09992785995916d904938728d025dd58e1d
->>>>>>> Release2.0
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+099d6022b326c3a6b8a918b5749487872d934bf0")]
 [assembly: System.Reflection.AssemblyProductAttribute("EasySaveProject-V2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EasySaveProject-V2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
