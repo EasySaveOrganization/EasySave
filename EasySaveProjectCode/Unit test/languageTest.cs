@@ -19,7 +19,7 @@ namespace Unit_test
         public void SwitchLanguage_ToFrench_ShouldSwitchToFrench()
         {
             // Arrange
-            var frenchLanguage = Languages.FRENCH; // Assuming Languages is an enum with FRENCH and ENGLISH
+            var frenchLanguage = Languages.FRENCH; 
 
             // Act
             languageManager.SwitchLanguages(frenchLanguage);
@@ -30,7 +30,7 @@ namespace Unit_test
         public void SwitchLanguage_ToEnglish_ShouldSwitchToEnglish()
         {
             // Arrange
-            var englishLanguage = Languages.ENGLISH; // Assuming Languages is an enum with FRENCH and ENGLISH
+            var englishLanguage = Languages.ENGLISH; 
 
             // Act
             languageManager.SwitchLanguages(englishLanguage);
