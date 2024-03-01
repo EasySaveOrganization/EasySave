@@ -40,3 +40,4 @@ pipeline {
             echo 'Build or publish failed.'
         }
     }
+}
