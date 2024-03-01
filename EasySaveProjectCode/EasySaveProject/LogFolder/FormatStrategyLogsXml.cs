@@ -2,10 +2,7 @@
 using System.IO;
 using System.Xml.Linq;
 using EasySaveProject.SaveWorkFolder;
-<<<<<<< HEAD
-=======
 using Newtonsoft.Json.Linq;
->>>>>>> a500d09992785995916d904938728d025dd58e1d
 
 namespace EasySaveProject.LogFolder
 {
